@@ -1,0 +1,166 @@
+@theme {
+    --animate-fade-in-out: fadeInOut 12s infinite;
+
+    --keyframes-fade-in-out: {
+
+        0%,
+        25% {
+            opacity: 1;
+        }
+
+        33.33%,
+        100% {
+            opacity: 0;
+        }
+    }
+}
+
+@layer utilities {
+    .slide-1 {
+        animation: slide1 15s infinite;
+        opacity: 0;
+    }
+
+    .slide-2 {
+        animation: slide2 15s infinite;
+        opacity: 0;
+    }
+
+    .slide-3 {
+        animation: slide3 15s infinite;
+        opacity: 0;
+    }
+
+    @keyframes slide1 {
+        0% {
+            opacity: 0;
+        }
+
+        5% {
+            opacity: 1;
+        }
+
+        33% {
+            opacity: 1;
+        }
+
+        38% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes slide2 {
+        0% {
+            opacity: 0;
+        }
+
+        33% {
+            opacity: 0;
+        }
+
+        38% {
+            opacity: 1;
+        }
+
+        66% {
+            opacity: 1;
+        }
+
+        71% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes slide3 {
+        0% {
+            opacity: 0;
+        }
+
+        66% {
+            opacity: 0;
+        }
+
+        71% {
+            opacity: 1;
+        }
+
+        95% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .indicator-anim-1 {
+        animation: indicator1 15s infinite;
+    }
+
+    .indicator-anim-2 {
+        animation: indicator2 15s infinite;
+    }
+
+    .indicator-anim-3 {
+        animation: indicator3 15s infinite;
+    }
+
+    @keyframes indicator1 {
+
+        0%,
+        33% {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        34%,
+        100% {
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1);
+        }
+    }
+
+    @keyframes indicator2 {
+
+        0%,
+        33% {
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1);
+        }
+
+        34%,
+        66% {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        67%,
+        100% {
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1);
+        }
+    }
+
+    @keyframes indicator3 {
+
+        0%,
+        66% {
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1);
+        }
+
+        67%,
+        100% {
+            background-color: white;
+            transform: scale(1.2);
+        }
+    }
+}

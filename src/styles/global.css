@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-sans;
+    }
+}
+
+@layer utilities {
+    .carousel-image {
+        @apply absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out;
+    }
+
+    .indicator-dot {
+        @apply w-2 h-2 rounded-full bg-white/50 transition-all duration-300;
+    }
+
+    .slide-1 {
+        @apply animate-slide1 opacity-0;
+    }
+
+    .slide-2 {
+        @apply animate-slide2 opacity-0;
+    }
+
+    .slide-3 {
+        @apply animate-slide3 opacity-0;
+    }
+
+    .indicator-anim-1 {
+        @apply animate-indicator1;
+    }
+
+    .indicator-anim-2 {
+        @apply animate-indicator2;
+    }
+
+    .indicator-anim-3 {
+        @apply animate-indicator3;
+    }
+}

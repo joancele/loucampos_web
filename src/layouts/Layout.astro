@@ -1,0 +1,251 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+}
+
+const { title = "Lou Campos - Artist Portfolio" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link href="https://fonts.googleapis.com" rel="preconnect" />
+		<link
+			crossorigin=""
+			href="https://fonts.gstatic.com"
+			rel="preconnect"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+			rel="stylesheet"
+		/>
+		<ClientRouter />
+	</head>
+	<body
+		class="bg-background-dark min-h-screen flex flex-col transition-colors duration-300 dark"
+	>
+		<header
+			class="w-full relative px-6 py-6 md:px-12 md:py-10 bg-background-light dark:bg-background-dark z-20"
+		>
+			<div
+				class="flex flex-col items-center justify-center relative lg:hidden"
+			>
+				<button
+					class="absolute top-0 right-0 p-2 text-dark-grey dark:text-text-dark focus:outline-none"
+					id="mobile-menu-btn"
+				>
+					<span class="material-symbols-outlined text-3xl">menu</span>
+				</button>
+				<div class="flex flex-col items-center gap-2 mt-2">
+					<div
+						class="font-sans font-bold text-3xl text-accent-pink tracking-widest whitespace-nowrap"
+					>
+						ロウ カンポス
+					</div>
+					<div class="h-[1px] w-24 bg-accent-pink my-1"></div>
+					<h1
+						class="font-sans font-normal text-2xl text-dark-grey dark:text-text-dark tracking-[0.2em] uppercase whitespace-nowrap"
+					>
+						Lou Campos
+					</h1>
+				</div>
+			</div>
+			<div class="hidden lg:flex items-center justify-between gap-8">
+				<div class="flex items-center gap-6">
+					<div
+						class="font-sans font-bold text-3xl text-accent-pink tracking-widest whitespace-nowrap"
+					>
+						ロウ カンポス
+					</div>
+					<div class="h-8 w-[1px] bg-accent-pink"></div>
+					<h1
+						class="font-sans font-light text-3xl text-dark-grey dark:text-text-dark tracking-[0.2em] uppercase whitespace-nowrap"
+					>
+						Lou Campos
+					</h1>
+				</div>
+				<nav>
+					<ul class="flex flex-wrap justify-end gap-10">
+						<li>
+							<a
+								class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+								href="#"
+							>
+								Works
+							</a>
+						</li>
+						<li>
+							<a
+								class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+								href="#"
+							>
+								About
+							</a>
+						</li>
+						<li>
+							<a
+								class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+								href="#"
+							>
+								Exhibitions
+							</a>
+						</li>
+						<li>
+							<a
+								class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+								href="#"
+							>
+								Contact
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<nav
+				class="hidden lg:hidden w-full mt-8 border-t border-gray-100 dark:border-gray-800 pt-6 animate-fade-in"
+				id="mobile-menu"
+			>
+				<ul class="flex flex-col items-center gap-6">
+					<li>
+						<a
+							class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+							href="#"
+						>
+							Works
+						</a>
+					</li>
+					<li>
+						<a
+							class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+							href="#"
+						>
+							About
+						</a>
+					</li>
+					<li>
+						<a
+							class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+							href="#"
+						>
+							Exhibitions
+						</a>
+					</li>
+					<li>
+						<a
+							class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+							href="#"
+						>
+							Contact
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<slot />
+
+		<div class="fixed bottom-6 right-6 z-50">
+			<button
+				class="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-800 dark:text-white shadow-sm hover:shadow-md transition-shadow focus:outline-none"
+				id="theme-toggle"
+			>
+				<svg
+					class="h-5 w-5 hidden dark:block"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"></path>
+				</svg>
+				<svg
+					class="h-5 w-5 block dark:hidden"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"></path>
+				</svg>
+			</button>
+		</div>
+		<script is:inline>
+			// Theme Toggle Logic
+			const themeToggleBtn = document.getElementById("theme-toggle");
+			if (themeToggleBtn) {
+				if (
+					localStorage.getItem("color-theme") === "dark" ||
+					(!("color-theme" in localStorage) &&
+						window.matchMedia("(prefers-color-scheme: dark)")
+							.matches)
+				) {
+					document.documentElement.classList.add("dark");
+				} else {
+					document.documentElement.classList.remove("dark");
+				}
+				themeToggleBtn.addEventListener("click", function () {
+					if (localStorage.getItem("color-theme")) {
+						if (localStorage.getItem("color-theme") === "light") {
+							document.documentElement.classList.add("dark");
+							localStorage.setItem("color-theme", "dark");
+						} else {
+							document.documentElement.classList.remove("dark");
+							localStorage.setItem("color-theme", "light");
+						}
+					} else {
+						if (
+							document.documentElement.classList.contains("dark")
+						) {
+							document.documentElement.classList.remove("dark");
+							localStorage.setItem("color-theme", "light");
+						} else {
+							document.documentElement.classList.add("dark");
+							localStorage.setItem("color-theme", "dark");
+						}
+					}
+				});
+			}
+
+			// Mobile Menu Logic
+			const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+			const mobileMenu = document.getElementById("mobile-menu");
+			if (mobileMenuBtn && mobileMenu) {
+				mobileMenuBtn.addEventListener("click", () => {
+					mobileMenu.classList.toggle("hidden");
+					const icon = mobileMenuBtn.querySelector("span");
+					if (icon) {
+						if (mobileMenu.classList.contains("hidden")) {
+							icon.textContent = "menu";
+						} else {
+							icon.textContent = "close";
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+</html>
