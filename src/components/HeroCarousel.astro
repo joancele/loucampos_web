@@ -3,7 +3,9 @@ interface Slide {
   imageDesktop: string;
   imageMobile: string;
   title: string;
+  titleI18n?: string;
   buttonText: string;
+  buttonI18n?: string;
   link: string;
 }
 
@@ -30,6 +32,7 @@ const { slides } = Astro.props;
             <source media="(max-width: 767px)" srcset={slide.imageMobile} />
             <img
               alt={slide.title}
+              data-i18n={slide.titleI18n}
               class="w-full h-full object-cover object-center"
               src={slide.imageDesktop}
             />
@@ -44,7 +47,10 @@ const { slides } = Astro.props;
             href={slide.link}
             class="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-300 ease-in-out bg-accent-pink hover:bg-pink-600 border border-accent-pink rounded-full shadow-[0_0_20px_rgba(232,61,142,0.4)] hover:shadow-[0_0_30px_rgba(232,61,142,0.6)] overflow-hidden"
           >
-            <span class="relative z-10 tracking-widest uppercase text-sm">
+            <span
+              class="relative z-10 tracking-widest uppercase text-sm"
+              data-i18n={slide.buttonI18n}
+            >
               {slide.buttonText}
             </span>
             <div class="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 ease-out group-hover:scale-100 group-hover:bg-white/20" />

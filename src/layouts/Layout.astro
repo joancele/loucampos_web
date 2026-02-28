@@ -97,6 +97,7 @@ const currentPath = Astro.url.pathname;
                     : "font-medium text-dark-grey dark:text-text-dark",
                 ]}
                 href="/works"
+                data-i18n="nav.works"
               >
                 Works
               </a>
@@ -110,6 +111,7 @@ const currentPath = Astro.url.pathname;
                     : "font-medium text-dark-grey dark:text-text-dark",
                 ]}
                 href="/about"
+                data-i18n="nav.about"
               >
                 About
               </a>
@@ -124,6 +126,7 @@ const currentPath = Astro.url.pathname;
                     : "font-medium text-dark-grey dark:text-text-dark",
                 ]}
                 href="/contact"
+                data-i18n="nav.contact"
               >
                 Contact
               </a>
@@ -145,6 +148,7 @@ const currentPath = Astro.url.pathname;
                   : "font-medium text-dark-grey dark:text-text-dark",
               ]}
               href="/works"
+              data-i18n="nav.works"
             >
               Works
             </a>
@@ -158,6 +162,7 @@ const currentPath = Astro.url.pathname;
                   : "font-medium text-dark-grey dark:text-text-dark",
               ]}
               href="#"
+              data-i18n="nav.about"
             >
               About
             </a>
@@ -172,6 +177,7 @@ const currentPath = Astro.url.pathname;
                   : "font-medium text-dark-grey dark:text-text-dark",
               ]}
               href="/contact"
+              data-i18n="nav.contact"
             >
               Contact
             </a>
@@ -286,6 +292,33 @@ const currentPath = Astro.url.pathname;
           });
         }
       });
+    </script>
+    <script>
+      import { translations } from "../i18n/translations";
+
+      function applyTranslations() {
+        const userLang = navigator.language || (navigator as any).userLanguage;
+        let lang = "es"; // default
+        if (userLang.startsWith("en")) lang = "en";
+        if (userLang.startsWith("ja")) lang = "ja";
+
+        const t = translations[lang as keyof typeof translations];
+        if (!t) return;
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (key && t[key as keyof typeof t]) {
+            if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+              (el as HTMLInputElement).placeholder = t[key as keyof typeof t];
+            } else {
+              el.textContent = t[key as keyof typeof t];
+            }
+          }
+        });
+      }
+
+      // Run on initial load and after view transitions
+      document.addEventListener("astro:page-load", applyTranslations);
     </script>
   </body>
 </html>
