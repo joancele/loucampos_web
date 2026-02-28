@@ -1,0 +1,130 @@
+---
+
+---
+
+<div
+    class="fixed inset-0 z-[100] hidden bg-white/95 dark:bg-black/95 items-center justify-center p-4 md:p-8 overflow-hidden"
+    id="lightbox"
+>
+    <button
+        class="absolute top-6 right-6 text-dark-grey dark:text-white hover:text-accent-pink transition-colors focus:outline-none z-50"
+        id="lightbox-close"
+    >
+        <span class="material-symbols-outlined text-4xl">close</span>
+    </button>
+    <div
+        class="relative flex flex-col landscape:flex-row lg:flex-row items-stretch justify-center w-[98vw] lg:w-[95vw] h-[95vh] lg:h-[90vh] bg-white dark:bg-[#1a1a1a] shadow-2xl overflow-hidden"
+    >
+        <!-- Contenedor de la Imagen (Protagonista 90%) -->
+        <div
+            class="flex-grow landscape:flex-[0_0_80%] lg:flex-[0_0_90%] bg-[#fafafa] dark:bg-[#0a0a0a] flex items-center justify-center p-2 md:p-4 overflow-hidden"
+        >
+            <img
+                alt="Expanded View"
+                class="w-full h-full object-contain object-center scale-100 transition-transform duration-700"
+                id="lightbox-img"
+                src=""
+            />
+        </div>
+
+        <!-- Contenedor de Información (Extensión Secundaria Minimalista 10%) -->
+        <div
+            id="lightbox-info"
+            class="w-full landscape:w-auto landscape:flex-[0_0_20%] lg:flex-[0_0_10%] min-w-[150px] p-3 lg:p-4 flex flex-col justify-end bg-white dark:bg-[#151515] opacity-0 transition-opacity duration-700 border-t landscape:border-t-0 landscape:border-l lg:border-t-0 lg:border-l border-gray-100 dark:border-gray-800"
+        >
+            <h3
+                id="lightbox-title"
+                class="font-sans font-medium text-[10px] md:text-xs text-gray-700 dark:text-gray-300 mb-1 uppercase tracking-widest break-words"
+            >
+            </h3>
+            <p
+                id="lightbox-year"
+                class="font-sans text-[9px] text-gray-400 dark:text-gray-600 mb-2 tracking-widest"
+            >
+            </p>
+            <div class="h-[1px] w-4 bg-gray-200 dark:bg-gray-800 mb-2"></div>
+            <p
+                id="lightbox-desc"
+                class="font-serif text-[10px] leading-relaxed text-gray-500 dark:text-gray-500 line-clamp-6"
+            >
+            </p>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxClose = document.getElementById("lightbox-close");
+    const items = document.querySelectorAll(".group.relative.aspect-square");
+    const lightboxTitle = document.getElementById("lightbox-title");
+    const lightboxYear = document.getElementById("lightbox-year");
+    const lightboxDesc = document.getElementById("lightbox-desc");
+    const lightboxInfo = document.getElementById("lightbox-info");
+
+    if (lightbox && lightboxImg && lightboxClose) {
+        items.forEach((item) => {
+            item.addEventListener("click", () => {
+                const img = item.querySelector("img");
+                if (img) {
+                    lightboxImg.src = img.src;
+
+                    // Populate info
+                    if (lightboxTitle)
+                        lightboxTitle.textContent =
+                            item.dataset.title || "Obra sin título";
+                    if (lightboxYear)
+                        lightboxYear.textContent = item.dataset.year || "----";
+                    if (lightboxDesc)
+                        lightboxDesc.textContent =
+                            item.dataset.description || "";
+
+                    lightbox.classList.remove("hidden");
+                    lightbox.classList.add("flex");
+                    document.body.style.overflow = "hidden"; // Prevent scroll
+
+                    // Small delay to allow display flex to apply before transitioning opacity/transform
+                    setTimeout(() => {
+                        lightboxImg.classList.remove("scale-95");
+                        lightboxImg.classList.add("scale-100");
+
+                        // Just fade in for the flat info panel
+                        lightboxInfo.classList.remove("opacity-0");
+                        lightboxInfo.classList.add("opacity-100");
+                    }, 50);
+                }
+            });
+        });
+
+        function closeLightbox() {
+            // Animar la salida del texto
+            if (lightboxInfo) {
+                lightboxInfo.classList.remove("opacity-100");
+                lightboxInfo.classList.add("opacity-0");
+            }
+
+            // Ocultar modal con retraso
+            setTimeout(() => {
+                lightbox.classList.add("hidden");
+                lightbox.classList.remove("flex");
+                lightboxImg.src = "";
+                document.body.style.overflow = "";
+            }, 400); // Darle tiempo al slide para ocultarse
+        }
+
+        lightboxClose.addEventListener("click", closeLightbox);
+
+        lightbox.addEventListener("click", (e) => {
+            // Solo cerrar si han hecho click en el fondo del lightbox
+            if (e.target === lightbox || e.target.parentElement === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && !lightbox.classList.contains("hidden")) {
+                closeLightbox();
+            }
+        });
+    }
+</script>

@@ -1,0 +1,61 @@
+---
+export interface Artwork {
+    title: string;
+    year: string;
+    description: string;
+    image: string;
+    alt: string;
+}
+
+export interface Props {
+    id: string;
+    title: string;
+    description: string;
+    artworks: Artwork[];
+}
+
+const { id, title, description, artworks } = Astro.props;
+---
+
+<section id={id}>
+    <div class="max-w-3xl mb-12 mt-4">
+        <div class="flex items-center gap-4 mb-4">
+            <span class="h-[1px] w-12 bg-accent-pink"></span>
+            <h2
+                class="font-sans font-bold text-4xl md:text-5xl text-dark-grey dark:text-text-dark tracking-tight"
+            >
+                {title}
+            </h2>
+        </div>
+        <p
+            class="font-serif text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl pl-16"
+        >
+            {description}
+        </p>
+    </div>
+    <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10"
+    >
+        {
+            artworks.map((artwork) => (
+                <div
+                    class="group relative aspect-square w-full cursor-pointer overflow-hidden bg-gray-100 dark:bg-gray-800"
+                    data-title={artwork.title}
+                    data-year={artwork.year}
+                    data-description={artwork.description}
+                >
+                    <img
+                        alt={artwork.alt}
+                        class="h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                        src={artwork.image}
+                    />
+                    <div class="absolute inset-0 bg-white/80 dark:bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <h3 class="font-sans text-dark-grey dark:text-white text-lg tracking-[0.2em] uppercase font-light translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            {artwork.title}
+                        </h3>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</section>

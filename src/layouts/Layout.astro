@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { title = "Lou Campos - Artist Portfolio" } = Astro.props;
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -38,7 +39,7 @@ const { title = "Lou Campos - Artist Portfolio" } = Astro.props;
 		<ClientRouter />
 	</head>
 	<body
-		class="bg-background-dark min-h-screen flex flex-col transition-colors duration-300 dark"
+		class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen flex flex-col transition-colors duration-300"
 	>
 		<header
 			class="w-full relative px-6 py-6 md:px-12 md:py-10 bg-background-light dark:bg-background-dark z-20"
@@ -53,46 +54,60 @@ const { title = "Lou Campos - Artist Portfolio" } = Astro.props;
 					<span class="material-symbols-outlined text-3xl">menu</span>
 				</button>
 				<div class="flex flex-col items-center gap-2 mt-2">
-					<div
+					<a
 						class="font-sans font-bold text-3xl text-accent-pink tracking-widest whitespace-nowrap"
+						href="/"
 					>
 						ロウ カンポス
-					</div>
+					</a>
 					<div class="h-[1px] w-24 bg-accent-pink my-1"></div>
-					<h1
+					<a
 						class="font-sans font-normal text-2xl text-dark-grey dark:text-text-dark tracking-[0.2em] uppercase whitespace-nowrap"
+						href="/"
 					>
 						Lou Campos
-					</h1>
+					</a>
 				</div>
 			</div>
 			<div class="hidden lg:flex items-center justify-between gap-8">
 				<div class="flex items-center gap-6">
-					<div
+					<a
 						class="font-sans font-bold text-3xl text-accent-pink tracking-widest whitespace-nowrap"
+						href="/"
 					>
 						ロウ カンポス
-					</div>
+					</a>
 					<div class="h-8 w-[1px] bg-accent-pink"></div>
-					<h1
+					<a
 						class="font-sans font-light text-3xl text-dark-grey dark:text-text-dark tracking-[0.2em] uppercase whitespace-nowrap"
+						href="/"
 					>
 						Lou Campos
-					</h1>
+					</a>
 				</div>
 				<nav>
 					<ul class="flex flex-wrap justify-end gap-10">
 						<li>
 							<a
-								class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
-								href="#"
+								class:list={[
+									"font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+									currentPath.startsWith("/works")
+										? "font-bold text-accent-pink"
+										: "font-medium text-dark-grey dark:text-text-dark",
+								]}
+								href="/works"
 							>
 								Works
 							</a>
 						</li>
 						<li>
 							<a
-								class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+								class:list={[
+									"font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+									currentPath.startsWith("/about")
+										? "font-bold text-accent-pink"
+										: "font-medium text-dark-grey dark:text-text-dark",
+								]}
 								href="#"
 							>
 								About
@@ -100,7 +115,12 @@ const { title = "Lou Campos - Artist Portfolio" } = Astro.props;
 						</li>
 						<li>
 							<a
-								class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+								class:list={[
+									"font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+									currentPath.startsWith("/exhibitions")
+										? "font-bold text-accent-pink"
+										: "font-medium text-dark-grey dark:text-text-dark",
+								]}
 								href="#"
 							>
 								Exhibitions
@@ -108,8 +128,13 @@ const { title = "Lou Campos - Artist Portfolio" } = Astro.props;
 						</li>
 						<li>
 							<a
-								class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
-								href="#"
+								class:list={[
+									"font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+									currentPath.startsWith("/contact")
+										? "font-bold text-accent-pink"
+										: "font-medium text-dark-grey dark:text-text-dark",
+								]}
+								href="/contact"
 							>
 								Contact
 							</a>
@@ -124,15 +149,25 @@ const { title = "Lou Campos - Artist Portfolio" } = Astro.props;
 				<ul class="flex flex-col items-center gap-6">
 					<li>
 						<a
-							class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
-							href="#"
+							class:list={[
+								"font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+								currentPath.startsWith("/works")
+									? "font-bold text-accent-pink"
+									: "font-medium text-dark-grey dark:text-text-dark",
+							]}
+							href="/works"
 						>
 							Works
 						</a>
 					</li>
 					<li>
 						<a
-							class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+							class:list={[
+								"font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+								currentPath.startsWith("/about")
+									? "font-bold text-accent-pink"
+									: "font-medium text-dark-grey dark:text-text-dark",
+							]}
 							href="#"
 						>
 							About
@@ -140,7 +175,12 @@ const { title = "Lou Campos - Artist Portfolio" } = Astro.props;
 					</li>
 					<li>
 						<a
-							class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
+							class:list={[
+								"font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+								currentPath.startsWith("/exhibitions")
+									? "font-bold text-accent-pink"
+									: "font-medium text-dark-grey dark:text-text-dark",
+							]}
 							href="#"
 						>
 							Exhibitions
@@ -148,8 +188,13 @@ const { title = "Lou Campos - Artist Portfolio" } = Astro.props;
 					</li>
 					<li>
 						<a
-							class="font-sans font-medium text-sm text-dark-grey dark:text-text-dark hover:text-accent-pink transition-colors tracking-[0.15em] uppercase"
-							href="#"
+							class:list={[
+								"font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+								currentPath.startsWith("/contact")
+									? "font-bold text-accent-pink"
+									: "font-medium text-dark-grey dark:text-text-dark",
+							]}
+							href="/contact"
 						>
 							Contact
 						</a>
@@ -194,58 +239,89 @@ const { title = "Lou Campos - Artist Portfolio" } = Astro.props;
 			</button>
 		</div>
 		<script is:inline>
-			// Theme Toggle Logic
-			const themeToggleBtn = document.getElementById("theme-toggle");
-			if (themeToggleBtn) {
+			// Run immediately to prevent Flash of Unstyled Content (FOUC)
+			const getThemePreference = () => {
 				if (
-					localStorage.getItem("color-theme") === "dark" ||
-					(!("color-theme" in localStorage) &&
-						window.matchMedia("(prefers-color-scheme: dark)")
-							.matches)
+					typeof localStorage !== "undefined" &&
+					localStorage.getItem("color-theme")
 				) {
-					document.documentElement.classList.add("dark");
-				} else {
-					document.documentElement.classList.remove("dark");
+					return localStorage.getItem("color-theme");
 				}
-				themeToggleBtn.addEventListener("click", function () {
-					if (localStorage.getItem("color-theme")) {
-						if (localStorage.getItem("color-theme") === "light") {
-							document.documentElement.classList.add("dark");
-							localStorage.setItem("color-theme", "dark");
-						} else {
-							document.documentElement.classList.remove("dark");
-							localStorage.setItem("color-theme", "light");
-						}
-					} else {
-						if (
-							document.documentElement.classList.contains("dark")
-						) {
-							document.documentElement.classList.remove("dark");
-							localStorage.setItem("color-theme", "light");
-						} else {
-							document.documentElement.classList.add("dark");
-							localStorage.setItem("color-theme", "dark");
-						}
-					}
-				});
-			}
+				return window.matchMedia("(prefers-color-scheme: dark)").matches
+					? "dark"
+					: "light";
+			};
+			const isDark = getThemePreference() === "dark";
+			document.documentElement.classList[isDark ? "add" : "remove"](
+				"dark",
+			);
 
-			// Mobile Menu Logic
-			const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-			const mobileMenu = document.getElementById("mobile-menu");
-			if (mobileMenuBtn && mobileMenu) {
-				mobileMenuBtn.addEventListener("click", () => {
-					mobileMenu.classList.toggle("hidden");
-					const icon = mobileMenuBtn.querySelector("span");
-					if (icon) {
-						if (mobileMenu.classList.contains("hidden")) {
-							icon.textContent = "menu";
+			document.addEventListener("astro:page-load", () => {
+				// Theme Toggle Logic
+				const themeToggleBtn = document.getElementById("theme-toggle");
+				if (themeToggleBtn) {
+					// Clear previous listeners to avoid duplicates if any
+					const newThemeToggleBtn = themeToggleBtn.cloneNode(true);
+					themeToggleBtn.parentNode.replaceChild(
+						newThemeToggleBtn,
+						themeToggleBtn,
+					);
+
+					newThemeToggleBtn.addEventListener("click", function () {
+						if (localStorage.getItem("color-theme")) {
+							if (
+								localStorage.getItem("color-theme") === "light"
+							) {
+								document.documentElement.classList.add("dark");
+								localStorage.setItem("color-theme", "dark");
+							} else {
+								document.documentElement.classList.remove(
+									"dark",
+								);
+								localStorage.setItem("color-theme", "light");
+							}
 						} else {
-							icon.textContent = "close";
+							if (
+								document.documentElement.classList.contains(
+									"dark",
+								)
+							) {
+								document.documentElement.classList.remove(
+									"dark",
+								);
+								localStorage.setItem("color-theme", "light");
+							} else {
+								document.documentElement.classList.add("dark");
+								localStorage.setItem("color-theme", "dark");
+							}
 						}
-					}
-				});
-			}
+					});
+				}
+
+				// Mobile Menu Logic
+				const mobileMenuBtn =
+					document.getElementById("mobile-menu-btn");
+				const mobileMenu = document.getElementById("mobile-menu");
+				if (mobileMenuBtn && mobileMenu) {
+					const newMobileMenuBtn = mobileMenuBtn.cloneNode(true);
+					mobileMenuBtn.parentNode.replaceChild(
+						newMobileMenuBtn,
+						mobileMenuBtn,
+					);
+
+					newMobileMenuBtn.addEventListener("click", () => {
+						mobileMenu.classList.toggle("hidden");
+						const icon = newMobileMenuBtn.querySelector("span");
+						if (icon) {
+							if (mobileMenu.classList.contains("hidden")) {
+								icon.textContent = "menu";
+							} else {
+								icon.textContent = "close";
+							}
+						}
+					});
+				}
+			});
 		</script>
 	</body>
 </html>

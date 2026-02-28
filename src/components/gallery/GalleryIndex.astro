@@ -1,0 +1,54 @@
+---
+export interface Series {
+    title: string;
+    year: string;
+    image: string;
+    href: string;
+}
+
+export interface Props {
+    title: string;
+    items: Series[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="border-b border-gray-100 dark:border-gray-800 pb-12">
+    <div class="flex flex-col gap-8">
+        <div class="flex items-center gap-4">
+            <span class="h-[1px] w-12 bg-accent-pink"></span>
+            <h2
+                class="font-sans font-bold text-lg md:text-xl text-dark-grey dark:text-text-dark tracking-widest uppercase"
+            >
+                {title}
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {
+                items.map((item) => (
+                    <a
+                        class="group flex flex-col gap-3 cursor-pointer"
+                        href={item.href}
+                    >
+                        <div class="overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-gray-800">
+                            <img
+                                alt={`${item.title} Preview`}
+                                class="h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                                src={item.image}
+                            />
+                        </div>
+                        <div class="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-3 group-hover:border-accent-pink transition-colors">
+                            <span class="font-sans font-semibold text-sm tracking-wider uppercase text-dark-grey dark:text-white">
+                                {item.title}
+                            </span>
+                            <span class="font-serif text-xs italic text-gray-500">
+                                {item.year}
+                            </span>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</section>

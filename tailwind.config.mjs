@@ -5,7 +5,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                'accent-pink': '#1919e6',
+                'accent-pink': '#E83D8E',
                 'dark-grey': '#333333',
                 'background-light': '#ffffff',
                 'background-dark': '#121212',

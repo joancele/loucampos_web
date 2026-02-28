@@ -1,18 +1,20 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Lou Campos - Artist Portfolio">
-    <main class="flex-grow w-full relative h-[calc(100vh-140px)] md:h-[calc(100vh-180px)] overflow-hidden">
-        <div class="absolute inset-0 w-full h-full bg-gray-100 dark:bg-gray-900">
-            <img alt="Abstract Art 1" class="carousel-image slide-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE3pmquXleWyvG3i2Ui7DVyjvFaW5UdlyRN2FHMYHgItAtZ87_dyAHy6GT4AH33x-eKgJSY9ccHZvYXnS4OXvdFokCGpVpW2ZPHxCvUhyrCEDoyZzg3NkrpJgG3IjFnu7l6VlxEt4UZa_Quo6rS8Bx19x5698V1ARvcquOpWA70T7pm0zveFts5_3zPadmt3cyk_pBgzlzOsYfM2O8GxCry8UDGsHBMOXV7y3NxTPTT6ncuvNXLr-Jbxn4_K_YmY-yC1Nz5Utuqeg"/>
-            <img alt="Abstract Art 2" class="carousel-image slide-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbMCME7VEGiM81-lUwVxeJDisR8R36C9Q28XWZtJk6l6u1UYfZ6emgYuv7G6fFg1s76zjIFnJ9RfsPIgne056VaBrTrfU4kiFDred0BkL4D7WXimsR4kohvujaRwg_HclErGNC3Mmk7WjrhQ0F-_EdbAtZmTqdxCY4QPXDiEXFIfx52FqC4n7ti4ubuyCW1mL4ade4c32fpgp9Jr5MDR1GgDV3IsW8mFxFst_HRiCMWKSCOgF8mAjv6C-1MxZGtYmh7YPOD3a7es4"/>
-            <img alt="Abstract Art 3" class="carousel-image slide-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASjr10CuX0t09zQS4rcXcrmExZEU5FcM6qyUZvYpmQWZdnU49J7ZIt0VRn6GhIfg5q24d1ynmCGDi0_gU7sPx97gtZ3otEcCupNuptvojUffeJEYVLgEi0qKJ59oSSvLTYJG-6xhpIKHZmSUlRRIdDJxvxnku51uhdvlA3bFKVk9894yCFgwP4qUeRKiWLOY6npw9KKNQNskx0z8LH0102WrTDxsPfxk1FLzH-chZOgx6botxsdPjfkSaBpsj6oscSSav1HVyn3Ho"/>
-        </div>
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4 z-10">
-            <div class="indicator-dot indicator-anim-1"></div>
-            <div class="indicator-dot indicator-anim-2"></div>
-            <div class="indicator-dot indicator-anim-3"></div>
+    <main
+        class="flex-grow w-full relative h-[calc(100vh-140px)] md:h-[calc(100vh-180px)] overflow-hidden"
+    >
+        <img
+            alt="Exposición de Arte - Lou Campos"
+            class="absolute inset-0 w-full h-full object-cover object-center"
+            src="/portada.png"
+        />
+        <div
+            class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-6 bg-gradient-to-t from-gray-900/50 via-transparent to-transparent"
+        >
+            <!-- Espacio reservado para texto principal de la portada si se requiere más adelante -->
         </div>
     </main>
 </Layout>
