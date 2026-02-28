@@ -1,0 +1,169 @@
+---
+interface Slide {
+  imageDesktop: string;
+  imageMobile: string;
+  title: string;
+  buttonText: string;
+  link: string;
+}
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+
+<div
+  class="hero-container flex-grow w-full relative h-full overflow-hidden bg-black"
+>
+  {
+    slides.map((slide, index) => (
+      <div
+        class={`hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out flex flex-col items-center justify-end pb-16 md:pb-24 ${
+          index === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
+        }`}
+      >
+        {/* Background Image */}
+        <div class="absolute inset-0 w-full h-full">
+          <picture class="w-full h-full">
+            <source media="(max-width: 767px)" srcset={slide.imageMobile} />
+            <img
+              alt={slide.title}
+              class="w-full h-full object-cover object-center"
+              src={slide.imageDesktop}
+            />
+          </picture>
+          {/* Gradient Overlay for better text readability */}
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        </div>
+
+        {/* Content (Button & Title if needed) */}
+        <div class="relative z-20 flex flex-col items-center translate-y-8 animate-fade-in-up">
+          <a
+            href={slide.link}
+            class="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-300 ease-in-out bg-accent-pink hover:bg-pink-600 border border-accent-pink rounded-full shadow-[0_0_20px_rgba(232,61,142,0.4)] hover:shadow-[0_0_30px_rgba(232,61,142,0.6)] overflow-hidden"
+          >
+            <span class="relative z-10 tracking-widest uppercase text-sm">
+              {slide.buttonText}
+            </span>
+            <div class="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 ease-out group-hover:scale-100 group-hover:bg-white/20" />
+          </a>
+        </div>
+      </div>
+    ))
+  }
+
+  {/* Navigation Indicators */}
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
+    {
+      slides.map((_, index) => (
+        <button
+          aria-label={`Ir a la diapositiva ${index + 1}`}
+          class={`slide-indicator w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            index === 0 ? "bg-white w-8" : "bg-white/50 hover:bg-white/80"
+          }`}
+          data-index={index}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  function setupCarousel() {
+    const containers = document.querySelectorAll(".hero-container");
+
+    containers.forEach((container) => {
+      const slides = container.querySelectorAll(".hero-slide");
+      const indicators = container.querySelectorAll(".slide-indicator");
+      if (!slides.length) return;
+
+      let currentSlide = 0;
+      let slideIntervalId: number;
+
+      const goToSlide = (index: number) => {
+        // Hide current slide
+        slides[currentSlide].classList.remove("opacity-100", "z-10");
+        slides[currentSlide].classList.add("opacity-0", "z-0");
+        indicators[currentSlide].classList.remove("bg-white", "w-8");
+        indicators[currentSlide].classList.add("bg-white/50");
+
+        // Update index
+        currentSlide = index;
+
+        // Show new slide
+        slides[currentSlide].classList.remove("opacity-0", "z-0");
+        slides[currentSlide].classList.add("opacity-100", "z-10");
+        indicators[currentSlide].classList.remove("bg-white/50");
+        indicators[currentSlide].classList.add("bg-white", "w-8");
+      };
+
+      const nextSlide = () => {
+        goToSlide((currentSlide + 1) % slides.length);
+      };
+
+      const startInterval = () => {
+        slideIntervalId = window.setInterval(nextSlide, 5000);
+      };
+
+      const resetInterval = () => {
+        clearInterval(slideIntervalId);
+        startInterval();
+      };
+
+      // Add click events to indicators
+      indicators.forEach((indicator) => {
+        indicator.addEventListener("click", (e) => {
+          const target = e.currentTarget as HTMLButtonElement;
+          const index = parseInt(target.getAttribute("data-index") || "0");
+          if (index !== currentSlide) {
+            goToSlide(index);
+            resetInterval();
+          }
+        });
+      });
+
+      // Start auto-play
+      startInterval();
+
+      // cleanup function hook for astro view transitions if needed
+      document.addEventListener(
+        "astro:before-swap",
+        () => {
+          clearInterval(slideIntervalId);
+        },
+        { once: true },
+      );
+    });
+  }
+
+  // Run setup when the DOM is ready and on view transitions
+  document.addEventListener("astro:page-load", setupCarousel);
+  if (
+    document.readyState === "complete" ||
+    document.readyState === "interactive"
+  ) {
+    setupCarousel();
+  } else {
+    document.addEventListener("DOMContentLoaded", setupCarousel);
+  }
+</script>
+
+<style>
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

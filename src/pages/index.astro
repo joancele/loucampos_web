@@ -1,20 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeroCarousel from "../components/HeroCarousel.astro";
+
+const slides = [
+  {
+    imageDesktop: "/portada1.jpg",
+    imageMobile: "/portada1_v.jpg", // REPLACE THIS LATER IF THERES A MOBILE SPECIFIC ONE
+    title: "Explora mi mundo",
+    buttonText: "Ver todas las Obras",
+    link: "/works",
+  },
+  {
+    imageDesktop: "/portada2.jpg",
+    imageMobile: "/portada2_v.jpg", // REPLACE THIS LATER IF THERES A MOBILE SPECIFIC ONE
+    title: "Fotografía y Captura",
+    buttonText: "Ver Fotografía",
+    link: "/works/fotografia",
+  },
+  {
+    imageDesktop: "/images/preview_plastic_arts.png",
+    imageMobile: "/images/preview_plastic_arts.png", // REPLACE THIS LATER IF THERES A MOBILE SPECIFIC ONE
+    title: "Artes Plásticas",
+    buttonText: "Ver Artes Plásticas",
+    link: "/works/plastic-arts",
+  },
+];
 ---
 
 <Layout title="Lou Campos - Artist Portfolio">
-    <main
-        class="flex-grow w-full relative h-[calc(100vh-140px)] md:h-[calc(100vh-180px)] overflow-hidden"
-    >
-        <img
-            alt="Exposición de Arte - Lou Campos"
-            class="absolute inset-0 w-full h-full object-cover object-center"
-            src="/portada.png"
-        />
-        <div
-            class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-6 bg-gradient-to-t from-gray-900/50 via-transparent to-transparent"
-        >
-            <!-- Espacio reservado para texto principal de la portada si se requiere más adelante -->
-        </div>
-    </main>
+  <main
+    class="flex-grow w-full relative h-[calc(100vh-140px)] landscape:h-[calc(100vh-80px)] md:h-[calc(100vh-180px)] md:landscape:h-[calc(100vh-180px)] overflow-hidden bg-black"
+  >
+    <HeroCarousel slides={slides} />
+  </main>
 </Layout>

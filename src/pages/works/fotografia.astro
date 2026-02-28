@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import GalleryIndex from "../../components/gallery/GalleryIndex.astro";
+import GallerySection from "../../components/gallery/GallerySection.astro";
+import Lightbox from "../../components/gallery/Lightbox.astro";
+
+const seriesPreview = [
+  {
+    title: "Retrato Conceptual",
+    year: "2023-2024",
+    image:
+      "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop",
+    href: "#retrato-conceptual",
+  },
+  {
+    title: "Arquitectura Minimalista",
+    year: "2022",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    href: "#arquitectura-minimalista",
+  },
+];
+
+const retratoArtworks = [
+  {
+    title: "Identidad Fragmentada",
+    year: "2024",
+    description:
+      "Un estudio sobre la percepción de uno mismo en la era digital.",
+    image:
+      "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop",
+    alt: "Retrato en blanco y negro",
+  },
+  {
+    title: "Mirada Oculta",
+    year: "2023",
+    description:
+      "El contraste entre la luz y la sombra en la expresión humana.",
+    image:
+      "https://images.unsplash.com/photo-1516641320498-8ec1f99a5e84?q=80&w=1904&auto=format&fit=crop",
+    alt: "Perfil dramático",
+  },
+];
+
+const arquitecturaArtworks = [
+  {
+    title: "Geometría Urbana",
+    year: "2022",
+    description: "La ciudad reducida a sus formas fundamentales.",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    alt: "Edificio minimalista",
+  },
+  {
+    title: "Estructuras Vacías",
+    year: "2022",
+    description: "La belleza de los espacios deshabitados.",
+    image:
+      "https://images.unsplash.com/photo-1506526131379-3fb70bdc79d1?q=80&w=2070&auto=format&fit=crop",
+    alt: "Espacio arquitectónico limpio",
+  },
+];
+---
+
+<Layout title="Lou Campos - Photography Gallery">
+  <main
+    class="flex-grow w-full max-w-[1600px] mx-auto px-6 md:px-12 py-8 flex flex-col gap-20"
+  >
+    <GalleryIndex title="Index: Fotografía" items={seriesPreview} />
+
+    <GallerySection
+      id="retrato-conceptual"
+      title="Retrato Conceptual"
+      description="Explorando la psicología y la identidad a través de la luz y la sombra en el rostro humano."
+      artworks={retratoArtworks}
+    />
+
+    <GallerySection
+      id="arquitectura-minimalista"
+      title="Arquitectura Minimalista"
+      description="Buscando la poesía en el hormigón, el acero y el cristal. La reducción del entorno urbano a líneas puras."
+      artworks={arquitecturaArtworks}
+    />
+  </main>
+
+  <Lightbox />
+</Layout>
