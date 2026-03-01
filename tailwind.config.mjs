@@ -5,13 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        white: '#ebe7e1',
+        white: '#FEFEFA',
         "accent-pink": "#E83D8E",
         "dark-grey": "#333333",
-        "background-light": "#ebe7e1",
+        "background-light": "#FEFEFA",
         "background-dark": "#121212",
         "text-light": "#333333",
-        "text-dark": "#ebe7e1",
+        "text-dark": "#FEFEFA",
       },
       fontFamily: {
         sans: ['"Montserrat"', "sans-serif"],

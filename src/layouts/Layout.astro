@@ -37,57 +37,112 @@ const currentPath = Astro.url.pathname;
   <body
     class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen flex flex-col transition-colors duration-300"
   >
-    <header
-      class="w-full relative px-6 py-6 md:px-12 md:py-10 bg-background-light dark:bg-background-dark z-20"
+    <div
+      id="top"
+      class="mx-auto max-w-[2048px] w-full min-h-screen flex flex-col bg-background-light dark:bg-background-dark shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(0,0,0,0.5)] relative overflow-x-hidden"
     >
-      <div
-        class="flex flex-col landscape:flex-row items-center justify-center relative lg:hidden"
+      <header
+        class="w-full relative px-6 py-6 md:px-12 md:py-10 bg-background-light dark:bg-background-dark z-20"
       >
-        <button
-          class="absolute top-0 right-0 p-2 text-dark-grey dark:text-text-dark focus:outline-none landscape:z-10"
-          id="mobile-menu-btn"
-        >
-          <span class="material-symbols-outlined text-3xl">menu</span>
-        </button>
         <div
-          class="flex flex-col landscape:flex-row items-center gap-2 landscape:gap-6 mt-2 landscape:mt-0"
+          class="flex flex-col landscape:flex-row items-center justify-center relative lg:hidden"
         >
-          <a
-            class="font-sans font-bold text-3xl text-accent-pink tracking-widest whitespace-nowrap"
-            href="/"
+          <button
+            class="absolute top-0 right-0 p-2 text-dark-grey dark:text-text-dark focus:outline-none landscape:z-10"
+            id="mobile-menu-btn"
           >
-            ロウ カンポス
-          </a>
+            <span class="material-symbols-outlined text-3xl">menu</span>
+          </button>
           <div
-            class="h-[1px] w-24 landscape:h-8 landscape:w-[1px] bg-accent-pink my-1 landscape:my-0"
+            class="flex flex-col landscape:flex-row items-center gap-2 landscape:gap-6 mt-2 landscape:mt-0"
           >
+            <a
+              class="font-sans font-bold text-3xl text-accent-pink tracking-widest whitespace-nowrap"
+              href="/"
+            >
+              ロウ カンポス
+            </a>
+            <div
+              class="h-[1px] w-24 landscape:h-8 landscape:w-[1px] bg-accent-pink my-1 landscape:my-0"
+            >
+            </div>
+            <a
+              class="font-sans font-normal text-2xl text-dark-grey dark:text-text-dark tracking-[0.2em] uppercase whitespace-nowrap"
+              href="/"
+            >
+              Lou Campos
+            </a>
           </div>
-          <a
-            class="font-sans font-normal text-2xl text-dark-grey dark:text-text-dark tracking-[0.2em] uppercase whitespace-nowrap"
-            href="/"
-          >
-            Lou Campos
-          </a>
         </div>
-      </div>
-      <div class="hidden lg:flex items-center justify-between gap-8">
-        <div class="flex items-center gap-6">
-          <a
-            class="font-sans font-bold text-3xl text-accent-pink tracking-widest whitespace-nowrap"
-            href="/"
-          >
-            ロウ カンポス
-          </a>
-          <div class="h-8 w-[1px] bg-accent-pink"></div>
-          <a
-            class="font-sans font-light text-3xl text-dark-grey dark:text-text-dark tracking-[0.2em] uppercase whitespace-nowrap"
-            href="/"
-          >
-            Lou Campos
-          </a>
+        <div class="hidden lg:flex items-center justify-between gap-8">
+          <div class="flex items-center gap-6">
+            <a
+              class="font-sans font-bold text-3xl text-accent-pink tracking-widest whitespace-nowrap"
+              href="/"
+            >
+              ロウ カンポス
+            </a>
+            <div class="h-8 w-[1px] bg-accent-pink"></div>
+            <a
+              class="font-sans font-light text-3xl text-dark-grey dark:text-text-dark tracking-[0.2em] uppercase whitespace-nowrap"
+              href="/"
+            >
+              Lou Campos
+            </a>
+          </div>
+          <nav>
+            <ul class="flex flex-wrap justify-end gap-10">
+              <li>
+                <a
+                  class:list={[
+                    "font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+                    currentPath.startsWith("/works")
+                      ? "font-bold text-accent-pink"
+                      : "font-medium text-dark-grey dark:text-text-dark",
+                  ]}
+                  href="/works"
+                  data-i18n="nav.works"
+                >
+                  Works
+                </a>
+              </li>
+              <li>
+                <a
+                  class:list={[
+                    "font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+                    currentPath.startsWith("/about")
+                      ? "font-bold text-accent-pink"
+                      : "font-medium text-dark-grey dark:text-text-dark",
+                  ]}
+                  href="/about"
+                  data-i18n="nav.about"
+                >
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class:list={[
+                    "font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
+                    currentPath.startsWith("/contact")
+                      ? "font-bold text-accent-pink"
+                      : "font-medium text-dark-grey dark:text-text-dark",
+                  ]}
+                  href="/contact"
+                  data-i18n="nav.contact"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <nav>
-          <ul class="flex flex-wrap justify-end gap-10">
+        <nav
+          class="hidden lg:hidden w-full mt-8 border-t border-gray-100 dark:border-gray-800 pt-6 animate-fade-in"
+          id="mobile-menu"
+        >
+          <ul class="flex flex-col items-center gap-6">
             <li>
               <a
                 class:list={[
@@ -133,192 +188,143 @@ const currentPath = Astro.url.pathname;
             </li>
           </ul>
         </nav>
+      </header>
+
+      <slot />
+
+      <div class="fixed bottom-6 right-6 z-50">
+        <button
+          class="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-800 dark:text-white shadow-sm hover:shadow-md transition-shadow focus:outline-none"
+          id="theme-toggle"
+        >
+          <svg
+            class="h-5 w-5 hidden dark:block"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"></path>
+          </svg>
+          <svg
+            class="h-5 w-5 block dark:hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"></path>
+          </svg>
+        </button>
       </div>
-      <nav
-        class="hidden lg:hidden w-full mt-8 border-t border-gray-100 dark:border-gray-800 pt-6 animate-fade-in"
-        id="mobile-menu"
-      >
-        <ul class="flex flex-col items-center gap-6">
-          <li>
-            <a
-              class:list={[
-                "font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
-                currentPath.startsWith("/works")
-                  ? "font-bold text-accent-pink"
-                  : "font-medium text-dark-grey dark:text-text-dark",
-              ]}
-              href="/works"
-              data-i18n="nav.works"
-            >
-              Works
-            </a>
-          </li>
-          <li>
-            <a
-              class:list={[
-                "font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
-                currentPath.startsWith("/about")
-                  ? "font-bold text-accent-pink"
-                  : "font-medium text-dark-grey dark:text-text-dark",
-              ]}
-              href="#"
-              data-i18n="nav.about"
-            >
-              About
-            </a>
-          </li>
+      <script is:inline>
+        // Run immediately to prevent Flash of Unstyled Content (FOUC)
+        const getThemePreference = () => {
+          if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("color-theme")
+          ) {
+            return localStorage.getItem("color-theme");
+          }
+          return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        };
+        const isDark = getThemePreference() === "dark";
+        document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
-          <li>
-            <a
-              class:list={[
-                "font-sans text-sm hover:text-accent-pink transition-colors tracking-[0.15em] uppercase",
-                currentPath.startsWith("/contact")
-                  ? "font-bold text-accent-pink"
-                  : "font-medium text-dark-grey dark:text-text-dark",
-              ]}
-              href="/contact"
-              data-i18n="nav.contact"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+        document.addEventListener("astro:page-load", () => {
+          // Theme Toggle Logic
+          const themeToggleBtn = document.getElementById("theme-toggle");
+          if (themeToggleBtn) {
+            // Clear previous listeners to avoid duplicates if any
+            const newThemeToggleBtn = themeToggleBtn.cloneNode(true);
+            themeToggleBtn.parentNode.replaceChild(
+              newThemeToggleBtn,
+              themeToggleBtn,
+            );
 
-    <slot />
-
-    <div class="fixed bottom-6 right-6 z-50">
-      <button
-        class="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-800 dark:text-white shadow-sm hover:shadow-md transition-shadow focus:outline-none"
-        id="theme-toggle"
-      >
-        <svg
-          class="h-5 w-5 hidden dark:block"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"></path>
-        </svg>
-        <svg
-          class="h-5 w-5 block dark:hidden"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"></path>
-        </svg>
-      </button>
-    </div>
-    <script is:inline>
-      // Run immediately to prevent Flash of Unstyled Content (FOUC)
-      const getThemePreference = () => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("color-theme")
-        ) {
-          return localStorage.getItem("color-theme");
-        }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-      };
-      const isDark = getThemePreference() === "dark";
-      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-
-      document.addEventListener("astro:page-load", () => {
-        // Theme Toggle Logic
-        const themeToggleBtn = document.getElementById("theme-toggle");
-        if (themeToggleBtn) {
-          // Clear previous listeners to avoid duplicates if any
-          const newThemeToggleBtn = themeToggleBtn.cloneNode(true);
-          themeToggleBtn.parentNode.replaceChild(
-            newThemeToggleBtn,
-            themeToggleBtn,
-          );
-
-          newThemeToggleBtn.addEventListener("click", function () {
-            if (localStorage.getItem("color-theme")) {
-              if (localStorage.getItem("color-theme") === "light") {
-                document.documentElement.classList.add("dark");
-                localStorage.setItem("color-theme", "dark");
+            newThemeToggleBtn.addEventListener("click", function () {
+              if (localStorage.getItem("color-theme")) {
+                if (localStorage.getItem("color-theme") === "light") {
+                  document.documentElement.classList.add("dark");
+                  localStorage.setItem("color-theme", "dark");
+                } else {
+                  document.documentElement.classList.remove("dark");
+                  localStorage.setItem("color-theme", "light");
+                }
               } else {
-                document.documentElement.classList.remove("dark");
-                localStorage.setItem("color-theme", "light");
+                if (document.documentElement.classList.contains("dark")) {
+                  document.documentElement.classList.remove("dark");
+                  localStorage.setItem("color-theme", "light");
+                } else {
+                  document.documentElement.classList.add("dark");
+                  localStorage.setItem("color-theme", "dark");
+                }
               }
-            } else {
-              if (document.documentElement.classList.contains("dark")) {
-                document.documentElement.classList.remove("dark");
-                localStorage.setItem("color-theme", "light");
-              } else {
-                document.documentElement.classList.add("dark");
-                localStorage.setItem("color-theme", "dark");
+            });
+          }
+
+          // Mobile Menu Logic
+          const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+          const mobileMenu = document.getElementById("mobile-menu");
+          if (mobileMenuBtn && mobileMenu) {
+            const newMobileMenuBtn = mobileMenuBtn.cloneNode(true);
+            mobileMenuBtn.parentNode.replaceChild(
+              newMobileMenuBtn,
+              mobileMenuBtn,
+            );
+
+            newMobileMenuBtn.addEventListener("click", () => {
+              mobileMenu.classList.toggle("hidden");
+              const icon = newMobileMenuBtn.querySelector("span");
+              if (icon) {
+                if (mobileMenu.classList.contains("hidden")) {
+                  icon.textContent = "menu";
+                } else {
+                  icon.textContent = "close";
+                }
               }
-            }
-          });
-        }
-
-        // Mobile Menu Logic
-        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
-        if (mobileMenuBtn && mobileMenu) {
-          const newMobileMenuBtn = mobileMenuBtn.cloneNode(true);
-          mobileMenuBtn.parentNode.replaceChild(
-            newMobileMenuBtn,
-            mobileMenuBtn,
-          );
-
-          newMobileMenuBtn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-            const icon = newMobileMenuBtn.querySelector("span");
-            if (icon) {
-              if (mobileMenu.classList.contains("hidden")) {
-                icon.textContent = "menu";
-              } else {
-                icon.textContent = "close";
-              }
-            }
-          });
-        }
-      });
-    </script>
-    <script>
-      import { translations } from "../i18n/translations";
-
-      function applyTranslations() {
-        const userLang = navigator.language || (navigator as any).userLanguage;
-        let lang = "es"; // default
-        if (userLang.startsWith("en")) lang = "en";
-        if (userLang.startsWith("ja")) lang = "ja";
-
-        const t = translations[lang as keyof typeof translations];
-        if (!t) return;
-
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.getAttribute("data-i18n");
-          if (key && t[key as keyof typeof t]) {
-            if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-              (el as HTMLInputElement).placeholder = t[key as keyof typeof t];
-            } else {
-              el.textContent = t[key as keyof typeof t];
-            }
+            });
           }
         });
-      }
+      </script>
+      <script>
+        import { translations } from "../i18n/translations";
 
-      // Run on initial load and after view transitions
-      document.addEventListener("astro:page-load", applyTranslations);
-    </script>
+        function applyTranslations() {
+          const userLang =
+            navigator.language || (navigator as any).userLanguage;
+          let lang = "es"; // default
+          if (userLang.startsWith("en")) lang = "en";
+          if (userLang.startsWith("ja")) lang = "ja";
+
+          const t = translations[lang as keyof typeof translations];
+          if (!t) return;
+
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            if (key && t[key as keyof typeof t]) {
+              if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+                (el as HTMLInputElement).placeholder = t[key as keyof typeof t];
+              } else {
+                el.textContent = t[key as keyof typeof t];
+              }
+            }
+          });
+        }
+
+        // Run on initial load and after view transitions
+        document.addEventListener("astro:page-load", applyTranslations);
+      </script>
+    </div>
   </body>
 </html>

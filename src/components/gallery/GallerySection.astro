@@ -19,6 +19,16 @@ const { id, title, description, artworks } = Astro.props;
 
 <section id={id}>
     <div class="max-w-3xl mb-12 mt-4">
+        <a
+            href="#top"
+            class="inline-flex items-center gap-2 text-xs font-montserrat uppercase tracking-wider text-dark-grey dark:text-gray-400 hover:text-accent-pink dark:hover:text-accent-pink transition-colors mb-6 group"
+        >
+            <span
+                class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1"
+                >arrow_back</span
+            >
+            <span data-i18n="gallery.back_to_index">Volver al índice</span>
+        </a>
         <div class="flex items-center gap-4 mb-4">
             <span class="h-[1px] w-12 bg-accent-pink"></span>
             <h2

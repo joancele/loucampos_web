@@ -1,8 +1,8 @@
 export const translations = {
   es: {
-    "nav.works": "Trabajos",
-    "nav.about": "Sobre mí",
-    "nav.contact": "Contacto",
+    "nav.works": "Works",
+    "nav.about": "About",
+    "nav.contact": "Contact",
     "hero.slide1.title": "Explora mi mundo",
     "hero.slide1.btn": "Ver todas las Obras",
     "hero.slide2.title": "Fotografía y Captura",
