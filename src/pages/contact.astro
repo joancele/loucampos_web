@@ -3,101 +3,87 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Lou Campos - Contact">
-    <main
-        class="flex-grow w-full max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col items-center justify-center py-12 md:py-20"
+  <main
+    class="flex-grow w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col justify-between py-12 md:py-24 relative"
+  >
+    <!-- Background Decor -->
+    <div
+      class="absolute top-[20%] left-[10%] w-[300px] h-[300px] bg-accent-pink/5 blur-[120px] rounded-full -z-10 animate-pulse"
     >
-        <section class="w-full text-center mb-12 md:mb-16 animate-fade-in-up">
-            <h2
-                class="font-serif font-normal text-5xl md:text-7xl lg:text-8xl text-dark-grey dark:text-white tracking-tight"
-            >
-                Let's Connect
-            </h2>
-        </section>
-        <div
-            class="flex flex-col items-center justify-center w-full max-w-2xl text-center"
+    </div>
+    <div
+      class="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-accent-pink/5 blur-[120px] rounded-full -z-10 animate-pulse"
+      style="animation-delay: 1s;"
+    >
+    </div>
+
+    <!-- Top Section: Direct Contact -->
+    <section class="max-w-2xl mt-8 md:mt-12 self-start animate-fade-in-up">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-[2px] h-6 bg-accent-pink"></div>
+        <h3
+          class="font-sans font-medium text-[10px] md:text-xs tracking-[0.2em] uppercase text-gray-400 dark:text-gray-500"
         >
-            <div class="space-y-12 w-full">
-                <div class="space-y-6">
-                    <h3
-                        class="font-sans font-medium text-xs tracking-[0.15em] uppercase text-gray-500 dark:text-gray-400"
-                    >
-                        Direct Contact
-                    </h3>
-                    <a
-                        class="block font-sans font-bold text-3xl md:text-4xl lg:text-5xl text-dark-grey dark:text-white hover:text-accent-pink transition-colors break-words"
-                        href="mailto:studio@loucampos.art"
-                    >
-                        studio@loucampos.art
-                    </a>
-                    <p
-                        class="font-serif text-lg text-gray-600 dark:text-gray-300 italic max-w-lg mx-auto"
-                    >
-                        For all inquiries regarding available works,
-                        commissions, and press.
-                    </p>
-                </div>
-                <div class="w-24 h-[1px] bg-accent-pink mx-auto"></div>
-                <div class="space-y-8">
-                    <h3
-                        class="font-sans font-medium text-xs tracking-[0.15em] uppercase text-gray-500 dark:text-gray-400"
-                    >
-                        Social
-                    </h3>
-                    <ul
-                        class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12"
-                    >
-                        <li>
-                            <a
-                                class="group flex items-center gap-2 text-dark-grey dark:text-white hover:text-accent-pink transition-colors"
-                                href="#"
-                            >
-                                <span class="font-sans text-xl font-medium"
-                                    >Instagram</span
-                                >
-                                <span
-                                    class="material-symbols-outlined text-xl opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                                    >arrow_outward</span
-                                >
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                class="group flex items-center gap-2 text-dark-grey dark:text-white hover:text-accent-pink transition-colors"
-                                href="#"
-                            >
-                                <span class="font-sans text-xl font-medium"
-                                    >Twitter / X</span
-                                >
-                                <span
-                                    class="material-symbols-outlined text-xl opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                                    >arrow_outward</span
-                                >
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                class="group flex items-center gap-2 text-dark-grey dark:text-white hover:text-accent-pink transition-colors"
-                                href="#"
-                            >
-                                <span class="font-sans text-xl font-medium"
-                                    >LinkedIn</span
-                                >
-                                <span
-                                    class="material-symbols-outlined text-xl opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                                    >arrow_outward</span
-                                >
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="pt-12">
-                    <p
-                        class="font-serif text-sm text-gray-400 dark:text-gray-500 italic"
-                    >
-                        Based in Tokyo. Available worldwide.
-                    </p>
-                </div>
-            </div>
+          Direct Contact
+        </h3>
+      </div>
+      <div class="space-y-8">
+        <a
+          class="block font-sans font-extrabold text-4xl md:text-6xl lg:text-7xl text-dark-grey dark:text-white hover:text-accent-pink transition-all duration-500 leading-[1.1] tracking-tight"
+          href="mailto:studio@loucampos.com"
+        >
+          studio@<br class="md:hidden" />loucampos.com
+        </a>
+        <p
+          class="font-serif text-lg md:text-2xl text-gray-500 dark:text-gray-400 italic leading-relaxed max-w-xl"
+        >
+          For all inquiries regarding available works, commissions, and press.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bottom Section: Social & Footer -->
+    <div class="w-full flex flex-col mt-32 md:mt-0">
+      <!-- Social (Asymmetrical Right) -->
+      <section
+        class="self-end mb-24 md:mb-32 md:mr-12 lg:mr-24 animate-fade-in-up"
+        style="animation-delay: 200ms;"
+      >
+        <div class="flex items-center justify-end gap-4 mb-8">
+          <h3
+            class="font-sans font-medium text-[10px] md:text-xs tracking-[0.2em] uppercase text-gray-400 dark:text-gray-500"
+          >
+            SOCIAL
+          </h3>
+          <div class="w-[2px] h-12 bg-accent-pink"></div>
         </div>
-    </main>
+        <ul class="flex flex-col items-end gap-6 text-right">
+          <li>
+            <a
+              class="group relative font-sans text-3xl md:text-5xl font-medium text-dark-grey dark:text-white hover:text-accent-pink transition-all duration-300"
+              href="https://www.instagram.com/_loucampos_/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="relative z-10">Instagram</span>
+              <span
+                class="absolute bottom-0 right-0 w-0 h-[1px] bg-accent-pink transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Footer Text -->
+    <footer class="w-full text-center space-y-8 pb-12">
+      <p
+        class="font-serif text-base md:text-lg text-gray-400 dark:text-gray-500 italic tracking-wide"
+      >
+        Based in Spain. Available worldwide.
+      </p>
+      <!-- Space for centered toggle -->
+      <div class="h-16"></div>
+    </footer>
+  </main>
 </Layout>
