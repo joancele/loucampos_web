@@ -7,7 +7,7 @@
   id="lightbox"
 >
   <button
-    class="absolute top-6 right-6 text-dark-grey dark:text-white hover:text-accent-pink transition-colors focus:outline-none z-50"
+    class="fixed top-8 right-8 md:top-12 md:right-12 text-dark-grey dark:text-white hover:text-accent-pink transition-colors focus:outline-none z-[120]"
     id="lightbox-close"
   >
     <span class="material-symbols-outlined text-4xl">close</span>
@@ -20,7 +20,7 @@
       class="flex-grow landscape:flex-[0_0_80%] lg:flex-[0_0_90%] relative bg-[#fafafa] dark:bg-[#0a0a0a] flex items-center justify-center p-2 md:p-4 overflow-hidden group/img"
     >
       <button
-        class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-50 p-2 hidden opacity-0"
+        class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-[110] p-2 hidden opacity-0 pointer-events-auto"
         id="lightbox-prev"
         aria-label="Previous image"
       >
@@ -31,7 +31,7 @@
       </button>
 
       <button
-        class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-50 p-2 hidden opacity-0"
+        class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-[110] p-2 hidden opacity-0 pointer-events-auto"
         id="lightbox-next"
         aria-label="Next image"
       >
@@ -42,7 +42,7 @@
       </button>
       <img
         alt="Expanded View"
-        class="w-full h-full object-contain object-center scale-100 transition-all duration-300 opacity-100"
+        class="max-w-full max-h-full object-contain scale-100 transition-all duration-300 opacity-100"
         id="lightbox-img"
         src=""
       />
@@ -96,8 +96,10 @@
 
     if (lightbox && lightboxImg && lightboxClose) {
       let isZoomed = false;
-      let originX = 50;
-      let originY = 50;
+      let translateX = 0;
+      let translateY = 0;
+      let maxTranslateX = 0;
+      let maxTranslateY = 0;
       let panX = 0;
       let panY = 0;
       let panRAF = null;
@@ -108,25 +110,26 @@
         isZoomed = false;
         panX = 0;
         panY = 0;
+        translateX = 0;
+        translateY = 0;
         if (panRAF) {
           cancelAnimationFrame(panRAF);
           panRAF = null;
         }
-        lightboxImg.style.transition =
-          "transform 0.3s ease-out, transform-origin 0.3s ease-out";
-        lightboxImg.style.transform = "scale(1)";
+        lightboxImg.style.transition = "transform 0.3s ease-out";
+        lightboxImg.style.transform = "translate(0px, 0px) scale(1)";
         lightboxImg.style.cursor = "zoom-in";
-        updateArrowVisibility();
-        if (
-          lightboxPrev &&
-          !lightboxPrev.classList.contains("pointer-events-none")
-        )
+
+        if (lightboxPrev) {
           lightboxPrev.classList.remove("hidden");
-        if (
-          lightboxNext &&
-          !lightboxNext.classList.contains("pointer-events-none")
-        )
+          setTimeout(() => lightboxPrev.classList.remove("opacity-0"), 50);
+        }
+        if (lightboxNext) {
           lightboxNext.classList.remove("hidden");
+          setTimeout(() => lightboxNext.classList.remove("opacity-0"), 50);
+        }
+
+        updateArrowVisibility();
       }
 
       function panLoop() {
@@ -134,12 +137,24 @@
           panRAF = null;
           return;
         }
-        originX += panX * 1.5;
-        originY += panY * 1.5;
-        originX = Math.max(0, Math.min(100, originX));
-        originY = Math.max(0, Math.min(100, originY));
+
+        let speedX = window.innerWidth / 100;
+        let speedY = window.innerHeight / 100;
+
+        translateX += -panX * speedX;
+        translateY += -panY * speedY;
+
+        translateX = Math.max(
+          -maxTranslateX,
+          Math.min(maxTranslateX, translateX),
+        );
+        translateY = Math.max(
+          -maxTranslateY,
+          Math.min(maxTranslateY, translateY),
+        );
+
         lightboxImg.style.transition = "transform 0.3s ease-out";
-        lightboxImg.style.transformOrigin = `${originX}% ${originY}%`;
+        lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(2.5)`;
         panRAF = requestAnimationFrame(panLoop);
       }
 
@@ -160,15 +175,46 @@
             cx = e.changedTouches[0].clientX;
             cy = e.changedTouches[0].clientY;
           }
-          originX = ((cx - rect.left) / rect.width) * 100;
-          originY = ((cy - rect.top) / rect.height) * 100;
-          originX = Math.max(0, Math.min(100, originX));
-          originY = Math.max(0, Math.min(100, originY));
 
-          lightboxImg.style.transition =
-            "transform 0.3s ease-out, transform-origin 0.3s ease-out";
-          lightboxImg.style.transformOrigin = `${originX}% ${originY}%`;
-          lightboxImg.style.transform = "scale(2.5)";
+          const imgRatio = lightboxImg.naturalWidth / lightboxImg.naturalHeight;
+          const containerRatio = rect.width / rect.height;
+
+          let trueWidth, trueHeight;
+
+          if (imgRatio > containerRatio) {
+            trueWidth = rect.width;
+            trueHeight = rect.width / imgRatio;
+          } else {
+            trueHeight = rect.height;
+            trueWidth = rect.height * imgRatio;
+          }
+
+          let zoomedWidth = trueWidth * 2.5;
+          let zoomedHeight = trueHeight * 2.5;
+
+          maxTranslateX = Math.max(0, (zoomedWidth - rect.width) / 2);
+          maxTranslateY = Math.max(0, (zoomedHeight - rect.height) / 2);
+
+          let containerCx = rect.left + rect.width / 2;
+          let containerCy = rect.top + rect.height / 2;
+
+          let percentX = (containerCx - cx) / (rect.width / 2);
+          let percentY = (containerCy - cy) / (rect.height / 2);
+
+          translateX = percentX * maxTranslateX;
+          translateY = percentY * maxTranslateY;
+
+          translateX = Math.max(
+            -maxTranslateX,
+            Math.min(maxTranslateX, translateX),
+          );
+          translateY = Math.max(
+            -maxTranslateY,
+            Math.min(maxTranslateY, translateY),
+          );
+
+          lightboxImg.style.transition = "transform 0.3s ease-out";
+          lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(2.5)`;
           lightboxImg.style.cursor = "zoom-out";
           isZoomed = true;
 
@@ -422,14 +468,21 @@
           totalDragDistance += Math.hypot(deltaX, deltaY);
           if (totalDragDistance > 10) isDraggingPan = true;
 
-          const speed = 0.4; // increased slightly for more responsive drag
-          originX -= deltaX * speed;
-          originY -= deltaY * speed;
-          originX = Math.max(0, Math.min(100, originX));
-          originY = Math.max(0, Math.min(100, originY));
+          const speed = 1.0;
+          translateX += deltaX * speed;
+          translateY += deltaY * speed;
 
-          lightboxImg.style.transition = "transform 0.3s ease-out"; // keep scale anim, stop origin anim
-          lightboxImg.style.transformOrigin = `${originX}% ${originY}%`;
+          translateX = Math.max(
+            -maxTranslateX,
+            Math.min(maxTranslateX, translateX),
+          );
+          translateY = Math.max(
+            -maxTranslateY,
+            Math.min(maxTranslateY, translateY),
+          );
+
+          lightboxImg.style.transition = "transform 0.1s ease-out"; // keep scale anim, stop origin anim
+          lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(2.5)`;
           lastTouchX = touchX;
           lastTouchY = touchY;
         },
