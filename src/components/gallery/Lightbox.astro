@@ -3,149 +3,287 @@
 ---
 
 <div
-    class="fixed inset-0 z-[100] hidden bg-white/95 dark:bg-black/95 items-center justify-center p-4 md:p-8 overflow-hidden"
-    id="lightbox"
+  class="fixed inset-0 z-[100] hidden bg-white/95 dark:bg-black/95 items-center justify-center p-4 md:p-8 overflow-hidden"
+  id="lightbox"
 >
-    <button
-        class="absolute top-6 right-6 text-dark-grey dark:text-white hover:text-accent-pink transition-colors focus:outline-none z-50"
-        id="lightbox-close"
+  <button
+    class="absolute top-6 right-6 text-dark-grey dark:text-white hover:text-accent-pink transition-colors focus:outline-none z-50"
+    id="lightbox-close"
+  >
+    <span class="material-symbols-outlined text-4xl">close</span>
+  </button>
+  <button
+    class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-50 p-2 hidden opacity-0"
+    id="lightbox-prev"
+    aria-label="Previous image"
+  >
+    <span class="material-symbols-outlined text-4xl md:text-5xl"
+      >chevron_left</span
     >
-        <span class="material-symbols-outlined text-4xl">close</span>
-    </button>
+  </button>
+  <button
+    class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-50 p-2 hidden opacity-0"
+    id="lightbox-next"
+    aria-label="Next image"
+  >
+    <span class="material-symbols-outlined text-4xl md:text-5xl"
+      >chevron_right</span
+    >
+  </button>
+  <div
+    class="relative flex flex-col landscape:flex-row lg:flex-row items-stretch justify-center w-[98vw] lg:w-[95vw] h-[95dvh] lg:h-[90dvh] bg-white dark:bg-[#1a1a1a] shadow-2xl overflow-hidden"
+  >
+    <!-- Contenedor de la Imagen (Protagonista 90%) -->
     <div
-        class="relative flex flex-col landscape:flex-row lg:flex-row items-stretch justify-center w-[98vw] lg:w-[95vw] h-[95dvh] lg:h-[90dvh] bg-white dark:bg-[#1a1a1a] shadow-2xl overflow-hidden"
+      class="flex-grow landscape:flex-[0_0_80%] lg:flex-[0_0_90%] bg-[#fafafa] dark:bg-[#0a0a0a] flex items-center justify-center p-2 md:p-4 overflow-hidden"
     >
-        <!-- Contenedor de la Imagen (Protagonista 90%) -->
-        <div
-            class="flex-grow landscape:flex-[0_0_80%] lg:flex-[0_0_90%] bg-[#fafafa] dark:bg-[#0a0a0a] flex items-center justify-center p-2 md:p-4 overflow-hidden"
-        >
-            <img
-                alt="Expanded View"
-                class="w-full h-full object-contain object-center scale-100 transition-transform duration-700"
-                id="lightbox-img"
-                src=""
-            />
-        </div>
-
-        <!-- Contenedor de Información (Extensión Secundaria Minimalista 10%) -->
-        <div
-            id="lightbox-info"
-            class="w-full landscape:w-auto landscape:flex-[0_0_20%] lg:flex-[0_0_10%] min-w-[150px] p-3 lg:p-4 flex flex-col justify-end bg-white dark:bg-[#151515] opacity-0 transition-opacity duration-700 border-t landscape:border-t-0 landscape:border-l lg:border-t-0 lg:border-l border-gray-100 dark:border-gray-800"
-        >
-            <h3
-                id="lightbox-title"
-                class="font-sans font-medium text-xs md:text-sm text-gray-700 dark:text-gray-300 mb-1 uppercase tracking-widest break-words"
-            >
-            </h3>
-            <p
-                id="lightbox-year"
-                class="font-sans text-[11px] text-gray-400 dark:text-gray-600 mb-2 tracking-widest"
-            >
-            </p>
-            <div class="h-[1px] w-4 bg-gray-200 dark:bg-gray-800 mb-2"></div>
-            <p
-                id="lightbox-desc"
-                class="font-serif text-xs md:text-sm leading-relaxed text-gray-500 dark:text-gray-500 line-clamp-6"
-            >
-            </p>
-        </div>
+      <img
+        alt="Expanded View"
+        class="w-full h-full object-contain object-center scale-100 transition-all duration-300 opacity-100"
+        id="lightbox-img"
+        src=""
+      />
     </div>
+
+    <!-- Contenedor de Información (Extensión Secundaria Minimalista 10%) -->
+    <div
+      id="lightbox-info"
+      class="w-full landscape:w-auto landscape:flex-[0_0_20%] lg:flex-[0_0_10%] min-w-[150px] p-3 lg:p-4 flex flex-col justify-end bg-white dark:bg-[#151515] opacity-0 transition-opacity duration-300 border-t landscape:border-t-0 landscape:border-l lg:border-t-0 lg:border-l border-gray-100 dark:border-gray-800"
+    >
+      <h3
+        id="lightbox-title"
+        class="font-sans font-medium text-xs md:text-sm text-gray-700 dark:text-gray-300 mb-1 uppercase tracking-widest break-words"
+      >
+      </h3>
+      <p
+        id="lightbox-year"
+        class="font-sans text-[11px] text-gray-400 dark:text-gray-600 mb-2 tracking-widest"
+      >
+      </p>
+      <div class="h-[1px] w-4 bg-gray-200 dark:bg-gray-800 mb-2"></div>
+      <p
+        id="lightbox-desc"
+        class="font-serif text-xs md:text-sm leading-relaxed text-gray-500 dark:text-gray-500 line-clamp-6"
+      >
+      </p>
+    </div>
+  </div>
 </div>
 
 <script is:inline>
-    document.addEventListener("astro:page-load", () => {
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightbox-img");
-        const lightboxClose = document.getElementById("lightbox-close");
-        const items = document.querySelectorAll(
-            ".group.relative.aspect-square",
-        );
-        const lightboxTitle = document.getElementById("lightbox-title");
-        const lightboxYear = document.getElementById("lightbox-year");
-        const lightboxDesc = document.getElementById("lightbox-desc");
-        const lightboxInfo = document.getElementById("lightbox-info");
+  document.addEventListener("astro:page-load", () => {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    let lightboxClose = document.getElementById("lightbox-close");
+    let lightboxPrev = document.getElementById("lightbox-prev");
+    let lightboxNext = document.getElementById("lightbox-next");
+    const allItemsList = document.querySelectorAll(
+      ".group.relative.aspect-square",
+    );
 
-        if (lightbox && lightboxImg && lightboxClose) {
-            items.forEach((item) => {
-                // Remove previous listener to avoid duplicates on view transitions
-                const newItem = item.cloneNode(true);
-                item.parentNode.replaceChild(newItem, item);
+    const lightboxTitle = document.getElementById("lightbox-title");
+    const lightboxYear = document.getElementById("lightbox-year");
+    const lightboxDesc = document.getElementById("lightbox-desc");
+    const lightboxInfo = document.getElementById("lightbox-info");
 
-                newItem.addEventListener("click", () => {
-                    const img = newItem.querySelector("img");
-                    if (img) {
-                        lightboxImg.src = img.src;
+    let activeGroupItems = [];
+    let currentIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
-                        // Populate info
-                        if (lightboxTitle)
-                            lightboxTitle.textContent =
-                                newItem.dataset.title || "Obra sin título";
-                        if (lightboxYear)
-                            lightboxYear.textContent =
-                                newItem.dataset.year || "----";
-                        if (lightboxDesc)
-                            lightboxDesc.textContent =
-                                newItem.dataset.description || "";
+    if (lightbox && lightboxImg && lightboxClose) {
+      function updateLightbox(index) {
+        if (activeGroupItems.length === 0) return;
 
-                        lightbox.classList.remove("hidden");
-                        lightbox.classList.add("flex");
-                        document.body.style.overflow = "hidden"; // Prevent scroll
+        // Wrap around logic
+        if (index < 0) currentIndex = activeGroupItems.length - 1;
+        else if (index >= activeGroupItems.length) currentIndex = 0;
+        else currentIndex = index;
 
-                        // Small delay to allow display flex to apply before transitioning opacity/transform
-                        setTimeout(() => {
-                            lightboxImg.classList.remove("scale-95");
-                            lightboxImg.classList.add("scale-100");
+        const currentItem = activeGroupItems[currentIndex];
+        const img = currentItem.querySelector("img");
 
-                            // Just fade in for the flat info panel
-                            lightboxInfo.classList.remove("opacity-0");
-                            lightboxInfo.classList.add("opacity-100");
-                        }, 50);
-                    }
-                });
-            });
+        if (img) {
+          // Fade out slightly
+          lightboxImg.classList.remove("opacity-100");
+          lightboxImg.classList.add("opacity-30");
+          if (lightboxInfo) {
+            lightboxInfo.classList.remove("opacity-100");
+            lightboxInfo.classList.add("opacity-0");
+          }
 
-            function closeLightbox() {
-                // Animar la salida del texto
-                if (lightboxInfo) {
-                    lightboxInfo.classList.remove("opacity-100");
-                    lightboxInfo.classList.add("opacity-0");
-                }
+          setTimeout(() => {
+            lightboxImg.src = img.src;
 
-                // Ocultar modal con retraso
-                setTimeout(() => {
-                    lightbox.classList.add("hidden");
-                    lightbox.classList.remove("flex");
-                    lightboxImg.src = "";
-                    document.body.style.overflow = "";
-                }, 400); // Darle tiempo al slide para ocultarse
+            // Populate info
+            if (lightboxTitle)
+              lightboxTitle.textContent =
+                currentItem.dataset.title || "Obra sin título";
+            if (lightboxYear)
+              lightboxYear.textContent = currentItem.dataset.year || "----";
+            if (lightboxDesc)
+              lightboxDesc.textContent = currentItem.dataset.description || "";
+
+            // Fade back in
+            lightboxImg.classList.remove("opacity-30");
+            lightboxImg.classList.add("opacity-100");
+            if (lightboxInfo) {
+              lightboxInfo.classList.remove("opacity-0");
+              lightboxInfo.classList.add("opacity-100");
             }
-
-            // Remove existing listener to prevent duplicate firings
-            const newLightboxClose = lightboxClose.cloneNode(true);
-            lightboxClose.parentNode.replaceChild(
-                newLightboxClose,
-                lightboxClose,
-            );
-            newLightboxClose.addEventListener("click", closeLightbox);
-
-            lightbox.addEventListener("click", (e) => {
-                // Solo cerrar si han hecho click en el fondo del lightbox
-                if (
-                    e.target === lightbox ||
-                    e.target.parentElement === lightbox
-                ) {
-                    closeLightbox();
-                }
-            });
-
-            document.addEventListener("keydown", (e) => {
-                if (
-                    e.key === "Escape" &&
-                    !lightbox.classList.contains("hidden")
-                ) {
-                    closeLightbox();
-                }
-            });
+          }, 250);
         }
-    });
+      }
+
+      allItemsList.forEach((item) => {
+        const newItem = item.cloneNode(true);
+        item.parentNode.replaceChild(newItem, item);
+
+        newItem.addEventListener("click", () => {
+          // Find the closest parent section to group the artworks correctly
+          const container = newItem.closest("section");
+          const groupItemsList = container
+            ? container.querySelectorAll(".group.relative.aspect-square")
+            : [newItem];
+          activeGroupItems = Array.from(groupItemsList);
+          currentIndex = activeGroupItems.indexOf(newItem);
+
+          // Initialize first image without animating opacity transition immediately
+          const img = newItem.querySelector("img");
+          if (img) {
+            lightboxImg.src = img.src;
+            if (lightboxTitle)
+              lightboxTitle.textContent =
+                newItem.dataset.title || "Obra sin título";
+            if (lightboxYear)
+              lightboxYear.textContent = newItem.dataset.year || "----";
+            if (lightboxDesc)
+              lightboxDesc.textContent = newItem.dataset.description || "";
+          }
+
+          lightbox.classList.remove("hidden");
+          lightbox.classList.add("flex");
+          document.body.style.overflow = "hidden"; // Prevent scroll
+
+          // Show arrows if there are multiple items
+          if (activeGroupItems.length > 1) {
+            if (lightboxPrev) {
+              lightboxPrev.classList.remove("hidden");
+              setTimeout(() => lightboxPrev.classList.remove("opacity-0"), 50);
+            }
+            if (lightboxNext) {
+              lightboxNext.classList.remove("hidden");
+              setTimeout(() => lightboxNext.classList.remove("opacity-0"), 50);
+            }
+          }
+
+          setTimeout(() => {
+            lightboxImg.classList.remove("opacity-30");
+            lightboxImg.classList.add("opacity-100");
+            if (lightboxInfo) {
+              lightboxInfo.classList.remove("opacity-0");
+              lightboxInfo.classList.add("opacity-100");
+            }
+          }, 50);
+        });
+      });
+
+      function closeLightbox() {
+        if (lightboxInfo) {
+          lightboxInfo.classList.remove("opacity-100");
+          lightboxInfo.classList.add("opacity-0");
+        }
+
+        if (lightboxPrev) {
+          lightboxPrev.classList.add("opacity-0");
+          setTimeout(() => lightboxPrev.classList.add("hidden"), 300);
+        }
+        if (lightboxNext) {
+          lightboxNext.classList.add("opacity-0");
+          setTimeout(() => lightboxNext.classList.add("hidden"), 300);
+        }
+
+        setTimeout(() => {
+          lightbox.classList.add("hidden");
+          lightbox.classList.remove("flex");
+          lightboxImg.src = "";
+          document.body.style.overflow = "";
+        }, 300);
+      }
+
+      // Remove existing listener to prevent duplicate firings
+      const newLightboxClose = lightboxClose.cloneNode(true);
+      lightboxClose.parentNode.replaceChild(newLightboxClose, lightboxClose);
+      newLightboxClose.addEventListener("click", closeLightbox);
+      lightboxClose = newLightboxClose; // Update reference!
+
+      function showNext() {
+        updateLightbox(currentIndex + 1);
+      }
+      function showPrev() {
+        updateLightbox(currentIndex - 1);
+      }
+
+      if (lightboxPrev) {
+        const newPrev = lightboxPrev.cloneNode(true);
+        lightboxPrev.parentNode.replaceChild(newPrev, lightboxPrev);
+        newPrev.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showPrev();
+        });
+        lightboxPrev = newPrev; // Update reference!
+      }
+      if (lightboxNext) {
+        const newNext = lightboxNext.cloneNode(true);
+        lightboxNext.parentNode.replaceChild(newNext, lightboxNext);
+        newNext.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showNext();
+        });
+        lightboxNext = newNext; // Update reference!
+      }
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox || e.target.parentElement === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("hidden")) {
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowRight") showNext();
+          if (e.key === "ArrowLeft") showPrev();
+        }
+      });
+
+      // Swipe Gestures
+      lightbox.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        },
+        { passive: true },
+      );
+
+      lightbox.addEventListener(
+        "touchend",
+        (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        },
+        { passive: true },
+      );
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchEndX - touchStartX;
+        if (diff < -swipeThreshold) {
+          showNext(); // Swipe left -> Next
+        } else if (diff > swipeThreshold) {
+          showPrev(); // Swipe right -> Prev
+        }
+      }
+    }
+  });
 </script>
