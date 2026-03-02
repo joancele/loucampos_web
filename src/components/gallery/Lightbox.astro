@@ -12,31 +12,34 @@
   >
     <span class="material-symbols-outlined text-4xl">close</span>
   </button>
-  <button
-    class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-50 p-2 hidden opacity-0"
-    id="lightbox-prev"
-    aria-label="Previous image"
-  >
-    <span class="material-symbols-outlined text-4xl md:text-5xl"
-      >chevron_left</span
-    >
-  </button>
-  <button
-    class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-50 p-2 hidden opacity-0"
-    id="lightbox-next"
-    aria-label="Next image"
-  >
-    <span class="material-symbols-outlined text-4xl md:text-5xl"
-      >chevron_right</span
-    >
-  </button>
   <div
-    class="relative flex flex-col landscape:flex-row lg:flex-row items-stretch justify-center w-[98vw] lg:w-[95vw] h-[95dvh] lg:h-[90dvh] bg-white dark:bg-[#1a1a1a] shadow-2xl overflow-hidden"
+    class="relative flex flex-col landscape:flex-row lg:flex-row items-stretch justify-center w-[98vw] lg:w-[95vw] max-w-[2000px] mx-auto h-[95dvh] lg:h-[90dvh] bg-white dark:bg-[#1a1a1a] shadow-2xl overflow-hidden"
   >
     <!-- Contenedor de la Imagen (Protagonista 90%) -->
     <div
-      class="flex-grow landscape:flex-[0_0_80%] lg:flex-[0_0_90%] bg-[#fafafa] dark:bg-[#0a0a0a] flex items-center justify-center p-2 md:p-4 overflow-hidden"
+      class="flex-grow landscape:flex-[0_0_80%] lg:flex-[0_0_90%] relative bg-[#fafafa] dark:bg-[#0a0a0a] flex items-center justify-center p-2 md:p-4 overflow-hidden group/img"
     >
+      <button
+        class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-50 p-2 hidden opacity-0"
+        id="lightbox-prev"
+        aria-label="Previous image"
+      >
+        <span
+          class="material-symbols-outlined text-4xl md:text-5xl drop-shadow-md"
+          >chevron_left</span
+        >
+      </button>
+
+      <button
+        class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-50 p-2 hidden opacity-0"
+        id="lightbox-next"
+        aria-label="Next image"
+      >
+        <span
+          class="material-symbols-outlined text-4xl md:text-5xl drop-shadow-md"
+          >chevron_right</span
+        >
+      </button>
       <img
         alt="Expanded View"
         class="w-full h-full object-contain object-center scale-100 transition-all duration-300 opacity-100"
@@ -92,14 +95,133 @@
     let touchEndX = 0;
 
     if (lightbox && lightboxImg && lightboxClose) {
+      let isZoomed = false;
+      let originX = 50;
+      let originY = 50;
+      let panX = 0;
+      let panY = 0;
+      let panRAF = null;
+      let isDraggingPan = false;
+
+      function resetZoom() {
+        if (!isZoomed) return;
+        isZoomed = false;
+        panX = 0;
+        panY = 0;
+        if (panRAF) {
+          cancelAnimationFrame(panRAF);
+          panRAF = null;
+        }
+        lightboxImg.style.transition =
+          "transform 0.3s ease-out, transform-origin 0.3s ease-out";
+        lightboxImg.style.transform = "scale(1)";
+        lightboxImg.style.cursor = "zoom-in";
+        updateArrowVisibility();
+        if (
+          lightboxPrev &&
+          !lightboxPrev.classList.contains("pointer-events-none")
+        )
+          lightboxPrev.classList.remove("hidden");
+        if (
+          lightboxNext &&
+          !lightboxNext.classList.contains("pointer-events-none")
+        )
+          lightboxNext.classList.remove("hidden");
+      }
+
+      function panLoop() {
+        if (!isZoomed || (panX === 0 && panY === 0)) {
+          panRAF = null;
+          return;
+        }
+        originX += panX * 1.5;
+        originY += panY * 1.5;
+        originX = Math.max(0, Math.min(100, originX));
+        originY = Math.max(0, Math.min(100, originY));
+        lightboxImg.style.transition = "transform 0.3s ease-out";
+        lightboxImg.style.transformOrigin = `${originX}% ${originY}%`;
+        panRAF = requestAnimationFrame(panLoop);
+      }
+
+      function toggleZoom(e) {
+        if (isDraggingPan) {
+          setTimeout(() => (isDraggingPan = false), 50); // clear flag after click handled
+          return;
+        }
+        if (!isZoomed) {
+          const rect = lightboxImg.getBoundingClientRect();
+          let cx = e.clientX;
+          let cy = e.clientY;
+          if (
+            cx === undefined &&
+            e.changedTouches &&
+            e.changedTouches.length > 0
+          ) {
+            cx = e.changedTouches[0].clientX;
+            cy = e.changedTouches[0].clientY;
+          }
+          originX = ((cx - rect.left) / rect.width) * 100;
+          originY = ((cy - rect.top) / rect.height) * 100;
+          originX = Math.max(0, Math.min(100, originX));
+          originY = Math.max(0, Math.min(100, originY));
+
+          lightboxImg.style.transition =
+            "transform 0.3s ease-out, transform-origin 0.3s ease-out";
+          lightboxImg.style.transformOrigin = `${originX}% ${originY}%`;
+          lightboxImg.style.transform = "scale(2.5)";
+          lightboxImg.style.cursor = "zoom-out";
+          isZoomed = true;
+
+          if (lightboxPrev) lightboxPrev.classList.add("hidden");
+          if (lightboxNext) lightboxNext.classList.add("hidden");
+        } else {
+          resetZoom();
+        }
+      }
+
+      window.addEventListener("mousemove", (e) => {
+        if (!isZoomed || isDraggingPan) {
+          panX = 0;
+          panY = 0;
+          return;
+        }
+        const edgeX = window.innerWidth * 0.15;
+        const edgeY = window.innerHeight * 0.15;
+        panX = 0;
+        panY = 0;
+        if (e.clientX < edgeX) panX = -1 + e.clientX / edgeX;
+        else if (e.clientX > window.innerWidth - edgeX)
+          panX = (e.clientX - (window.innerWidth - edgeX)) / edgeX;
+        if (e.clientY < edgeY) panY = -1 + e.clientY / edgeY;
+        else if (e.clientY > window.innerHeight - edgeY)
+          panY = (e.clientY - (window.innerHeight - edgeY)) / edgeY;
+        if ((panX !== 0 || panY !== 0) && !panRAF) panLoop();
+      });
+
+      function updateArrowVisibility() {
+        if (!lightboxPrev || !lightboxNext) return;
+
+        if (currentIndex <= 0) {
+          lightboxPrev.classList.add("opacity-10", "pointer-events-none");
+        } else {
+          lightboxPrev.classList.remove("opacity-10", "pointer-events-none");
+        }
+
+        if (currentIndex >= activeGroupItems.length - 1) {
+          lightboxNext.classList.add("opacity-10", "pointer-events-none");
+        } else {
+          lightboxNext.classList.remove("opacity-10", "pointer-events-none");
+        }
+      }
+
       function updateLightbox(index) {
         if (activeGroupItems.length === 0) return;
 
-        // Wrap around logic
-        if (index < 0) currentIndex = activeGroupItems.length - 1;
-        else if (index >= activeGroupItems.length) currentIndex = 0;
-        else currentIndex = index;
+        // Boundary check (no wrap around)
+        if (index < 0 || index >= activeGroupItems.length) return;
 
+        resetZoom(); // Reset zoom when changing image
+        currentIndex = index;
         const currentItem = activeGroupItems[currentIndex];
         const img = currentItem.querySelector("img");
 
@@ -131,6 +253,7 @@
               lightboxInfo.classList.remove("opacity-0");
               lightboxInfo.classList.add("opacity-100");
             }
+            updateArrowVisibility();
           }, 250);
         }
       }
@@ -149,6 +272,7 @@
           currentIndex = activeGroupItems.indexOf(newItem);
 
           // Initialize first image without animating opacity transition immediately
+          resetZoom();
           const img = newItem.querySelector("img");
           if (img) {
             lightboxImg.src = img.src;
@@ -159,6 +283,8 @@
               lightboxYear.textContent = newItem.dataset.year || "----";
             if (lightboxDesc)
               lightboxDesc.textContent = newItem.dataset.description || "";
+
+            lightboxImg.style.cursor = "zoom-in";
           }
 
           lightbox.classList.remove("hidden");
@@ -167,6 +293,7 @@
 
           // Show arrows if there are multiple items
           if (activeGroupItems.length > 1) {
+            updateArrowVisibility();
             if (lightboxPrev) {
               lightboxPrev.classList.remove("hidden");
               setTimeout(() => lightboxPrev.classList.remove("opacity-0"), 50);
@@ -189,6 +316,7 @@
       });
 
       function closeLightbox() {
+        resetZoom();
         if (lightboxInfo) {
           lightboxInfo.classList.remove("opacity-100");
           lightboxInfo.classList.add("opacity-0");
@@ -216,6 +344,8 @@
       lightboxClose.parentNode.replaceChild(newLightboxClose, lightboxClose);
       newLightboxClose.addEventListener("click", closeLightbox);
       lightboxClose = newLightboxClose; // Update reference!
+
+      lightboxImg.addEventListener("click", toggleZoom);
 
       function showNext() {
         updateLightbox(currentIndex + 1);
@@ -257,25 +387,68 @@
         }
       });
 
-      // Swipe Gestures
+      let lastTouchX = 0;
+      let lastTouchY = 0;
+      let totalDragDistance = 0;
+
+      // Touch / Swipe Gestures
       lightbox.addEventListener(
         "touchstart",
         (e) => {
-          touchStartX = e.changedTouches[0].screenX;
+          if (!isZoomed) {
+            touchStartX = e.changedTouches[0].screenX;
+          } else if (e.touches.length === 1) {
+            lastTouchX = e.touches[0].clientX;
+            lastTouchY = e.touches[0].clientY;
+            isDraggingPan = false;
+            totalDragDistance = 0;
+            panX = 0;
+            panY = 0;
+          }
         },
         { passive: true },
+      );
+
+      lightbox.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!isZoomed || e.touches.length !== 1) return;
+          e.preventDefault();
+          const touchX = e.touches[0].clientX;
+          const touchY = e.touches[0].clientY;
+          const deltaX = touchX - lastTouchX;
+          const deltaY = touchY - lastTouchY;
+
+          totalDragDistance += Math.hypot(deltaX, deltaY);
+          if (totalDragDistance > 10) isDraggingPan = true;
+
+          const speed = 0.4; // increased slightly for more responsive drag
+          originX -= deltaX * speed;
+          originY -= deltaY * speed;
+          originX = Math.max(0, Math.min(100, originX));
+          originY = Math.max(0, Math.min(100, originY));
+
+          lightboxImg.style.transition = "transform 0.3s ease-out"; // keep scale anim, stop origin anim
+          lightboxImg.style.transformOrigin = `${originX}% ${originY}%`;
+          lastTouchX = touchX;
+          lastTouchY = touchY;
+        },
+        { passive: false },
       );
 
       lightbox.addEventListener(
         "touchend",
         (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          handleSwipe();
+          if (!isZoomed) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+          }
         },
         { passive: true },
       );
 
       function handleSwipe() {
+        if (isZoomed) return;
         const swipeThreshold = 50;
         const diff = touchEndX - touchStartX;
         if (diff < -swipeThreshold) {
