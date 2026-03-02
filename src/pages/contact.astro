@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Lou Campos - Contact">
   <main
-    class="flex-grow w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col justify-between py-12 md:py-24 relative"
+    class="flex-grow w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-between py-8 md:py-24 relative min-h-[calc(100dvh-140px)] md:min-h-0"
   >
     <!-- Background Decor -->
     <div
@@ -18,7 +18,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <!-- Top Section: Direct Contact -->
-    <section class="max-w-2xl mt-8 md:mt-12 self-start animate-fade-in-up">
+    <section class="max-w-2xl mt-4 md:mt-12 self-start animate-fade-in-up">
       <div class="flex items-center gap-4 mb-8">
         <div class="w-[2px] h-6 bg-accent-pink"></div>
         <h3
@@ -43,10 +43,10 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <!-- Bottom Section: Social & Footer -->
-    <div class="w-full flex flex-col mt-32 md:mt-0">
+    <div class="w-full flex flex-col mt-12 md:mt-0">
       <!-- Social (Asymmetrical Right) -->
       <section
-        class="self-end mb-24 md:mb-32 md:mr-12 lg:mr-24 animate-fade-in-up"
+        class="self-end mb-12 md:mb-32 md:mr-12 lg:mr-24 animate-fade-in-up"
         style="animation-delay: 200ms;"
       >
         <div class="flex items-center justify-end gap-4 mb-8">
@@ -76,14 +76,14 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <!-- Footer Text -->
-    <footer class="w-full text-center space-y-8 pb-12">
+    <footer class="w-full text-center space-y-4 md:space-y-8 pb-4 md:pb-12">
       <p
-        class="font-serif text-base md:text-lg text-gray-400 dark:text-gray-500 italic tracking-wide"
+        class="font-serif text-sm md:text-lg text-gray-400 dark:text-gray-500 italic tracking-wide"
       >
         Based in Spain. Available worldwide.
       </p>
       <!-- Space for centered toggle -->
-      <div class="h-16"></div>
+      <div class="h-8 md:h-16"></div>
     </footer>
   </main>
 </Layout>
