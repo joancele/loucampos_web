@@ -25,24 +25,91 @@ import Layout from "../layouts/Layout.astro";
       </h2>
     </section>
 
-    <!-- Two-Column Grid -->
+    <!-- Biography Section -->
+    <section
+      class="mb-24 md:mb-32 animate-fade-in-up"
+      style="animation-delay: 100ms;"
+    >
+      <div class="flex items-center gap-4 mb-8 md:mb-12">
+        <div class="w-[2px] h-4 bg-accent-pink"></div>
+        <h3
+          class="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase"
+        >
+          Biography
+        </h3>
+      </div>
+
+      <div
+        class="prose prose-lg dark:prose-invert font-serif text-gray-600 dark:text-gray-300 max-w-4xl space-y-8 leading-relaxed"
+      >
+        <p>
+          Lou Campos es una artista multidisciplinar cuya práctica oscila entre
+          la pintura y la fotografía. Nacida en Córdoba, se licenció en Bellas
+          Artes por la Universidad Complutense de Madrid y, posteriormente,
+          amplió su formación con el Máster Internacional de Fotografía
+          Contemporánea y Proyectos Personales en la escuela EFTI.
+        </p>
+        <p>
+          Su trayectoria está avalada por numerosos reconocimientos. En 2007 fue
+          seleccionada en el Premio Penagos de Dibujo; años más tarde, se alzó
+          con el Premio Artes Fundación Arena tanto en la categoría de Artes
+          Plásticas (2013) como en Fotografía (2015). En 2017, recibió el Premio
+          Antonio López de Artes Plásticas y Dibujo, además de obtener el tercer
+          puesto en el II Premio de Pintura Manuel Ángeles Ortiz. Recientemente,
+          su trabajo ha sido reconocido con el Premio de Pintura de Sant Marçal
+          (Mallorca, 2020) y el XXVI Premio de Arte Contemporáneo de Granada
+          (2024).
+        </p>
+        <blockquote
+          class="border-l-2 border-accent-pink pl-6 md:pl-10 my-12 md:my-16 italic text-xl md:text-2xl text-dark-grey dark:text-white leading-snug"
+        >
+          "Estoy interesada en como la rigidez del lenguaje altera la percepción
+          de la realidad."
+        </blockquote>
+        <p>
+          En el ámbito expositivo, destaca su primera individual en 2019, Ugoku
+          no ka, Ugokanai no ka, en la Galería My Name Is Lolita (Festival Off
+          de PHotoESPAÑA). En 2024, presentó su segunda muestra individual,
+          Kiseki, en la Galería Eldevenir (Torrox). Ha participado en ferias
+          internacionales como Kunstrai (Ámsterdam) y ArteSantander de la mano
+          de las galerías Eldevenir y Zunino. Su obra también ha formado parte
+          de muestras colectivas de relevancia, como Cuatro x Tres. Botí Abierto
+          en la Fundación Rafael Botí o Anatomías del Desasosiego en el marco
+          del Festival ACRO.
+        </p>
+        <p>
+          Su práctica artística nace de un diálogo constante entre la pintura y
+          la fotografía, siendo el papel el espacio donde explora la libertad
+          del pensamiento frente a las estructuras rígidas del lenguaje. Le
+          interesa cuestionar las jerarquías visuales establecidas, alterando
+          las proporciones de los elementos o situándolos en contextos
+          inesperados para romper la narrativa convencional. Sus piezas son
+          escenarios donde la vida orgánica se cruza con simulacros de la
+          realidad; una danza entre lo que está vivo y el espejismo que lo
+          imita, invitando al espectador a dudar de su propia percepción.
+        </p>
+      </div>
+    </section>
+
+    <!-- Awards & Exhibitions Section -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 pb-32">
-      <!-- Left Column: Milestones -->
+      <!-- Left Column: Awards & Recognition -->
       <aside
         class="lg:col-span-4 animate-fade-in-up"
-        style="animation-delay: 100ms;"
+        style="animation-delay: 200ms;"
       >
         <div class="flex items-center gap-4 mb-12">
-          <div class="w-[2px] h-4 bg-accent-pink"></div>
+          <div class="w-[2px] h-4 bg-accent-pink hidden lg:block"></div>
           <h3
             class="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase"
           >
-            Milestones
+            Awards & Recognition
           </h3>
+          <div class="lg:hidden w-[2px] h-4 bg-accent-pink"></div>
         </div>
 
         <div class="space-y-12 ml-1">
-          <!-- Item 1 -->
+          <!-- Award 1 -->
           <div
             class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
           >
@@ -68,7 +135,7 @@ import Layout from "../layouts/Layout.astro";
             </div>
           </div>
 
-          <!-- Item 2 -->
+          <!-- Award 2 -->
           <div
             class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
           >
@@ -94,7 +161,7 @@ import Layout from "../layouts/Layout.astro";
             </div>
           </div>
 
-          <!-- Item 3 -->
+          <!-- Award 3 -->
           <div
             class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
           >
@@ -110,98 +177,197 @@ import Layout from "../layouts/Layout.astro";
               <h4
                 class="text-lg font-bold text-dark-grey dark:text-white font-sans"
               >
-                MFA, Fine Arts
+                MFA Excellence Award
               </h4>
               <p
                 class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
               >
-                Parsons School of Design, New York
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div
-            class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
-          >
-            <div
-              class="absolute -left-[5px] top-1.5 w-[9px] h-[9px] bg-accent-pink rounded-full opacity-40"
-            >
-            </div>
-            <div class="space-y-1">
-              <span
-                class="text-[10px] font-sans font-bold text-accent-pink tracking-wider"
-                >2010</span
-              >
-              <h4
-                class="text-lg font-bold text-dark-grey dark:text-white font-sans"
-              >
-                BFA, Sculpture
-              </h4>
-              <p
-                class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
-              >
-                Musashino Art University, Tokyo
+                Parsons School of Design
               </p>
             </div>
           </div>
         </div>
       </aside>
 
-      <!-- Right Column: Biography -->
+      <!-- Right Column: Exhibitions -->
       <section
         class="lg:col-span-8 lg:mt-0 animate-fade-in-up"
-        style="animation-delay: 200ms;"
+        style="animation-delay: 300ms;"
       >
         <div class="flex items-center gap-4 mb-12">
+          <div class="w-[2px] h-4 bg-accent-pink hidden lg:block"></div>
           <h3
-            class="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase text-right w-full lg:text-left"
+            class="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase lg:text-left"
           >
-            Biography
+            Exhibitions
           </h3>
           <div class="lg:hidden w-[2px] h-4 bg-accent-pink"></div>
         </div>
 
-        <div
-          class="prose prose-lg dark:prose-invert font-serif text-gray-600 dark:text-gray-300 max-w-none space-y-8 leading-relaxed"
-        >
-          <p>
-            Lou Campos is a multidisciplinary artist whose work interrogates the
-            relationship between digital architecture and physical presence.
-            Born in Tokyo and educated in New York, Campos draws upon a diverse
-            cultural lexicon to create minimalist sculptures and installations
-            that challenge the viewer's perception of space and volume.
-          </p>
-          <p>
-            His creative process often begins with algorithmic generation, using
-            code to identify "errors" or "glitches" in perfect geometric
-            systems. These digital anomalies are then meticulously rendered into
-            physical reality using traditional materials such as marble, steel,
-            and untreated wood. This juxtaposition creates a dialogue between
-            the cold precision of technology and the warm, tactile nature of
-            craft.
-          </p>
-          <blockquote
-            class="border-l-2 border-accent-pink pl-10 my-16 italic text-2xl text-dark-grey dark:text-white leading-snug"
-          >
-            "I am interested in the moment a perfect system fails. That fracture
-            is where humanity lives."
-          </blockquote>
-          <p>
-            Campos's work has been exhibited internationally, with major
-            installations in Tokyo, London, and Berlin. His series <em
-              >Structure 01</em
-            > was widely acclaimed for its innovative use of light as a structural
-            material, creating "walls" that vanish when approached. He continues to
-            live and work in Tokyo, where the dense urban landscape serves as a constant
-            source of inspiration for his studies on confinement and liberation.
-          </p>
-          <p>
-            Currently, he is developing a new body of work that incorporates
-            bio-feedback data to alter the physical shape of kinetic sculptures
-            in real-time, further blurring the line between the observer and the
-            observed.
-          </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-12">
+          <!-- Solo Exhibitions -->
+          <div>
+            <h4
+              class="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase mb-8"
+            >
+              Solo
+            </h4>
+            <div class="space-y-10">
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2023</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Ghost in the Shell
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  SCAI The Bathhouse, Tokyo
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2020</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Digital Decadence
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  White Cube, London
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2017</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Static Volume
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  König Galerie, Berlin
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2015</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  The Fault Line
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Thesis Gallery, New York
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group Exhibitions -->
+          <div>
+            <h4
+              class="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase mb-8"
+            >
+              Group
+            </h4>
+            <div class="space-y-10">
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2024</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Future Artifacts
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Museum of Contemporary Art, Tokyo
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2022</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Material Memory
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Venice Biennale, Japan Pavilion
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2019</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  New Order
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Saatchi Gallery, London
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2016</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Emergence
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Art Basel Miami Beach
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

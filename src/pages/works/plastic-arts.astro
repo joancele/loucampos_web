@@ -6,96 +6,238 @@ import Lightbox from "../../components/gallery/Lightbox.astro";
 
 const seriesPreview = [
   {
-    title: "Series A",
-    year: "2023-2024",
+    title: "Majikaru",
+    year: "2025-2026",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBtKN9N4414u8gBP0_M8kUrSkBh8OVbBRbEjKZT-T1sSxrHlocWir0BCdtZCxkvJ78DpXD9fwqw4c764F2oJHBMrDWa_nXruLGtRG-ZxioOcTO8F8wkvO5DJm4NR1e3yTGE9In4wZWBZsAwkA7ha1yFOPKT3dogCFI7ZDlrxa6geo6fqQVn7gS7ua9RCWnFx9wvVIn4TEIsnOK_D-V1zC9QYvpnF_n2JJ51SWNv6GVkmhGNeQzSaxMMat1gUgPrAuFZNuIlW_zdV5M",
-    href: "#series-a",
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/Wani%20no%20tora.jpg?updatedAt=1772708517705",
+    href: "#majikaru",
   },
   {
-    title: "Series B",
-    year: "2022",
+    title: "Kyodai",
+    year: "2017-2025",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAspS55uBBTzzFprfxaGPW5H-2Jt4jg8RXhIbykdtjQHcOjsYKNqp7n_UlGUWgzWKrP34VrOxTzCBTqXL9qBM_K0ynCfqt5HTo0qG5HluuC4tptXrFseUGPHdrL5TYn0e2oPvVH_cDPMj4uhos2vynO24jAJXHJcOUKVlTpTiM3n4Ba7AsKlHZ42Fnx3UUoPZe8Zb11NCd8QBszKUfuE6Qze2_Uz7kXu8Ma-hERufJTraBONUHOWM4aR1KZYS0JHx9nIFAwt2nxFsk",
-    href: "#series-b",
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kyodai/seishun.jpg?updatedAt=1772708543307",
+    href: "#kyodai",
   },
   {
-    title: "Series C (Mock)",
-    year: "2021",
+    title: "Barokku",
+    year: "2025",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDSTvphgIRKf6LcXSVlwXXOtYfNz4Yy6zS_kf_V62-S-VNUpQsh1-ja6mdoBAh53zgByKdLoJ1X-ttbvxaEkIBT7bfAO6H1CdPkABTjECfN4tHIDKUMtSwlKIMPSoObjbcFLrBu5B2L6t9cs3oBXNceqrqhZ1hitSsDoNdqbjhBrtnVZh5Se-mG5FMkzpyE74z9u7KJdScNQD5j9CXB6NmTzyONxX6P-A8M7nnSdHNzePKO0vJVqY2NyVi2fRnG6NX-uPPiSJRYg9c",
-    href: "#series-c",
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Barokku/kabin%20to%20komori.jpg?updatedAt=1772708499881",
+    href: "#barokku",
   },
   {
-    title: "Series D (Mock)",
+    title: "Kachiku",
     year: "2020",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC3w6IcyXRCVZYyOofr54Ga3Pj2gCRxsjEhHKJ1D8tFeBwHhsbtrl4EhuF5FwguKdM3TlPYwxobZel2M7wt675eXdoVrB4nQxOdHGA3ImcbpTStImGrBkK7jy2idTh7PrF9vRRg2u9IJQWGF-OauFJmkyhmoBOJST1vNRmLIZ0Q7ZS7WVkvKq-cK2dwxSyh1pkaoMoy50z2yQiRiRJELa08ASBf-JMqMCBcxSirrHo5C5YoTYz4-PO82y6zhw76kkqIc45YBRhrWHs",
-    href: "#series-d",
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kachiku/Usagiuma.jpg?updatedAt=1772708462422",
+    href: "#kachiku",
   },
   {
-    title: "Series E (Mock)",
-    year: "2019",
+    title: "Masuku",
+    year: "2025",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB09Z_bZVbZk7o_5l-R-N3C6vB-_t-M09O_E-FvZq_-W-P6yX-_j-T1G-_V-K2T_P-_C-K8T_bZ-F-_Y-J_M_K-_K2zZ_P-_b_aZ_G_kZ-M0z_5bZ_K",
-    href: "#series-e",
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Masuku/Kaerumonsuta.jpg?updatedAt=1772708483561",
+    href: "#masuku",
   },
   {
-    title: "Series F (Mock)",
+    title: "Zu",
+    year: "2026",
+    image:
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Zu/usucha%20ningyo.jpg?updatedAt=1772708441866",
+    href: "#zu",
+  },
+];
+
+// 4 obras
+const majikaruArtworks = [
+  {
+    title: "Monsutāfisshu",
+    year: "2025",
+    description: "Gouache sobre papel",
+    image:
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/monsuta%20fisshu.jpg?updatedAt=1772708517777",
+    alt: "Obra de prueba 1",
+  },
+  {
+    title: "Wani no tora",
+    year: "2025",
+    description: "Gouache sobre papel",
+    image:
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/Wani%20no%20tora.jpg?updatedAt=1772708517705",
+    alt: "Obra de prueba 2",
+  },
+  {
+    title: "Ōmu Lilac",
+    year: "2026",
+    description: "Gouache sobre papel",
+    image:
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/omu%20lilac.jpg?updatedAt=1772708517794",
+    alt: "Obra de prueba 3",
+  },
+  {
+    title: "Gojira",
+    year: "2026",
+    description: "Gouache sobre papel",
+    image:
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/gojira.jpg?updatedAt=1772708517767",
+    alt: "Obra de prueba 4",
+  },
+];
+
+// 8 obras
+const kyodaiArtworks = [
+  {
+    title: "Seishun",
+    year: "2017",
+    description: "Acuarela, rotulador y grafito sobre papel",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 1",
+  },
+  {
+    title: "Shishunki",
+    year: "2017",
+    description: "Acuarela, rotulador y grafito sobre papel",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 2",
+  },
+  {
+    title: "ino no uchi",
     year: "2018",
+    description: "Acuarela, rotulador y grafito sobre papel",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB_K-M-N_P_1l-R_aZ_Z-F_k_M_C_P_T_5l-R-N3C6vB-_t-M09O_E-FvZq_-W-P6yX-_j-T1G-_V-K2T_P-_C-K8T_bZ-F-_Y-J_M_K-_K2zZ",
-    href: "#series-f",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 3",
+  },
+  {
+    title: "shima",
+    year: "2019",
+    description: "Acuarela, rotulador y grafito sobre papel",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 4",
+  },
+  {
+    title: "Rin’nai",
+    year: "2020",
+    description: "Acuarela, rotulador y grafito sobre papel",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 5",
+  },
+  {
+    title: "Kouyaku",
+    year: "2020",
+    description: "Acuarela, rotulador y grafito sobre papel",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 6",
+  },
+  {
+    title: "Kureopatora",
+    year: "2025",
+    description: "Acuarela, rotulador y grafito sobre papel",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 7",
+  },
+  {
+    title: "Genkei no tamashii",
+    year: "2025",
+    description: "Acuarela, rotulador y grafito sobre papel",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 8",
   },
 ];
 
-const seriesAArtworks = [
+// 2 obras
+const barokkuArtworks = [
   {
-    title: "Structure 01",
-    year: "2023",
-    description:
-      "Exploración matérica sobre los límites del espacio y la estructura de la materia. Una reflexión táctil de nuestro entorno construida mediante veladuras densas.",
+    title: "Saru to fūsen",
+    year: "2025",
+    description: "Gouache sobre papel",
     image:
-      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Wani%20no%20tora.jpg?updatedAt=1772440738877",
-    alt: "Abstract Structure",
+      "https://images.unsplash.com/photo-1516641320498-8ec1f99a5e84?q=80&w=1904&auto=format&fit=crop",
+    alt: "Obra de prueba 1",
   },
   {
-    title: "Composition A",
-    year: "2024",
-    description:
-      "Colisión entre la efervescencia de la cultura pop global y la pintura figurativa contemporánea, estableciendo un diálogo entre estética e historia.",
-    image: "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Gojira.jpeg",
-    alt: "Modern Shapes",
+    title: "Kabin to kōmori",
+    year: "2025",
+    description: "Gouache sobre papel",
+    image:
+      "https://images.unsplash.com/photo-1516641320498-8ec1f99a5e84?q=80&w=1904&auto=format&fit=crop",
+    alt: "Obra de prueba 2",
   },
 ];
 
-const seriesBArtworks = [
+// 4 obras
+const kachikuArtworks = [
   {
-    title: "Void Space",
-    year: "2022",
-    description:
-      "Un viaje profundo hacia la ausencia y el espacio negativo. Esta obra despoja los elementos superfluos para revelar el silencio y el poder visual del vacío.",
+    title: "Obra 1",
+    year: "2021",
+    description: "Descripción de prueba para pintura.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAspS55uBBTzzFprfxaGPW5H-2Jt4jg8RXhIbykdtjQHcOjsYKNqp7n_UlGUWgzWKrP34VrOxTzCBTqXL9qBM_K0ynCfqt5HTo0qG5HluuC4tptXrFseUGPHdrL5TYn0e2oPvVH_cDPMj4uhos2vynO24jAJXHJcOUKVlTpTiM3n4Ba7AsKlHZ42Fnx3UUoPZe8Zb11NCd8QBszKUfuE6Qze2_Uz7kXu8Ma-hERufJTraBONUHOWM4aR1KZYS0JHx9nIFAwt2nxFsk",
-    alt: "Minimalist Art",
+      "https://images.unsplash.com/photo-1506526131379-3fb70bdc79d1?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 1",
   },
   {
-    title: "Raw Material",
-    year: "2022",
-    description:
-      "Estudio minucioso sobre la textura orgánica y la respuesta poética de los materiales en bruto al ser sometidos a la manipulación artística intensiva.",
+    title: "Obra 2",
+    year: "2021",
+    description: "Descripción de prueba para pintura.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCfj9iIvFLPsDVfYRCHxls8PhepqR47AzT23CVMvTJHqlkY-CqYPZ41B-7nRXI8xNqHTUxdAc1r5XsgVo5K5XUtcM6tqph_zSGLVISNerpUS1i8flVamsdvZpRXh5YXdOKXxr08_pW74xQFaZ6IsS9Xwd7ln8-0i4hS-OdQUnnqjfL2KNf6exlJO4xSvB4UPr2tkr5Gp9W4plYnFGLf0GLCLql-HJCo5GAddufVzsEncTGTn1WyoDe1PTA_JZMZ84kYG-z18PcS5Lc",
-    alt: "Texture Study",
+      "https://images.unsplash.com/photo-1506526131379-3fb70bdc79d1?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 2",
   },
   {
-    title: "Linear Study",
-    year: "2022",
-    description:
-      "Investigación y disección de las formas geométricas simples. La abstracción se consigue mediante la línea estructurada y precisa.",
+    title: "Obra 3",
+    year: "2021",
+    description: "Descripción de prueba para pintura.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDSTvphgIRKf6LcXSVlwXXOtYfNz4Yy6zS_kf_V62-S-VNUpQsh1-ja6mdoBAh53zgByKdLoJ1X-ttbvxaEkIBT7bfAO6H1CdPkABTjECfN4tHIDKUMtSwlKIMPSoObjbcFLrBu5B2L6t9cs3oBXNceqrqhZ1hitSsDoNdqbjhBrtnVZh5Se-mG5FMkzpyE74z9u7KJdScNQD5j9CXB6NmTzyONxX6P-A8M7nnSdHNzePKO0vJVqY2NyVi2fRnG6NX-uPPiSJRYg9c",
-    alt: "Geometric Forms",
+      "https://images.unsplash.com/photo-1506526131379-3fb70bdc79d1?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 3",
+  },
+  {
+    title: "Obra 4",
+    year: "2021",
+    description: "Descripción de prueba para pintura.",
+    image:
+      "https://images.unsplash.com/photo-1506526131379-3fb70bdc79d1?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 4",
+  },
+];
+
+// 2 obras
+const masukuArtworks = [
+  {
+    title: "Obra 1",
+    year: "2020",
+    description: "Descripción de prueba para pintura.",
+    image:
+      "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 1",
+  },
+  {
+    title: "Obra 2",
+    year: "2020",
+    description: "Descripción de prueba para pintura.",
+    image:
+      "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2070&auto=format&fit=crop",
+    alt: "Obra de prueba 2",
+  },
+];
+
+// 1 obra
+const zuArtworks = [
+  {
+    title: "Obra 1",
+    year: "2019",
+    description: "Descripción de prueba para pintura.",
+    image:
+      "https://images.unsplash.com/photo-1577083165350-13cb2ab708be?q=80&w=1964&auto=format&fit=crop",
+    alt: "Obra de prueba 1",
   },
 ];
 ---
@@ -107,17 +249,45 @@ const seriesBArtworks = [
     <GalleryIndex title="Index: Obra Plástica" items={seriesPreview} />
 
     <GallerySection
-      id="series-a"
-      title="Series A"
-      description="Exploring the tactile relationship between raw matter and structural integrity. This primary collection investigates how physical boundaries define the spaces we inhabit."
-      artworks={seriesAArtworks}
+      id="majikaru"
+      title="Majikaru"
+      description="Primera agrupación (4 obras)."
+      artworks={majikaruArtworks}
     />
 
     <GallerySection
-      id="series-b"
-      title="Series B"
-      description="A deeper dive into absence and negative space. Series B strips away the non-essential to reveal the quiet power of the void."
-      artworks={seriesBArtworks}
+      id="kyodai"
+      title="Kyodai"
+      description="Segunda agrupación (8 obras)."
+      artworks={kyodaiArtworks}
+    />
+
+    <GallerySection
+      id="barokku"
+      title="Barokku"
+      description="Tercera agrupación (2 obras)."
+      artworks={barokkuArtworks}
+    />
+
+    <GallerySection
+      id="kachiku"
+      title="Kachiku"
+      description="Cuarta agrupación (4 obras)."
+      artworks={kachikuArtworks}
+    />
+
+    <GallerySection
+      id="masuku"
+      title="Masuku"
+      description="Quinta agrupación (2 obras)."
+      artworks={masukuArtworks}
+    />
+
+    <GallerySection
+      id="zu"
+      title="Zu"
+      description="Sexta agrupación (1 obra)."
+      artworks={zuArtworks}
     />
   </main>
 

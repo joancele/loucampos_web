@@ -6,86 +6,82 @@ import Lightbox from "../../components/gallery/Lightbox.astro";
 
 const seriesPreview = [
   {
-    title: "Retrato Conceptual",
-    year: "2023-2024",
-    image:
-      "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop",
-    href: "#retrato-conceptual",
-  },
-  {
-    title: "Arquitectura Minimalista",
-    year: "2022",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-    href: "#arquitectura-minimalista",
-  },
-  {
-    title: "Luz y Sombra",
-    year: "2021",
-    image:
-      "https://images.unsplash.com/photo-1516641320498-8ec1f99a5e84?q=80&w=1904&auto=format&fit=crop",
-    href: "#luz-y-sombra",
-  },
-  {
-    title: "Documental",
-    year: "2020",
-    image:
-      "https://images.unsplash.com/photo-1506526131379-3fb70bdc79d1?q=80&w=2070&auto=format&fit=crop",
-    href: "#documental",
-  },
-  {
-    title: "Paisaje Urbano",
+    title: "Ugoku no ka, ugokanai no ka",
     year: "2019",
     image:
-      "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2070&auto=format&fit=crop",
-    href: "#paisaje-urbano",
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/Jiyuu.jpg?updatedAt=1772708022706",
+    href: "#ogoku-no-ka-ugokanai-no-ka",
   },
   {
-    title: "Naturaleza Muerta",
-    year: "2018",
+    title: "Kiseki",
+    year: "2016-2020",
     image:
-      "https://images.unsplash.com/photo-1577083165350-13cb2ab708be?q=80&w=1964&auto=format&fit=crop",
-    href: "#naturaleza-muerta",
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/kiseki.jpg?updatedAt=1772708595642",
+    href: "#kiseki",
+  },
+  {
+    title: "Inori no Boukyaku",
+    year: "2016",
+    image:
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/inori%20no%20boukyaku.jpg?updatedAt=1772708610279",
+    href: "#inori-no-boukyaku",
   },
 ];
 
-const retratoArtworks = [
+const ugokunokaArtworks = [
   {
-    title: "Identidad Fragmentada",
+    title: "Obra 1",
     year: "2024",
-    description:
-      "Un estudio sobre la percepción de uno mismo en la era digital.",
+    description: "Descripción de prueba para fotografía.",
     image:
       "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop",
-    alt: "Retrato en blanco y negro",
+    alt: "Placeholder 1",
   },
   {
-    title: "Mirada Oculta",
-    year: "2023",
-    description:
-      "El contraste entre la luz y la sombra en la expresión humana.",
+    title: "Obra 2",
+    year: "2024",
+    description: "Descripción de prueba para fotografía.",
     image:
-      "https://images.unsplash.com/photo-1516641320498-8ec1f99a5e84?q=80&w=1904&auto=format&fit=crop",
-    alt: "Perfil dramático",
+      "https://images.unsplash.com/photo-1506526131379-3fb70bdc79d1?q=80&w=2070&auto=format&fit=crop",
+    alt: "Placeholder 2",
   },
 ];
 
-const arquitecturaArtworks = [
+const kisekiArtworks = [
   {
-    title: "Geometría Urbana",
-    year: "2022",
-    description: "La ciudad reducida a sus formas fundamentales.",
+    title: "Obra 1",
+    year: "2023",
+    description: "Descripción de prueba para fotografía.",
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-    alt: "Edificio minimalista",
+    alt: "Placeholder 1",
   },
   {
-    title: "Estructuras Vacías",
-    year: "2022",
-    description: "La belleza de los espacios deshabitados.",
+    title: "Obra 2",
+    year: "2023",
+    description: "Descripción de prueba para fotografía.",
     image:
-      "https://images.unsplash.com/photo-1506526131379-3fb70bdc79d1?q=80&w=2070&auto=format&fit=crop",
-    alt: "Espacio arquitectónico limpio",
+      "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2070&auto=format&fit=crop",
+    alt: "Placeholder 2",
+  },
+];
+
+const inorinobokyakuArtworks = [
+  {
+    title: "Obra 1",
+    year: "2022",
+    description: "Descripción de prueba para fotografía.",
+    image:
+      "https://images.unsplash.com/photo-1516641320498-8ec1f99a5e84?q=80&w=1904&auto=format&fit=crop",
+    alt: "Placeholder 1",
+  },
+  {
+    title: "Obra 2",
+    year: "2022",
+    description: "Descripción de prueba para fotografía.",
+    image:
+      "https://images.unsplash.com/photo-1577083165350-13cb2ab708be?q=80&w=1964&auto=format&fit=crop",
+    alt: "Placeholder 2",
   },
 ];
 ---
@@ -97,17 +93,24 @@ const arquitecturaArtworks = [
     <GalleryIndex title="Index: Fotografía" items={seriesPreview} />
 
     <GallerySection
-      id="retrato-conceptual"
-      title="Retrato Conceptual"
-      description="Explorando la psicología y la identidad a través de la luz y la sombra en el rostro humano."
-      artworks={retratoArtworks}
+      id="ugoku-no-ka-ugokanai-no-ka"
+      title="Ugoku no ka, ugokanai no ka"
+      description="Primera agrupación de obras fotográficas."
+      artworks={ugokunokaArtworks}
     />
 
     <GallerySection
-      id="arquitectura-minimalista"
-      title="Arquitectura Minimalista"
-      description="Buscando la poesía en el hormigón, el acero y el cristal. La reducción del entorno urbano a líneas puras."
-      artworks={arquitecturaArtworks}
+      id="kiseki"
+      title="Kiseki"
+      description="Segunda agrupación de obras fotográficas."
+      artworks={kisekiArtworks}
+    />
+
+    <GallerySection
+      id="inori-no-boukyaku"
+      title="Inori no Boukyaku"
+      description="Tercera agrupación de obras fotográficas."
+      artworks={inorinobokyakuArtworks}
     />
   </main>
 
