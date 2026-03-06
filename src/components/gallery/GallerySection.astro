@@ -42,9 +42,15 @@ const { id, title, description, artworks } = Astro.props;
         >
             {
                 description
-                    .split("\n")
-                    .map((line) => line.trim())
-                    .filter((line) => line.length > 0)
+                    .split(/\n\s*\n/)
+                    .map((block) =>
+                        block
+                            .split("\n")
+                            .map((line) => line.trim())
+                            .filter((line) => line.length > 0)
+                            .join("\n"),
+                    )
+                    .filter((block) => block.length > 0)
                     .map((paragraph) => (
                         <p class="whitespace-pre-line">
                             {"\u00A0\u00A0\u00A0"}
