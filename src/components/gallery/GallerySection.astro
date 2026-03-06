@@ -58,18 +58,27 @@ const {
                             .join("\n"),
                     )
                     .filter((block) => block.length > 0)
-                    .map((paragraph, index) => (
-                        <p class="whitespace-pre-line">
-                            {(index > 0 || indentFirstParagraph) &&
-                                "\u00A0\u00A0\u00A0"}
-                            <span
-                                set:html={paragraph.replace(
-                                    /\*(.*?)\*/g,
-                                    '<em class="font-sans font-light italic">$1</em>',
-                                )}
-                            />
-                        </p>
-                    ))
+                    .map((paragraph, index) => {
+                        const indent =
+                            index > 0 || indentFirstParagraph
+                                ? "\u00A0\u00A0\u00A0"
+                                : "";
+                        const linesWithIndent = paragraph
+                            .split("\n")
+                            .map((line) => indent + line)
+                            .join("\n");
+
+                        return (
+                            <p class="whitespace-pre-line">
+                                <span
+                                    set:html={linesWithIndent.replace(
+                                        /\*(.*?)\*/g,
+                                        '<em class="font-sans font-light italic">$1</em>',
+                                    )}
+                                />
+                            </p>
+                        );
+                    })
             }
         </div>
     </div>
