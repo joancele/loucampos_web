@@ -48,7 +48,12 @@ const { id, title, description, artworks } = Astro.props;
                     .map((paragraph) => (
                         <p class="whitespace-pre-line">
                             {"\u00A0\u00A0\u00A0"}
-                            {paragraph}
+                            <span
+                                set:html={paragraph.replace(
+                                    /\*(.*?)\*/g,
+                                    "<em>$1</em>",
+                                )}
+                            />
                         </p>
                     ))
             }
