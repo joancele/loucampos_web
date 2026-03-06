@@ -38,11 +38,13 @@ const { id, title, description, artworks } = Astro.props;
             </h2>
         </div>
         <div
-            class="font-serif text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl pl-16 space-y-3"
+            class="font-serif text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl pl-16 space-y-2"
         >
             {
                 description
-                    .split("\n\n")
+                    .split("\n")
+                    .map((line) => line.trim())
+                    .filter((line) => line.length > 0)
                     .map((paragraph) => (
                         <p class="whitespace-pre-line">{paragraph}</p>
                     ))
