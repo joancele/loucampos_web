@@ -31,7 +31,10 @@ import "../styles/components/HeroCarousel.css";
         {/* Background Image */}
         <div class="absolute inset-0 w-full h-full">
           <picture class="w-full h-full">
-            <source media="(max-width: 767px)" srcset={slide.imageMobile} />
+            <source
+              media="(orientation: portrait)"
+              srcset={slide.imageMobile}
+            />
             <img
               alt={slide.title}
               data-i18n={slide.titleI18n}
