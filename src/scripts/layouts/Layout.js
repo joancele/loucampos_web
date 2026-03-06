@@ -41,6 +41,20 @@ function applyTranslations() {
   });
 }
 
+const setupImageProtection = () => {
+  document.addEventListener('contextmenu', (e) => {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
+
+  document.addEventListener('dragstart', (e) => {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
+};
+
 const setupInteractions = () => {
   // Theme Toggle Logic
   const themeToggleBtn = document.getElementById("theme-toggle");
@@ -95,5 +109,6 @@ const setupInteractions = () => {
 document.addEventListener("astro:page-load", () => {
   setupTheme();
   setupInteractions();
+  setupImageProtection();
   applyTranslations();
 });

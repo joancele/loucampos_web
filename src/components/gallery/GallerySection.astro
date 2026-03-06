@@ -68,4 +68,32 @@ const { id, title, description, artworks } = Astro.props;
             ))
         }
     </div>
+
+    <div class="mt-12 text-center hidden gallery-toggle-wrapper">
+        <button
+            class="gallery-toggle-btn mx-auto group relative overflow-hidden rounded-full border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111] px-8 py-3 w-48 transition-all hover:border-accent-pink dark:hover:border-accent-pink hover:shadow-[0_0_20px_rgba(255,20,147,0.15)] focus:outline-none"
+        >
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-accent-pink to-accent-pink opacity-0 transition-opacity group-hover:opacity-10"
+            >
+            </div>
+            <span
+                class="relative flex items-center justify-center gap-2 font-sans text-sm tracking-[0.2em] font-bold uppercase text-dark-grey dark:text-gray-300 transition-colors group-hover:text-accent-pink"
+            >
+                <span data-i18n="gallery.view_more" class="gallery-toggle-text"
+                    >Ver más</span
+                >
+                <span
+                    data-i18n="gallery.view_less"
+                    class="gallery-toggle-text hidden">Ver menos</span
+                >
+                <span
+                    class="material-symbols-outlined gallery-toggle-icon text-lg transition-transform duration-300"
+                    >expand_more</span
+                >
+            </span>
+        </button>
+    </div>
 </section>
+
+<script src="../../scripts/components/gallery/GallerySection.js"></script>

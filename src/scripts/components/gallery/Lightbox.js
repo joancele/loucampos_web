@@ -225,28 +225,28 @@ document.addEventListener("astro:page-load", () => {
     }
 
     allItemsList.forEach((item) => {
-      const newItem = item.cloneNode(true);
-      item.parentNode.replaceChild(newItem, item);
+      if (item.dataset.lightboxInit) return;
+      item.dataset.lightboxInit = "true";
 
-      newItem.addEventListener("click", () => {
-        const container = newItem.closest("section");
+      item.addEventListener("click", () => {
+        const container = item.closest("section");
         const groupItemsList = container
           ? container.querySelectorAll(".group.relative.aspect-square")
-          : [newItem];
+          : [item];
         activeGroupItems = Array.from(groupItemsList);
-        currentIndex = activeGroupItems.indexOf(newItem);
+        currentIndex = activeGroupItems.indexOf(item);
 
         resetZoom();
-        const img = newItem.querySelector("img");
+        const img = item.querySelector("img");
         if (img) {
           lightboxImg.src = img.src;
           if (lightboxTitle)
             lightboxTitle.textContent =
-              newItem.dataset.title || "Obra sin título";
+              item.dataset.title || "Obra sin título";
           if (lightboxYear)
-            newItem.dataset.year || "----";
+            lightboxYear.textContent = item.dataset.year || "----";
           if (lightboxDesc)
-            lightboxDesc.textContent = newItem.dataset.description || "";
+            lightboxDesc.textContent = item.dataset.description || "";
 
           lightboxImg.style.cursor = "zoom-in";
         }

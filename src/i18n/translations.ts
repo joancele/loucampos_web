@@ -13,6 +13,8 @@ export const translations = {
     "works.plastic.cta": "Ver Galería de Obras Plásticas",
     "works.photo": "Fotografía",
     "works.photo.cta": "Ver Galería Fotográfica",
+    "gallery.view_more": "Ver más",
+    "gallery.view_less": "Ver menos",
   },
   en: {
     "nav.works": "Works",
@@ -28,6 +30,8 @@ export const translations = {
     "works.plastic.cta": "View Plastic Arts Gallery",
     "works.photo": "Photography",
     "works.photo.cta": "View Photography Gallery",
+    "gallery.view_more": "View more",
+    "gallery.view_less": "View less",
   },
   ja: {
     "nav.works": "Works",
@@ -43,5 +47,7 @@ export const translations = {
     "works.plastic.cta": "造形美術ギャラリーを見る", // View Plastic Arts Gallery
     "works.photo": "写真", // Photography
     "works.photo.cta": "写真ギャラリーを見る", // View Photography Gallery
+    "gallery.view_more": "もっと見る", // View more
+    "gallery.view_less": "表示を減らす", // View less
   },
 };

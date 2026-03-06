@@ -20,23 +20,21 @@
       class="flex-grow landscape:flex-[0_0_80%] lg:flex-[0_0_90%] relative bg-[#fafafa] dark:bg-[#0a0a0a] flex items-center justify-center p-2 md:p-4 overflow-hidden group/img"
     >
       <button
-        class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-[110] p-2 hidden opacity-0 pointer-events-auto"
+        class="absolute z-[110] p-2 md:p-3 rounded-full hidden opacity-0 md:opacity-0 md:group-hover/img:opacity-100 pointer-events-auto backdrop-blur-sm shadow-md bg-white/70 dark:bg-black/50 text-dark-grey dark:text-white hover:bg-accent-pink hover:text-white transition-all duration-300 focus:outline-none left-4 bottom-4 translate-y-0 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-8"
         id="lightbox-prev"
         aria-label="Previous image"
       >
-        <span
-          class="material-symbols-outlined text-4xl md:text-5xl drop-shadow-md"
+        <span class="material-symbols-outlined text-3xl md:text-4xl block"
           >chevron_left</span
         >
       </button>
 
       <button
-        class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-dark-grey dark:text-gray-400 hover:text-accent-pink transition-all focus:outline-none z-[110] p-2 hidden opacity-0 pointer-events-auto"
+        class="absolute z-[110] p-2 md:p-3 rounded-full hidden opacity-0 md:opacity-0 md:group-hover/img:opacity-100 pointer-events-auto backdrop-blur-sm shadow-md bg-white/70 dark:bg-black/50 text-dark-grey dark:text-white hover:bg-accent-pink hover:text-white transition-all duration-300 focus:outline-none right-4 bottom-4 translate-y-0 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:right-8"
         id="lightbox-next"
         aria-label="Next image"
       >
-        <span
-          class="material-symbols-outlined text-4xl md:text-5xl drop-shadow-md"
+        <span class="material-symbols-outlined text-3xl md:text-4xl block"
           >chevron_right</span
         >
       </button>
@@ -51,7 +49,7 @@
     <!-- Contenedor de Información (Extensión Secundaria Minimalista 10%) -->
     <div
       id="lightbox-info"
-      class="w-full landscape:w-auto landscape:flex-[0_0_20%] lg:flex-[0_0_10%] min-w-[150px] p-3 lg:p-4 flex flex-col justify-end bg-white dark:bg-[#151515] opacity-0 transition-opacity duration-300 border-t landscape:border-t-0 landscape:border-l lg:border-t-0 lg:border-l border-gray-100 dark:border-gray-800"
+      class="w-full min-h-[150px] md:min-h-[200px] landscape:min-h-0 landscape:w-auto landscape:flex-[0_0_25%] lg:flex-[0_0_20%] min-w-[250px] md:min-w-[300px] p-5 md:p-6 lg:p-8 flex flex-col justify-end bg-white dark:bg-[#151515] opacity-0 transition-opacity duration-300 border-t landscape:border-t-0 landscape:border-l lg:border-t-0 lg:border-l border-gray-100 dark:border-gray-800"
     >
       <h3
         id="lightbox-title"
@@ -60,7 +58,7 @@
       </h3>
       <p
         id="lightbox-year"
-        class="font-sans text-[11px] text-gray-400 dark:text-gray-600 mb-2 tracking-widest"
+        class="font-sans text-[11px] text-accent-pink mb-2 tracking-widest font-semibold"
       >
       </p>
       <div class="h-[1px] w-4 bg-gray-200 dark:bg-gray-800 mb-2"></div>
