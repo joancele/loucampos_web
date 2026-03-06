@@ -12,9 +12,16 @@ export interface Props {
     title: string;
     description: string;
     artworks: Artwork[];
+    indentFirstParagraph?: boolean;
 }
 
-const { id, title, description, artworks } = Astro.props;
+const {
+    id,
+    title,
+    description,
+    artworks,
+    indentFirstParagraph = true,
+} = Astro.props;
 ---
 
 <section id={id}>
@@ -53,7 +60,8 @@ const { id, title, description, artworks } = Astro.props;
                     .filter((block) => block.length > 0)
                     .map((paragraph, index) => (
                         <p class="whitespace-pre-line">
-                            {index > 0 && "\u00A0\u00A0\u00A0"}
+                            {(index > 0 || indentFirstParagraph) &&
+                                "\u00A0\u00A0\u00A0"}
                             <span
                                 set:html={paragraph.replace(
                                     /\*(.*?)\*/g,
