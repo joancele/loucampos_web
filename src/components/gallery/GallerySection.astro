@@ -57,7 +57,7 @@ const { id, title, description, artworks } = Astro.props;
                             <span
                                 set:html={paragraph.replace(
                                     /\*(.*?)\*/g,
-                                    '<em class="font-light italic">$1</em>',
+                                    '<em class="font-sans font-light italic">$1</em>',
                                 )}
                             />
                         </p>
