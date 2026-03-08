@@ -91,12 +91,11 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <!-- Awards & Exhibitions Section -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 pb-32">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-16 pb-32"
+    >
       <!-- Left Column: Awards & Recognition -->
-      <aside
-        class="lg:col-span-4 animate-fade-in-up"
-        style="animation-delay: 200ms;"
-      >
+      <aside class="animate-fade-in-up" style="animation-delay: 200ms;">
         <div class="flex items-center gap-4 mb-12">
           <div class="w-[2px] h-4 bg-accent-pink hidden lg:block"></div>
           <h3
@@ -108,7 +107,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <div class="space-y-12 ml-1">
-          <!-- Award 1 -->
+          <!-- Award -->
           <div
             class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
           >
@@ -119,22 +118,86 @@ import Layout from "../layouts/Layout.astro";
             <div class="space-y-1">
               <span
                 class="text-[10px] font-sans font-bold text-accent-pink tracking-wider"
-                >2021</span
+                >2025</span
               >
               <h4
                 class="text-lg font-bold text-dark-grey dark:text-white font-sans"
               >
-                Luminosity Prize
+                Seleccionada para la XLI Muestra de Arte Joven
               </h4>
               <p
                 class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
               >
-                Winner, Contemporary Sculpture Category
+                La Rioja
+              </p>
+              <a
+                href="/works/photography?artwork=Jiyuu#ugoku-no-ka-ugokanai-no-ka"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 mt-2 text-xs font-sans font-medium text-accent-pink hover:text-dark-grey dark:hover:text-white transition-colors group/link"
+              >
+                <span>Ir a la obra</span>
+                <span
+                  class="material-symbols-outlined text-[14px] group-hover/link:translate-x-1 transition-transform"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+
+          <!-- Award -->
+          <div
+            class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
+          >
+            <div
+              class="absolute -left-[5px] top-1.5 w-[9px] h-[9px] bg-accent-pink rounded-full opacity-40"
+            >
+            </div>
+            <div class="space-y-1">
+              <span
+                class="text-[10px] font-sans font-bold text-accent-pink tracking-wider"
+                >2024</span
+              >
+              <h4
+                class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+              >
+                Premio XXVI Arte Contemporáneo Granada
+              </h4>
+              <p
+                class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+              >
+                Granada, España
               </p>
             </div>
           </div>
 
-          <!-- Award 2 -->
+          <!-- Award -->
+          <div
+            class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
+          >
+            <div
+              class="absolute -left-[5px] top-1.5 w-[9px] h-[9px] bg-accent-pink rounded-full opacity-40"
+            >
+            </div>
+            <div class="space-y-1">
+              <span
+                class="text-[10px] font-sans font-bold text-accent-pink tracking-wider"
+                >2020</span
+              >
+              <h4
+                class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+              >
+                Premio Certamen de pintura de Sant Marçal
+              </h4>
+              <p
+                class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+              >
+                Marratxí, Mallorca, España
+              </p>
+            </div>
+          </div>
+
+          <!-- Award -->
           <div
             class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
           >
@@ -150,17 +213,69 @@ import Layout from "../layouts/Layout.astro";
               <h4
                 class="text-lg font-bold text-dark-grey dark:text-white font-sans"
               >
-                Emerging Artist Grant
+                Accésit en el LXXI Premio Nacional de Pintura José Arpa
               </h4>
               <p
                 class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
               >
-                Tokyo Arts Council
+                Carmona, Sevilla
               </p>
             </div>
           </div>
 
-          <!-- Award 3 -->
+          <!-- Award -->
+          <div
+            class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
+          >
+            <div
+              class="absolute -left-[5px] top-1.5 w-[9px] h-[9px] bg-accent-pink rounded-full opacity-40"
+            >
+            </div>
+            <div class="space-y-1">
+              <span
+                class="text-[10px] font-sans font-bold text-accent-pink tracking-wider"
+                >2017</span
+              >
+              <h4
+                class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+              >
+                Tercer Premio en el II Certamen Pintura Manuel Ángeles Ortiz
+              </h4>
+              <p
+                class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+              >
+                Jaén, España
+              </p>
+            </div>
+          </div>
+
+          <!-- Award -->
+          <div
+            class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
+          >
+            <div
+              class="absolute -left-[5px] top-1.5 w-[9px] h-[9px] bg-accent-pink rounded-full opacity-40"
+            >
+            </div>
+            <div class="space-y-1">
+              <span
+                class="text-[10px] font-sans font-bold text-accent-pink tracking-wider"
+                >2017</span
+              >
+              <h4
+                class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+              >
+                Premio Antonio López de Artes Plásticas y Dibujo
+              </h4>
+              <p
+                class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+              >
+                Tomelloso, Ciudad Real, España
+              </p>
+            </div>
+          </div>
+
+          <!-- Award -->
           <div
             class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
           >
@@ -176,23 +291,72 @@ import Layout from "../layouts/Layout.astro";
               <h4
                 class="text-lg font-bold text-dark-grey dark:text-white font-sans"
               >
-                MFA Excellence Award
+                Premio Artes Visuales Fundación Arena de Fotografía
               </h4>
               <p
                 class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
               >
-                Parsons School of Design
+                Barcelona, España
+              </p>
+            </div>
+          </div>
+
+          <!-- Award -->
+          <div
+            class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
+          >
+            <div
+              class="absolute -left-[5px] top-1.5 w-[9px] h-[9px] bg-accent-pink rounded-full opacity-40"
+            >
+            </div>
+            <div class="space-y-1">
+              <span
+                class="text-[10px] font-sans font-bold text-accent-pink tracking-wider"
+                >2013</span
+              >
+              <h4
+                class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+              >
+                Premio Artes Visuales Fundación Arena de Artes Plásticas
+              </h4>
+              <p
+                class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+              >
+                Barcelona, España
+              </p>
+            </div>
+          </div>
+
+          <!-- Award -->
+          <div
+            class="relative pl-8 border-l border-gray-100 dark:border-gray-800"
+          >
+            <div
+              class="absolute -left-[5px] top-1.5 w-[9px] h-[9px] bg-accent-pink rounded-full opacity-40"
+            >
+            </div>
+            <div class="space-y-1">
+              <span
+                class="text-[10px] font-sans font-bold text-accent-pink tracking-wider"
+                >2007</span
+              >
+              <h4
+                class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+              >
+                Seleccionada en el Premio Penagos de la Fundación Mapfre
+              </h4>
+              <p
+                class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+              >
+                Madrid, España
               </p>
             </div>
           </div>
         </div>
       </aside>
 
-      <!-- Right Column: Exhibitions -->
-      <section
-        class="lg:col-span-8 lg:mt-0 animate-fade-in-up"
-        style="animation-delay: 300ms;"
-      >
+      <!-- Middle Column: Exhibitions -->
+      <section class="animate-fade-in-up" style="animation-delay: 300ms;">
         <div class="flex items-center gap-4 mb-12">
           <div class="w-[2px] h-4 bg-accent-pink hidden lg:block"></div>
           <h3
@@ -203,95 +367,13 @@ import Layout from "../layouts/Layout.astro";
           <div class="lg:hidden w-[2px] h-4 bg-accent-pink"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-12">
+        <div class="space-y-16">
           <!-- Solo Exhibitions -->
           <div>
             <h4
-              class="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase mb-8"
+              class="inline-block font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase mb-8 border-b-2 border-gray-400 dark:border-gray-600 pb-1"
             >
-              Solo
-            </h4>
-            <div class="space-y-10">
-              <!-- Item -->
-              <div class="space-y-1">
-                <span
-                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
-                  >2023</span
-                >
-                <h5
-                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
-                >
-                  Ghost in the Shell
-                </h5>
-                <p
-                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
-                >
-                  SCAI The Bathhouse, Tokyo
-                </p>
-              </div>
-
-              <!-- Item -->
-              <div class="space-y-1">
-                <span
-                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
-                  >2020</span
-                >
-                <h5
-                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
-                >
-                  Digital Decadence
-                </h5>
-                <p
-                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
-                >
-                  White Cube, London
-                </p>
-              </div>
-
-              <!-- Item -->
-              <div class="space-y-1">
-                <span
-                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
-                  >2017</span
-                >
-                <h5
-                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
-                >
-                  Static Volume
-                </h5>
-                <p
-                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
-                >
-                  König Galerie, Berlin
-                </p>
-              </div>
-
-              <!-- Item -->
-              <div class="space-y-1">
-                <span
-                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
-                  >2015</span
-                >
-                <h5
-                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
-                >
-                  The Fault Line
-                </h5>
-                <p
-                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
-                >
-                  Thesis Gallery, New York
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Group Exhibitions -->
-          <div>
-            <h4
-              class="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase mb-8"
-            >
-              Group
+              Solo Exhibitions
             </h4>
             <div class="space-y-10">
               <!-- Item -->
@@ -303,12 +385,83 @@ import Layout from "../layouts/Layout.astro";
                 <h5
                   class="text-lg font-bold text-dark-grey dark:text-white font-sans"
                 >
-                  Future Artifacts
+                  Kiseki
                 </h5>
                 <p
                   class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
                 >
-                  Museum of Contemporary Art, Tokyo
+                  Galería Eldevenir. Torrox, Málaga, España
+                </p>
+                <a
+                  href="/works/photography?gallery=kiseki#kiseki"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 mt-2 text-xs font-sans font-medium text-accent-pink hover:text-dark-grey dark:hover:text-white transition-colors group/link"
+                >
+                  <span>Ir al proyecto</span>
+                  <span
+                    class="material-symbols-outlined text-[14px] group-hover/link:translate-x-1 transition-transform"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2019</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Ugoku no ka, Ugokanai no ka
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Galería My Name is Lolita (Off PhotoEspaña). Madrid, España
+                </p>
+                <a
+                  href="/works/photography?gallery=ugoku-no-ka-ugokanai-no-ka#ugoku-no-ka-ugokanai-no-ka"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 mt-2 text-xs font-sans font-medium text-accent-pink hover:text-dark-grey dark:hover:text-white transition-colors group/link"
+                >
+                  <span>Ir al proyecto</span>
+                  <span
+                    class="material-symbols-outlined text-[14px] group-hover/link:translate-x-1 transition-transform"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group Exhibitions -->
+          <div>
+            <h4
+              class="inline-block font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase mb-8 border-b-2 border-gray-400 dark:border-gray-600 pb-1"
+            >
+              Group Exhibitions
+            </h4>
+            <div class="space-y-10">
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2025</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Anatomías del Desasosiego
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Festival ACRO, Espacio José Hernández. Villanueva del Rosario,
+                  Málaga, España
                 </p>
               </div>
 
@@ -316,17 +469,72 @@ import Layout from "../layouts/Layout.astro";
               <div class="space-y-1">
                 <span
                   class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
-                  >2022</span
+                  >2025</span
                 >
                 <h5
                   class="text-lg font-bold text-dark-grey dark:text-white font-sans"
                 >
-                  Material Memory
+                  Feria Internacional de Arte Contemporáneo Kunstrai
                 </h5>
                 <p
                   class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
                 >
-                  Venice Biennale, Japan Pavilion
+                  Ámsterdam, Países Bajos
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2024</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  ArteSantander
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Con las galerías Eldevenir y Zunino. Santander, España
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2023</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Nocturnos
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Galería Eldevenir y Galería Zunino, en la Sala Pescadería
+                  Vieja. Jerez de la Frontera, Cádiz, España
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2021</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Cuatro x Tres. Botí Abierto
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Fundación Rafael Botí. Córdoba, España
                 </p>
               </div>
 
@@ -339,12 +547,12 @@ import Layout from "../layouts/Layout.astro";
                 <h5
                   class="text-lg font-bold text-dark-grey dark:text-white font-sans"
                 >
-                  New Order
+                  Motherland
                 </h5>
                 <p
                   class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
                 >
-                  Saatchi Gallery, London
+                  Espacio Cruz Bajo. Madrid, España
                 </p>
               </div>
 
@@ -352,17 +560,111 @@ import Layout from "../layouts/Layout.astro";
               <div class="space-y-1">
                 <span
                   class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
-                  >2016</span
+                  >2017</span
                 >
                 <h5
                   class="text-lg font-bold text-dark-grey dark:text-white font-sans"
                 >
-                  Emergence
+                  Hacia dónde mirar
                 </h5>
                 <p
                   class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
                 >
-                  Art Basel Miami Beach
+                  Escuela Efti. Madrid, España
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Education -->
+      <section class="animate-fade-in-up" style="animation-delay: 400ms;">
+        <div class="flex items-center gap-4 mb-12">
+          <div class="w-[2px] h-4 bg-accent-pink hidden lg:block"></div>
+          <h3
+            class="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-dark-grey dark:text-white uppercase lg:text-left"
+          >
+            Education
+          </h3>
+          <div class="lg:hidden w-[2px] h-4 bg-accent-pink"></div>
+        </div>
+
+        <div class="space-y-16">
+          <div>
+            <div class="space-y-10">
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2015-2016</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Máster Internacional de Fotografía Contemporánea y Proyectos
+                  Personales
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  EFTI. Madrid, España
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2014</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Taller impartido por Fernando Castro, “El paisaje de los
+                  acontecimientos y el babelismo carcelario”
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Scarpia. El Carpio, Córdoba
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2008-2013</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Licenciatura en Bellas Artes
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Universidad Complutense de Madrid (UCM). Madrid, España
+                </p>
+              </div>
+
+              <!-- Item -->
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-sans text-gray-400 dark:text-gray-500 font-bold tracking-wider"
+                  >2008</span
+                >
+                <h5
+                  class="text-lg font-bold text-dark-grey dark:text-white font-sans"
+                >
+                  Taller con Ben Patterson durante el V Encuentro Internacional
+                  de Arte de Acción
+                </h5>
+                <p
+                  class="text-xs font-serif italic text-gray-400 dark:text-gray-500"
+                >
+                  Madrid, España
                 </p>
               </div>
             </div>

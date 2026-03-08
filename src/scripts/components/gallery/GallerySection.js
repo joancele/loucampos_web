@@ -183,6 +183,24 @@ document.addEventListener("astro:page-load", () => {
                     }
                 }, 100);
             });
+
+            // --- DEEP LINKING FOR GALLERIES ---
+            // Auto expand if URL parameter indicates this gallery should be open
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetGallery = urlParams.get("gallery");
+            if (targetGallery && gallery.id === targetGallery) {
+                setTimeout(() => {
+                    if (!isExpanded) {
+                        isExpanded = true;
+                        updateVisibility(true);
+                    }
+                    gallery.scrollIntoView({ behavior: "instant" });
+
+                    // Clean URL
+                    const newUrl = window.location.pathname + window.location.hash;
+                    window.history.replaceState({}, document.title, newUrl);
+                }, 100);
+            }
         }
     });
 });

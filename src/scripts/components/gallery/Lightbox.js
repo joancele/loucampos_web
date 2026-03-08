@@ -425,5 +425,42 @@ document.addEventListener("astro:page-load", () => {
         showPrev();
       }
     }
+
+    // --- INICIO CÓDIGO DE ENLACES PROFUNDOS (DEEP LINKING) ---
+    // Buscar si hay un parámetro en la URL del estilo: ?artwork=NombreDeLaObra
+    const urlParams = new URLSearchParams(window.location.search);
+    const artworkToOpen = urlParams.get("artwork");
+
+    if (artworkToOpen) {
+      // Normalizar la cadena para evitar problemas con mayúsculas/minúsculas y espacios
+      const normalizeStr = (str) =>
+        (str || "").toLowerCase().trim().replace(/[\s-]/g, '');
+
+      const targetName = normalizeStr(artworkToOpen);
+
+      // Usar un ligero timeout para dar tiempo a que las imágenes y Layout se rendericen
+      setTimeout(() => {
+        // Encontrar la obra correspondiente en todos los elementos iterables
+        const targetItem = Array.from(allItemsList).find((item) => {
+          const itemTitle = item.dataset.title;
+          return normalizeStr(itemTitle) === targetName;
+        });
+
+        if (targetItem) {
+          // Si el elemento está en una sección, deslizarla a la vista por contexto
+          const sectionGroup = targetItem.closest("section");
+          if (sectionGroup) {
+            sectionGroup.scrollIntoView({ behavior: "instant" });
+          }
+
+          // Simular que el usuario ha hecho click en la obra para abrir el lightbox
+          targetItem.click();
+
+          // Limpiar el parámetro ?artwork de la URL para que no interfiera si el usuario navega a otra parte y vuelve
+          const newUrl = window.location.pathname + window.location.hash;
+          window.history.replaceState({}, document.title, newUrl);
+        }
+      }, 300); // 300ms de retraso es seguro para asegurar que las transiciones de vista de Astro completan
+    }
   }
 });
