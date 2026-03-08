@@ -12,6 +12,8 @@ document.addEventListener("astro:page-load", () => {
   const lightboxYear = document.getElementById("lightbox-year");
   const lightboxDesc = document.getElementById("lightbox-desc");
   const lightboxInfo = document.getElementById("lightbox-info");
+  const lightboxRecognitionsContainer = document.getElementById("lightbox-recognitions-container");
+  const lightboxRecognitionsList = document.getElementById("lightbox-recognitions-list");
 
   let activeGroupItems = [];
   let currentIndex = 0;
@@ -213,6 +215,42 @@ document.addEventListener("astro:page-load", () => {
           if (lightboxDesc)
             lightboxDesc.textContent = currentItem.dataset.description || "";
 
+          // Populate Recognitions
+          if (lightboxRecognitionsContainer && lightboxRecognitionsList) {
+            try {
+              const recogsRaw = currentItem.dataset.recognitions;
+              if (recogsRaw) {
+                const recogs = JSON.parse(recogsRaw);
+                if (Array.isArray(recogs) && recogs.length > 0) {
+                  let html = "";
+                  recogs.forEach(r => {
+                    let icon = "star";
+                    if (r.type === "award") icon = "emoji_events";
+                    else if (r.type === "exhibition") icon = "museum";
+
+                    html += `
+                      <li class="flex items-start gap-3">
+                        <div class="relative inline-flex items-center justify-center shrink-0 mt-[1px]">
+                          <span class="material-symbols-outlined text-[20px] text-accent-pink" style="font-variation-settings: 'FILL' 1">${icon}</span>
+                          ${r.badge ? `<span class="absolute text-[9px] font-bold text-white bg-accent-pink rounded-full w-3 h-3 flex items-center justify-center leading-none ${r.type === 'award' ? 'mb-[5px] ml-[1px]' : 'mt-[2px]'}">${r.badge}</span>` : ''}
+                        </div>
+                        <span class="leading-snug mt-[1px]">${r.text}</span>
+                      </li>
+                    `;
+                  });
+                  lightboxRecognitionsList.innerHTML = html;
+                  lightboxRecognitionsContainer.classList.remove("hidden");
+                } else {
+                  lightboxRecognitionsContainer.classList.add("hidden");
+                }
+              } else {
+                lightboxRecognitionsContainer.classList.add("hidden");
+              }
+            } catch (e) {
+              lightboxRecognitionsContainer.classList.add("hidden");
+            }
+          }
+
           lightboxImg.classList.remove("opacity-30");
           lightboxImg.classList.add("opacity-100");
           if (lightboxInfo) {
@@ -247,6 +285,43 @@ document.addEventListener("astro:page-load", () => {
             lightboxYear.textContent = item.dataset.year || "----";
           if (lightboxDesc)
             lightboxDesc.textContent = item.dataset.description || "";
+
+          // Populate Recognitions
+          if (lightboxRecognitionsContainer && lightboxRecognitionsList) {
+            try {
+              const recogsRaw = item.dataset.recognitions;
+              if (recogsRaw) {
+                const recogs = JSON.parse(recogsRaw);
+                if (Array.isArray(recogs) && recogs.length > 0) {
+                  let html = "";
+                  recogs.forEach(r => {
+                    let icon = "star";
+                    if (r.type === "award") icon = "emoji_events";
+                    else if (r.type === "exhibition") icon = "museum";
+
+                    html += `
+                      <li class="flex items-start gap-3 relative top-[4px]">
+                        <div class="relative inline-flex items-center justify-center shrink-0 mt-[1px]">
+                          <span class="material-symbols-outlined text-[20px] text-accent-pink" style="font-variation-settings: 'FILL' 1">${icon}</span>
+                          ${r.badge ? `<span class="absolute text-[9px] font-bold text-white bg-accent-pink rounded-full w-3 h-3 flex items-center justify-center leading-none ${r.type === 'award' ? 'mb-[5px] ml-[1px]' : 'mt-[2px]'}">${r.badge}</span>` : ''}
+                        </div>
+                        <span class="leading-snug mt-[1px]">${r.text}</span>
+                      </li>
+                    `;
+                  });
+                  lightboxRecognitionsList.innerHTML = html;
+                  lightboxRecognitionsContainer.classList.remove("hidden");
+                } else {
+                  lightboxRecognitionsContainer.classList.add("hidden");
+                }
+              } else {
+                lightboxRecognitionsContainer.classList.add("hidden");
+              }
+            } catch (e) {
+              console.error("Error parsing recognitions", e);
+              lightboxRecognitionsContainer.classList.add("hidden");
+            }
+          }
 
           lightboxImg.style.cursor = "zoom-in";
         }

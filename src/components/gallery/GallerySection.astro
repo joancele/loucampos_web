@@ -5,6 +5,7 @@ export interface Artwork {
     description: string;
     image: string;
     alt: string;
+    recognitions?: { type: string; text: string; badge?: string }[];
 }
 
 export interface Props {
@@ -92,6 +93,11 @@ const {
                     data-title={artwork.title}
                     data-year={artwork.year}
                     data-description={artwork.description}
+                    data-recognitions={
+                        artwork.recognitions
+                            ? JSON.stringify(artwork.recognitions)
+                            : ""
+                    }
                 >
                     <img
                         alt={artwork.alt}
