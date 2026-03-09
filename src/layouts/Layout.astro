@@ -61,13 +61,14 @@ const currentPath = Astro.url.pathname;
             <span class="material-symbols-outlined text-3xl">menu</span>
           </button>
           <div
-            class="flex flex-col landscape:flex-row items-center gap-2 landscape:gap-6"
+            class="flex flex-col landscape:flex-row items-center gap-1 landscape:gap-6"
           >
-            <a
-              class="font-sans font-bold text-3xl text-accent-pink tracking-widest whitespace-nowrap"
-              href="/"
-            >
-              ロウ カンポス
+            <a class="flex items-center -mb-1 landscape:mb-0" href="/">
+              <img
+                src="/logo.svg"
+                alt="ロウ カンポス"
+                class="h-[50px] w-auto"
+              />
             </a>
             <div
               class="h-[1px] w-24 landscape:h-8 landscape:w-[1px] bg-accent-pink my-1 landscape:my-0"
@@ -83,11 +84,12 @@ const currentPath = Astro.url.pathname;
         </div>
         <div class="hidden lg:flex items-center justify-between gap-8">
           <div class="flex items-center gap-6">
-            <a
-              class="font-sans font-bold text-3xl text-accent-pink tracking-widest whitespace-nowrap"
-              href="/"
-            >
-              ロウ カンポス
+            <a class="flex items-center" href="/">
+              <img
+                src="/logo.svg"
+                alt="ロウ カンポス"
+                class="h-[60px] w-auto"
+              />
             </a>
             <div class="h-8 w-[1px] bg-accent-pink"></div>
             <a
