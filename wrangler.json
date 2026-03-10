@@ -1,0 +1,8 @@
+{
+    "name": "loucampos_web",
+    "compatibility_date": "2024-03-10",
+    "assets": {
+        "directory": "./dist",
+        "binding": "ASSETS"
+    }
+}
