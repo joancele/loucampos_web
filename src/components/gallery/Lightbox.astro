@@ -1,17 +1,19 @@
 ---
-
+// Force update: 2026-03-13 21:30
 ---
 
 <div
   class="fixed inset-0 z-[100] hidden bg-white/95 dark:bg-black/95 items-center justify-center p-4 md:p-8 overflow-hidden"
   id="lightbox"
 >
-  <button
-    class="fixed top-8 right-8 md:top-12 md:right-12 text-dark-grey dark:text-white hover:text-accent-pink transition-colors focus:outline-none z-[120]"
-    id="lightbox-close"
-  >
-    <span class="material-symbols-outlined text-4xl">close</span>
-  </button>
+  <div class="fixed top-8 right-8 md:top-12 md:right-12 z-[120]">
+    <button
+      class="text-dark-grey dark:text-white hover:text-accent-pink transition-colors focus:outline-none"
+      id="lightbox-close"
+    >
+      <span class="material-symbols-outlined text-4xl">close</span>
+    </button>
+  </div>
   <div
     class="relative flex flex-col landscape:flex-row lg:flex-row items-stretch justify-center w-[98vw] lg:w-[95vw] max-w-[2000px] mx-auto h-[95dvh] lg:h-[90dvh] bg-white dark:bg-[#1a1a1a] shadow-2xl overflow-hidden"
   >
@@ -38,6 +40,16 @@
           >chevron_right</span
         >
       </button>
+
+      <button
+        class="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-[120] w-12 h-12 md:w-14 md:h-14 rounded-full bg-accent-pink text-white flex items-center justify-center shadow-xl hover:scale-110 transition-all duration-300 focus:outline-none opacity-0"
+        id="lightbox-share"
+        title="Compartir obra"
+      >
+        <span class="material-symbols-outlined text-2xl md:text-3xl">share</span
+        >
+      </button>
+
       <img
         alt="Expanded View"
         class="max-w-full max-h-full object-contain scale-100 transition-all duration-300 opacity-100"
@@ -51,6 +63,16 @@
       id="lightbox-info"
       class="w-full min-h-[150px] md:min-h-[200px] landscape:min-h-0 landscape:w-auto landscape:flex-[0_0_25%] lg:flex-[0_0_20%] min-w-[250px] md:min-w-[300px] p-5 md:p-6 lg:p-8 flex flex-col justify-end bg-white dark:bg-[#151515] opacity-0 transition-opacity duration-300 border-t landscape:border-t-0 landscape:border-l lg:border-t-0 lg:border-l border-gray-100 dark:border-gray-800"
     >
+      <div id="buyer-badge" class="hidden mb-4 items-center gap-2">
+        <span
+          class="material-symbols-outlined text-accent-pink text-lg"
+          style="font-variation-settings: 'FILL' 1">verified</span
+        >
+        <span
+          class="text-[10px] uppercase tracking-[0.2em] font-bold text-accent-pink"
+          >Coleccionista Verificado</span
+        >
+      </div>
       <h3
         id="lightbox-title"
         class="font-sans font-medium text-xs md:text-sm text-gray-700 dark:text-gray-300 mb-1 uppercase tracking-widest break-words"

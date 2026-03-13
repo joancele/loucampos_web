@@ -14,6 +14,8 @@ document.addEventListener("astro:page-load", () => {
   const lightboxInfo = document.getElementById("lightbox-info");
   const lightboxRecognitionsContainer = document.getElementById("lightbox-recognitions-container");
   const lightboxRecognitionsList = document.getElementById("lightbox-recognitions-list");
+  const buyerBadge = document.getElementById("buyer-badge");
+  const shareBtn = document.getElementById("lightbox-share");
 
   let activeGroupItems = [];
   let currentIndex = 0;
@@ -192,6 +194,10 @@ document.addEventListener("astro:page-load", () => {
       if (index < 0 || index >= activeGroupItems.length) return;
 
       resetZoom();
+      if (buyerBadge) {
+        buyerBadge.classList.add("hidden");
+        buyerBadge.classList.remove("flex");
+      }
       currentIndex = index;
       const currentItem = activeGroupItems[currentIndex];
       const img = currentItem.querySelector("img");
@@ -253,6 +259,8 @@ document.addEventListener("astro:page-load", () => {
 
           lightboxImg.classList.remove("opacity-30");
           lightboxImg.classList.add("opacity-100");
+          positionShareButton();
+
           if (lightboxInfo) {
             lightboxInfo.classList.remove("opacity-0");
             lightboxInfo.classList.add("opacity-100");
@@ -261,6 +269,58 @@ document.addEventListener("astro:page-load", () => {
         }, 250);
       }
     }
+
+    function positionShareButton() {
+      if (!lightboxImg || !shareBtn || !lightboxImg.complete || lightboxImg.naturalWidth === 0) {
+        shareBtn.style.opacity = "0";
+        return;
+      }
+
+      const container = lightboxImg.parentElement;
+      if (!container) return;
+
+      const contWidth = container.clientWidth;
+      const contHeight = container.clientHeight;
+
+      const imgWidth = lightboxImg.clientWidth;
+      const imgHeight = lightboxImg.clientHeight;
+
+      const naturalRatio = lightboxImg.naturalWidth / lightboxImg.naturalHeight;
+      const containerRatio = imgWidth / imgHeight;
+
+      let renderedWidth, renderedHeight;
+      if (naturalRatio > containerRatio) {
+        renderedWidth = imgWidth;
+        renderedHeight = imgWidth / naturalRatio;
+      } else {
+        renderedHeight = imgHeight;
+        renderedWidth = imgHeight * naturalRatio;
+      }
+
+      // El offset respecto al contenedor padre (que tiene el botón absolute)
+      // Primero el offset para llegar al borde de la imagen (centrada)
+      // El <img> ya está centrado por flex in parent, así que su borde derecho está en:
+      // (contWidth + renderedWidth) / 2
+      // La propiedad 'right' es la distancia desde el borde derecho del contenedor.
+      // right = (contWidth - renderedWidth) / 2
+
+      const rightOffset = (contWidth - renderedWidth) / 2;
+      const bottomOffset = (contHeight - renderedHeight) / 2;
+
+      const isMobile = window.innerWidth < 768;
+      const margin = isMobile ? 12 : 20;
+
+      shareBtn.style.right = `${rightOffset + margin}px`;
+      shareBtn.style.bottom = `${bottomOffset + margin}px`;
+      shareBtn.style.opacity = "1";
+    }
+
+    // Asegurar posicionamiento cuando la imagen carga (incluyendo caché)
+    lightboxImg.addEventListener('load', positionShareButton);
+    if (lightboxImg.complete) {
+      positionShareButton();
+    }
+    window.addEventListener("resize", positionShareButton);
 
     allItemsList.forEach((item) => {
       if (item.dataset.lightboxInit) return;
@@ -345,6 +405,7 @@ document.addEventListener("astro:page-load", () => {
         setTimeout(() => {
           lightboxImg.classList.remove("opacity-30");
           lightboxImg.classList.add("opacity-100");
+          positionShareButton();
           if (lightboxInfo) {
             lightboxInfo.classList.remove("opacity-0");
             lightboxInfo.classList.add("opacity-100");
@@ -502,20 +563,17 @@ document.addEventListener("astro:page-load", () => {
     }
 
     // --- INICIO CÓDIGO DE ENLACES PROFUNDOS (DEEP LINKING) ---
-    // Buscar si hay un parámetro en la URL del estilo: ?artwork=ID
     const urlParams = new URLSearchParams(window.location.search);
     const artworkToOpen = urlParams.get("artwork");
+    const isBuyer = urlParams.get("buyer") === "true";
 
     if (artworkToOpen) {
-      // Normalizar la cadena antigua para evitar problemas con mayúsculas/minúsculas y espacios si acceden por título
       const normalizeStr = (str) =>
         (str || "").toLowerCase().trim().replace(/[\s-]/g, '');
 
       const targetName = normalizeStr(artworkToOpen);
 
-      // Usar un ligero timeout para dar tiempo a que las imágenes y Layout se rendericen
       setTimeout(() => {
-        // Encontrar la obra correspondiente en todos los elementos iterables
         const targetItem = Array.from(allItemsList).find((item) => {
           const itemId = item.dataset.id;
           const itemTitle = item.dataset.title;
@@ -523,20 +581,67 @@ document.addEventListener("astro:page-load", () => {
         });
 
         if (targetItem) {
-          // Si el elemento está en una sección, deslizarla a la vista por contexto
           const sectionGroup = targetItem.closest("section");
           if (sectionGroup) {
             sectionGroup.scrollIntoView({ behavior: "instant" });
           }
 
-          // Simular que el usuario ha hecho click en la obra para abrir el lightbox
+          if (isBuyer && buyerBadge) {
+            buyerBadge.classList.remove("hidden");
+            buyerBadge.classList.add("flex");
+          }
+
           targetItem.click();
 
-          // Limpiar el parámetro ?artwork de la URL para que no interfiera si el usuario navega a otra parte y vuelve
           const newUrl = window.location.pathname + window.location.hash;
           window.history.replaceState({}, document.title, newUrl);
         }
-      }, 300); // 300ms de retraso es seguro para asegurar que las transiciones de vista de Astro completan
+      }, 300);
+    }
+
+    // --- LÓGICA DE COMPARTIR ---
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async (e) => {
+        e.stopPropagation();
+
+        const currentItem = activeGroupItems[currentIndex];
+        if (!currentItem) return;
+
+        const artworkId = currentItem.dataset.id;
+        if (!artworkId) return;
+
+        // Limpiar el dominio para el link corto (loucampos.com/[id])
+        const shareUrl = `${window.location.origin}/${artworkId}`;
+        const shareTitle = `${currentItem.dataset.title || "Obra"} | Lou Campos`;
+        const shareText = `Echa un vistazo a "${currentItem.dataset.title}" en la web de Lou Campos.`;
+
+        // Si es móvil y soporta Web Share API
+        if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+          try {
+            await navigator.share({
+              title: shareTitle,
+              text: shareText,
+              url: shareUrl,
+            });
+          } catch (err) {
+            console.log("Error al compartir:", err);
+          }
+        } else {
+          // PC o sin soporte: Copiar al portapapeles
+          try {
+            await navigator.clipboard.writeText(shareUrl);
+
+            // Feedback visual simple (cambio de icono momentáneo)
+            const originalIcon = shareBtn.innerHTML;
+            shareBtn.innerHTML = '<span class="material-symbols-outlined text-3xl text-green-500">check</span>';
+            setTimeout(() => {
+              shareBtn.innerHTML = originalIcon;
+            }, 2000);
+          } catch (err) {
+            console.error("Error al copiar al portapapeles:", err);
+          }
+        }
+      });
     }
   }
 });

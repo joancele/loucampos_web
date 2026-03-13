@@ -5,40 +5,41 @@ import photographyData from "../data/photography.json";
 export async function getStaticPaths() {
     const paths = [];
 
-    // Recorrer paintings
-    for (const [series, artworks] of Object.entries(paintingData)) {
-        for (const artwork of artworks) {
-            if (artwork.id) {
-                paths.push({
-                    params: { id: artwork.id },
-                    props: {
-                        redirectUrl: `/works/painting?artwork=${artwork.id}`,
-                        artwork: artwork,
-                    },
-                });
+    // Helper to add paths for each collection
+    const addPaths = (data, type) => {
+        for (const [series, artworks] of Object.entries(data)) {
+            for (const artwork of artworks) {
+                if (artwork.id) {
+                    // Normal Path
+                    paths.push({
+                        params: { id: artwork.id },
+                        props: {
+                            redirectUrl: `/works/${type}?artwork=${artwork.id}`,
+                            artwork: artwork,
+                            isBuyer: false,
+                        },
+                    });
+                    // Collector Path (suffix C)
+                    paths.push({
+                        params: { id: artwork.id + "C" },
+                        props: {
+                            redirectUrl: `/works/${type}?artwork=${artwork.id}&buyer=true`,
+                            artwork: artwork,
+                            isBuyer: true,
+                        },
+                    });
+                }
             }
         }
-    }
+    };
 
-    // Recorrer photography
-    for (const [series, artworks] of Object.entries(photographyData)) {
-        for (const artwork of artworks) {
-            if (artwork.id) {
-                paths.push({
-                    params: { id: artwork.id },
-                    props: {
-                        redirectUrl: `/works/photography?artwork=${artwork.id}`,
-                        artwork: artwork,
-                    },
-                });
-            }
-        }
-    }
+    addPaths(paintingData, "painting");
+    addPaths(photographyData, "photography");
 
     return paths;
 }
 
-const { redirectUrl, artwork } = Astro.props;
+const { redirectUrl, artwork, isBuyer } = Astro.props;
 ---
 
 <!doctype html>
