@@ -51,6 +51,8 @@ const { redirectUrl, artwork } = Astro.props;
         <!-- Open Graph / Meta -->
         <meta property="og:title" content={`${artwork.title} | Lou Campos`} />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url.href} />
+        <meta property="og:site_name" content="Lou Campos" />
         <meta
             property="og:image"
             content={new URL(artwork.image, Astro.site || Astro.url).toString()}
@@ -72,8 +74,7 @@ const { redirectUrl, artwork } = Astro.props;
             content={new URL(artwork.image, Astro.site || Astro.url).toString()}
         />
 
-        <!-- Redirección meta fallback por si JS está desactivado -->
-        <meta http-equiv="refresh" content={`0;url=${redirectUrl}`} />
+        <!-- Redirección mediante JS (Omitimos meta refresh porque los scrapers sociales lo siguen antes de leer Open Graph) -->
         <script define:vars={{ redirectUrl }}>
             // Redirección inmediata por JavaScript
             window.location.replace(redirectUrl);
