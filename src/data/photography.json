@@ -1,0 +1,512 @@
+{
+  "ugokunoka": [
+    {
+      "id": "AEDA84F27C",
+      "title": "Jiyuu",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/Jiyuu.jpg?updatedAt=1772708022706",
+      "alt": "Jiyuu",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "XLI Muestra de Arte Joven 2025",
+          "badge": "G"
+        },
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "D43285DA3B",
+      "title": "Janguru",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/janguru.jpg?updatedAt=1772708022717",
+      "alt": "Janguru",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "CFB95AA2B7",
+      "title": "Kensetsu",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/kensetsu.jpg?updatedAt=1772708022681",
+      "alt": "Kensetsu",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "90EA045C54",
+      "title": "Meisai",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/meisai.jpg?updatedAt=1772708022879&ik-s=92261e73e74652d419ff40d105d171c91cb62b2a",
+      "alt": "Meisai",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "4CBF980F0A",
+      "title": "Mura",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/mura.jpg?updatedAt=1772708022757",
+      "alt": "Mura",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "FE3253C447",
+      "title": "Sangoshou",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/sangoshou.jpg?updatedAt=1772708022729",
+      "alt": "Sangoshou",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "44E0DB7369",
+      "title": "Senka",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/senka.jpg?updatedAt=1772708022719",
+      "alt": "Senka",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "76BFA834E2",
+      "title": "Sensou",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/sensou.jpg?updatedAt=1772708022888",
+      "alt": "Sensou",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "986EE0EAAB",
+      "title": "Shokumotsu",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/shokumotsu.jpg?updatedAt=1772708022690",
+      "alt": "Shokumotsu",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "091EBC66B9",
+      "title": "Su",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/su.jpg?updatedAt=1772708022721",
+      "alt": "Su",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "XLI Muestra de Arte Joven 2025",
+          "badge": "G"
+        },
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "6259C8971C",
+      "title": "Tokeru",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/tokeru.jpg?updatedAt=1772708022683",
+      "alt": "Tokeru",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "792EDDF93A",
+      "title": "Umare",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/umare.jpg?updatedAt=1772708022739",
+      "alt": "Umare",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "E023DB5A68",
+      "title": "Yuuutsu",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/yuuutsu.jpg?updatedAt=1772708022699",
+      "alt": "Yuuutsu",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "2700FDD860",
+      "title": "Zadankai",
+      "year": "2020",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/zadankai.jpg?updatedAt=1772708022769",
+      "alt": "Zadankai",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Ugoku no ka, Ugokanai no ka, Galería My Name is Lolita (Off PhotoEspaña). Madrid, España 2019",
+          "badge": "S"
+        }
+      ]
+    }
+  ],
+  "kiseki": [
+    {
+      "id": "A82F4B4F69",
+      "title": "Auteuil",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Auteuil.jpg?updatedAt=1772749132768",
+      "alt": "Auteuil",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "7B74AE3D46",
+      "title": "Eriko",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Eriko.jpg?updatedAt=1772749132849",
+      "alt": "Eriko",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "7568C0B69E",
+      "title": "Flawless",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Flawless.jpg?updatedAt=1772749132860",
+      "alt": "Flawless",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "804CFE8916",
+      "title": "Framboise",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Framboise.jpg?updatedAt=1772749132774",
+      "alt": "Framboise",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "45602A0618",
+      "title": "Genario",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Genario.jpg?updatedAt=1772749132846",
+      "alt": "Genario",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "7EECBB6490",
+      "title": "Léa",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Lea.jpg?updatedAt=1772749132808",
+      "alt": "Léa",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "7006210880",
+      "title": "Paloma",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Paloma.jpg?updatedAt=1772749132730",
+      "alt": "Paloma",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "7D0E31979C",
+      "title": "Pájaros",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/P%C3%A1jaros.jpg?updatedAt=1772749132761",
+      "alt": "Pájaros",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "1B3889C92B",
+      "title": "Raffaella",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Raffaella.jpg?updatedAt=1772752722808",
+      "alt": "Raffaella",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "04837520C7",
+      "title": "Raffaello",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Raffaello.jpg?updatedAt=1772749132762",
+      "alt": "Raffaello",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "78D14AF101",
+      "title": "Violeta",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Violeta.jpg?updatedAt=1772749132755",
+      "alt": "Violeta",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    },
+    {
+      "id": "16830B29A2",
+      "title": "Yakuza",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/yakuza.jpg?updatedAt=1772749132741",
+      "alt": "Yakuza",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Kiseki, Galería Eldevenir. Torrox, Málaga, España 2024",
+          "badge": "S"
+        }
+      ]
+    }
+  ],
+  "inorinobokyaku": [
+    {
+      "id": "F14682D47C",
+      "title": "Bonsai",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/Bonsai.jpg?updatedAt=1772749182991",
+      "alt": "Bonsai"
+    },
+    {
+      "id": "599D1E48A7",
+      "title": "Dana",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/Dana.jpg?updatedAt=1772749183099",
+      "alt": "Dana"
+    },
+    {
+      "id": "3DF6D718C9",
+      "title": "Harry",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/Harry.jpg?updatedAt=1772749183085",
+      "alt": "Harry"
+    },
+    {
+      "id": "A9189A2B99",
+      "title": "Koi",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/Koi.jpg?updatedAt=1772749183108",
+      "alt": "Koi"
+    },
+    {
+      "id": "CF37576A5E",
+      "title": "Araku",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/araku.jpg?updatedAt=1772749183061",
+      "alt": "Araku"
+    },
+    {
+      "id": "B8BBCEC6A7",
+      "title": "Ebi",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/ebi.jpg?updatedAt=1772749183180",
+      "alt": "Ebi"
+    },
+    {
+      "id": "27FB760922",
+      "title": "Inu",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/inu.jpg?updatedAt=1772749183152",
+      "alt": "Inu"
+    },
+    {
+      "id": "6DC13688D3",
+      "title": "Kanashimi",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/kanashimi.jpg?updatedAt=1772749183104",
+      "alt": "Kanashimi"
+    },
+    {
+      "id": "FF5B103CF1",
+      "title": "Origami",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/origami.jpg?updatedAt=1772749183141",
+      "alt": "Origami"
+    },
+    {
+      "id": "5EF40ED7EF",
+      "title": "Shio",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/shio.jpg?updatedAt=1772749183173",
+      "alt": "Shio"
+    },
+    {
+      "id": "5893AB44DA",
+      "title": "Shiroi",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/shiroi.jpg?updatedAt=1772749183047",
+      "alt": "Shiroi"
+    },
+    {
+      "id": "2F618DDEC1",
+      "title": "Umi",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/umi.jpg?updatedAt=1772749183086",
+      "alt": "Umi"
+    },
+    {
+      "id": "02173CE0B2",
+      "title": "Wasureta",
+      "year": "2024",
+      "description": "Fotografía digital",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/wasureta.jpg?updatedAt=1772749182998",
+      "alt": "Wasureta"
+    }
+  ]
+}

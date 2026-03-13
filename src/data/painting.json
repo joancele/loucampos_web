@@ -1,0 +1,296 @@
+{
+  "majikaru": [
+    {
+      "id": "D4EA0273B5",
+      "title": "Monsutāfisshu",
+      "year": "2025",
+      "description": "Gouache sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/monsuta%20fisshu.jpg?updatedAt=1772708517777",
+      "alt": "Monsutāfisshu",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Anatomías del Desasosiego, Festival ACRO 2025",
+          "badge": "G"
+        }
+      ]
+    },
+    {
+      "id": "80CBDE4F2B",
+      "title": "Wani no tora",
+      "year": "2025",
+      "description": "Gouache sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/Wani%20no%20tora.jpg?updatedAt=1772708517705",
+      "alt": "Wani no tora"
+    },
+    {
+      "id": "2A3C1C8131",
+      "title": "Ōmu Lilac",
+      "year": "2026",
+      "description": "Gouache sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/omu%20lilac.jpg?updatedAt=1772708517794",
+      "alt": "Ōmu Lilac"
+    },
+    {
+      "id": "E181789B8A",
+      "title": "Gojira",
+      "year": "2026",
+      "description": "Gouache sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/gojira.jpg?updatedAt=1772708517767",
+      "alt": "Gojira"
+    },
+    {
+      "id": "58731FEA6F",
+      "title": "Pinku no ie",
+      "year": "2024",
+      "description": "Gouache sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/pinku%20no%20ie.jpg",
+      "alt": "Pinku no ie",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Feria Internacional de Arte Contemporáneo Kunstrai 2025",
+          "badge": "G"
+        }
+      ]
+    }
+  ],
+  "kyodai": [
+    {
+      "id": "A1FD770E36",
+      "title": "Seishun",
+      "year": "2017",
+      "description": "Acuarela, rotulador y grafito sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kyodai/seishun.jpg?updatedAt=1772708543307",
+      "alt": "Seishun",
+      "recognitions": [
+        {
+          "type": "award",
+          "text": "Tercer Premio en el II Certamen Pintura Manuel Ángeles Ortiz 2017",
+          "badge": "3"
+        }
+      ]
+    },
+    {
+      "id": "EBB51B26DB",
+      "title": "Shishunki",
+      "year": "2017",
+      "description": "Acuarela, rotulador y grafito sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kyodai/shishunki.jpg?updatedAt=1772708543764",
+      "alt": "Shishunki",
+      "recognitions": [
+        {
+          "type": "award",
+          "text": "Premio Antonio López de Artes Plásticas y Dibujo 2017",
+          "badge": "1"
+        }
+      ]
+    },
+    {
+      "id": "A710073B95",
+      "title": "ino no uchi",
+      "year": "2018",
+      "description": "Acuarela, rotulador y grafito sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kyodai/Ino%20no%20uchi.jpg?updatedAt=1772708543242",
+      "alt": "ino no uchi",
+      "recognitions": [
+        {
+          "type": "award",
+          "text": "Accésit en el LXXI Premio Nacional de Pintura José Arpa 2018",
+          "badge": "A"
+        }
+      ]
+    },
+    {
+      "id": "8EE363F036",
+      "title": "Shima",
+      "year": "2019",
+      "description": "Acuarela, rotulador y grafito sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kyodai/shima.jpg?updatedAt=1772708543696",
+      "alt": "Shima"
+    },
+    {
+      "id": "E478003D10",
+      "title": "Daruma no dokutsu",
+      "year": "2019",
+      "description": "Acuarela, rotulador y grafito sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kyodai/daruma%20no%20doukutsu.jpg?updatedAt=1772708543676",
+      "alt": "Daruma no dokutsu",
+      "recognitions": [
+        {
+          "type": "award",
+          "text": "Premio Certamen de pintura de Sant Marçal 2020",
+          "badge": "1"
+        }
+      ]
+    },
+    {
+      "id": "22478F4CE5",
+      "title": "Rin’nai",
+      "year": "2020",
+      "description": "Acuarela, rotulador y grafito sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kyodai/rinnai.jpg?updatedAt=1772708543225",
+      "alt": "Rin’nai",
+      "recognitions": [
+        {
+          "type": "award",
+          "text": "Premio XXVI Arte Contemporáneo Granada 2024",
+          "badge": "1"
+        }
+      ]
+    },
+    {
+      "id": "6FE65D45DC",
+      "title": "Kouyaku",
+      "year": "2020",
+      "description": "Acuarela, rotulador y grafito sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kyodai/kouyaku.jpg?updatedAt=1772708543654",
+      "alt": "Kouyaku"
+    },
+    {
+      "id": "E9C815BDEC",
+      "title": "Kureopatora",
+      "year": "2025",
+      "description": "Acuarela, rotulador y grafito sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kyodai/kureopatora.jpg?updatedAt=1772708543311",
+      "alt": "Kureopatora"
+    },
+    {
+      "id": "D683BB5C62",
+      "title": "Genkei no tamashii",
+      "year": "2025",
+      "description": "Acuarela, rotulador y grafito sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kyodai/genkei%20noi%20tamashii.jpeg?updatedAt=1772715886933",
+      "alt": "Genkei no tamashii"
+    }
+  ],
+  "barokku": [
+    {
+      "id": "FC69339848",
+      "title": "Saru to fūsen",
+      "year": "2025",
+      "description": "Gouache sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Barokku/saru%20to%20fusen.jpg?updatedAt=1772708500511",
+      "alt": "Saru to fūsen",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Anatomías del Desasosiego, Festival ACRO 2025",
+          "badge": "G"
+        }
+      ]
+    },
+    {
+      "id": "34AE3F88D0",
+      "title": "Kabin to kōmori",
+      "year": "2025",
+      "description": "Gouache sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Barokku/kabin%20to%20komori.jpg?updatedAt=1772708499881",
+      "alt": "Kabin to kōmori"
+    }
+  ],
+  "kachiku": [
+    {
+      "id": "18CBD0893B",
+      "title": "Usagiuma",
+      "year": "2020",
+      "description": "Acuarela sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kachiku/Usagiuma.jpg?updatedAt=1772708462422",
+      "alt": "Usagiuma"
+    },
+    {
+      "id": "88A98F696F",
+      "title": "Hachikui no komori-uta",
+      "year": "2020",
+      "description": "Acuarela sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kachiku/hachikui%20no%20komori-uta.jpg?updatedAt=1772708462437",
+      "alt": "Hachikui no komori-uta"
+    },
+    {
+      "id": "37561B1E0F",
+      "title": "Ushiyama",
+      "year": "2020",
+      "description": "Acuarela sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kachiku/ushi%20yama.jpg?updatedAt=1772708462420",
+      "alt": "Ushiyama"
+    },
+    {
+      "id": "7003F5BAB7",
+      "title": "Buta",
+      "year": "2020",
+      "description": "Acuarela sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Kachiku/buta.jpg?updatedAt=1772708462439",
+      "alt": "Buta"
+    }
+  ],
+  "masuku": [
+    {
+      "id": "A320EF1A13",
+      "title": "Kaerumonsuta",
+      "year": "2025",
+      "description": "Acuarela sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Masuku/Kaerumonsuta.jpg?updatedAt=1772708483561",
+      "alt": "Kaerumonsuta",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Anatomías del Desasosiego, Festival ACRO 2025",
+          "badge": "G"
+        },
+        {
+          "type": "exhibition",
+          "text": "Feria Internacional de Arte Contemporáneo Kunstrai 2025",
+          "badge": "G"
+        }
+      ]
+    },
+    {
+      "id": "4487223B81",
+      "title": "Pinku no kōmori",
+      "year": "2024",
+      "description": "Acuarela sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Masuku/pinku%20no%20komori.jpg?updatedAt=1772708483597",
+      "alt": "Pinku no kōmori",
+      "recognitions": [
+        {
+          "type": "exhibition",
+          "text": "Anatomías del Desasosiego, Festival ACRO 2025",
+          "badge": "G"
+        },
+        {
+          "type": "exhibition",
+          "text": "Feria Internacional de Arte Contemporáneo Kunstrai 2025",
+          "badge": "G"
+        }
+      ]
+    }
+  ],
+  "zu": [
+    {
+      "id": "8A3F6A7EF5",
+      "title": "Usucha ningyo",
+      "year": "2026",
+      "description": "Tinta y rotulador sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Zu/usucha%20ningyo.jpg?updatedAt=1772708441866",
+      "alt": "Usucha ningyo"
+    },
+    {
+      "id": "ABF98D240F",
+      "title": "Kawasemi",
+      "year": "2024",
+      "description": "Carboncillo acuarelable sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Zu/Kawasemi.jpeg",
+      "alt": "Kawasemi"
+    }
+  ],
+  "gazou": [
+    {
+      "id": "6BC08C55E9",
+      "title": "Keiko",
+      "year": "2025",
+      "description": "Gouache sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Gazou/Keiko.jpeg?updatedAt=1772715968846",
+      "alt": "Keiko"
+    }
+  ]
+}

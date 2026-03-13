@@ -502,12 +502,12 @@ document.addEventListener("astro:page-load", () => {
     }
 
     // --- INICIO CÓDIGO DE ENLACES PROFUNDOS (DEEP LINKING) ---
-    // Buscar si hay un parámetro en la URL del estilo: ?artwork=NombreDeLaObra
+    // Buscar si hay un parámetro en la URL del estilo: ?artwork=ID
     const urlParams = new URLSearchParams(window.location.search);
     const artworkToOpen = urlParams.get("artwork");
 
     if (artworkToOpen) {
-      // Normalizar la cadena para evitar problemas con mayúsculas/minúsculas y espacios
+      // Normalizar la cadena antigua para evitar problemas con mayúsculas/minúsculas y espacios si acceden por título
       const normalizeStr = (str) =>
         (str || "").toLowerCase().trim().replace(/[\s-]/g, '');
 
@@ -517,8 +517,9 @@ document.addEventListener("astro:page-load", () => {
       setTimeout(() => {
         // Encontrar la obra correspondiente en todos los elementos iterables
         const targetItem = Array.from(allItemsList).find((item) => {
+          const itemId = item.dataset.id;
           const itemTitle = item.dataset.title;
-          return normalizeStr(itemTitle) === targetName;
+          return itemId === artworkToOpen || normalizeStr(itemTitle) === targetName;
         });
 
         if (targetItem) {

@@ -1,0 +1,89 @@
+---
+import paintingData from "../data/painting.json";
+import photographyData from "../data/photography.json";
+
+export async function getStaticPaths() {
+    const paths = [];
+
+    // Recorrer paintings
+    for (const [series, artworks] of Object.entries(paintingData)) {
+        for (const artwork of artworks) {
+            if (artwork.id) {
+                paths.push({
+                    params: { id: artwork.id },
+                    props: {
+                        redirectUrl: `/works/painting?artwork=${artwork.id}`,
+                        artwork: artwork,
+                    },
+                });
+            }
+        }
+    }
+
+    // Recorrer photography
+    for (const [series, artworks] of Object.entries(photographyData)) {
+        for (const artwork of artworks) {
+            if (artwork.id) {
+                paths.push({
+                    params: { id: artwork.id },
+                    props: {
+                        redirectUrl: `/works/photography?artwork=${artwork.id}`,
+                        artwork: artwork,
+                    },
+                });
+            }
+        }
+    }
+
+    return paths;
+}
+
+const { redirectUrl, artwork } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{artwork.title} | Lou Campos</title>
+
+        <!-- Open Graph / Meta -->
+        <meta property="og:title" content={`${artwork.title} | Lou Campos`} />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:image"
+            content={new URL(artwork.image, Astro.site || Astro.url).toString()}
+        />
+        <meta
+            property="og:description"
+            content={`Visualiza "${artwork.title}" de Lou Campos.`}
+        />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${artwork.title} | Lou Campos`} />
+        <meta
+            name="twitter:description"
+            content={`Visualiza "${artwork.title}" de Lou Campos.`}
+        />
+        <meta
+            name="twitter:image"
+            content={new URL(artwork.image, Astro.site || Astro.url).toString()}
+        />
+
+        <!-- Redirección meta fallback por si JS está desactivado -->
+        <meta http-equiv="refresh" content={`0;url=${redirectUrl}`} />
+        <script define:vars={{ redirectUrl }}>
+            // Redirección inmediata por JavaScript
+            window.location.replace(redirectUrl);
+        </script>
+    </head>
+    <body>
+        <p>
+            Redirigiendo a la obra '{artwork.title}'... <a href={redirectUrl}
+                >Haz click aquí si no eres redirigido automáticamente</a
+            >.
+        </p>
+    </body>
+</html>
