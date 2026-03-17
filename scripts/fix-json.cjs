@@ -1,0 +1,1 @@
+const fs = require('fs'); const crypto = require('crypto'); const photoData = fs.readFileSync('src/pages/works/photography.astro', 'utf8'); const paintData = fs.readFileSync('src/pages/works/painting.astro', 'utf8'); console.log('This script is a placeholder to manually verify encoding.');

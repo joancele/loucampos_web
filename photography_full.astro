@@ -1,0 +1,76 @@
+---
+import Layout from "./src/layouts/Layout.astro";
+import GalleryIndex from "./src/components/gallery/GalleryIndex.astro";
+import GallerySection from "./src/components/gallery/GallerySection.astro";
+import Lightbox from "./src/components/gallery/Lightbox.astro";
+
+const seriesPreview = [
+  {
+    title: "Ugoku no ka, ugokanai no ka",
+    year: "2019",
+    image:
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Ugoku%20no%20Ka,%20Ugokanai%20no%20ka/Jiyuu.jpg?updatedAt=1772708022706",
+    href: "#ugoku-no-ka-ugokanai-no-ka",
+  },
+  {
+    title: "Kiseki",
+    year: "2016-2020",
+    image:
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Kiseki/Violeta.jpg?updatedAt=1772749132755",
+    href: "#kiseki",
+  },
+  {
+    title: "Inori no Boukyaku",
+    year: "2016",
+    image:
+      "https://ik.imagekit.io/3dh5sszdn/LouCampos/Photography/Inori%20no%20Boukyaku/origami.jpg?updatedAt=1772749183141",
+    href: "#inori-no-boukyaku",
+  },
+];
+
+import photographyData from "./src/data/photography.json";
+
+const ugokunokaArtworks = photographyData.ugokunoka;
+const kisekiArtworks = photographyData.kiseki;
+const inorinobokyakuArtworks = photographyData.inorinobokyaku;
+---
+
+<Layout title="Lou Campos - Photography Gallery">
+  <main
+    class="flex-grow w-full max-w-[1600px] mx-auto px-6 md:px-12 py-8 flex flex-col gap-20"
+  >
+    <GalleryIndex title="Index: Fotografía" items={seriesPreview} />
+
+    <GallerySection
+      id="ugoku-no-ka-ugokanai-no-ka"
+      title="Ugoku no ka, ugokanai no ka"
+      description={`¿Se mueve o no se mueve?
+*Aru: existencia, presencia.*
+*Iru: existencia, presencia.*
+*Museibutsu: objeto inanimado.*
+*Ikimono: ser animado.*
+
+En la antigüedad, los japoneses utilizaban el verbo *Iru* para referirse a todas aquellas cosas de vida finita que desaparecerían. Así mismo, usaban el verbo *Aru* para denominar a todas aquellas que les sobrevivirían.
+
+En la actualidad, para discernir si deben decantarse por *iru*/*aru* en referencia a algo, el profesor de lengua japonesa pregunta a sus alumnos: “¿se mueve o no se mueve?”`}
+      artworks={ugokunokaArtworks}
+      indentFirstParagraph={false}
+    />
+
+    <GallerySection
+      id="kiseki"
+      title="Kiseki"
+      description="La luz se adentra en la casa familiar, provocando revelaciones privadas al contacto con las estancias, desvelando a sus legítimos habitantes."
+      artworks={kisekiArtworks}
+    />
+
+    <GallerySection
+      id="inori-no-boukyaku"
+      title="Inori no Boukyaku"
+      description="El transcurso de los años se desgrana en una pequeña onda que crece y reverbera, dando lugar a un olvido devocional, la historia del ser humano se repite con un magnetismo no tan inusitado."
+      artworks={inorinobokyakuArtworks}
+    />
+  </main>
+
+  <Lightbox />
+</Layout>
