@@ -194,31 +194,11 @@ const currentPath = Astro.url.pathname;
 
       <slot />
 
-      <div
-        class:list={[
-          "fixed transition-all duration-500 z-50",
-          currentPath === "/contact" || currentPath === "/contact/"
-            ? "bottom-10 left-1/2 -translate-x-1/2 scale-110"
-            : "bottom-6 right-6",
-        ]}
-      >
-        <button
-          class="p-4 rounded-full bg-white dark:bg-gray-800 text-dark-grey dark:text-white shadow-xl hover:shadow-2xl transition-all duration-300 focus:outline-none flex items-center justify-center border border-gray-100 dark:border-gray-700 group"
-          id="theme-toggle"
-          aria-label="Toggle dark mode"
-        >
-          <span
-            class="material-symbols-outlined text-2xl block dark:hidden group-hover:rotate-12 transition-transform"
-          >
-            dark_mode
-          </span>
-          <span
-            class="material-symbols-outlined text-2xl hidden dark:block group-hover:-rotate-12 transition-transform"
-          >
-            light_mode
-          </span>
-        </button>
-      </div>
+      <!-- 
+        <div class="fixed transition-all duration-500 z-50">
+          Theme toggle hidden in production 
+        </div> 
+      -->
       <script src="../scripts/layouts/Layout.js"></script>
     </div>
   </body>
