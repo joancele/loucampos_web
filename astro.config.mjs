@@ -5,5 +5,8 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://loucampos.com',
-  integrations: [tailwind()]
+  integrations: [tailwind()],
+  devToolbar: {
+    enabled: false
+  }
 });
