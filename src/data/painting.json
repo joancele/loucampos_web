@@ -1,20 +1,28 @@
 {
   "majikaru": [
     {
-      "title": "Monsutāfisshu",
-      "year": "2025",
-      "description": "Gouache sobre papel",
-      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/monsuta%20fisshu.jpg?updatedAt=1772708517777",
-      "alt": "Monsutāfisshu pintura de Lou Campos de la colección Majikaru",
-      "id": "0D5385CE32"
-    },
-    {
       "title": "Wani no tora",
       "year": "2025",
       "description": "Gouache sobre papel",
       "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/Wani%20no%20tora.jpg?updatedAt=1772708517705",
       "alt": "Wani no tora pintura de Lou Campos de la colección Majikaru",
       "id": "3ABCB481DC"
+    },
+    {
+      "title": "Gojira",
+      "year": "2026",
+      "description": "Gouache sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/gojira.jpg?updatedAt=1772708517767",
+      "alt": "Gojira pintura de Lou Campos de la colección Majikaru",
+      "id": "62832038BB"
+    },
+    {
+      "title": "Feretto to hana",
+      "year": "2026",
+      "description": "Gouache y rotulador sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/Feretto%20to%20hana.jpg?updatedAt=1784899076382&ik-s=d3b85f2eaf80f296d0c4f27db82310c93b921196",
+      "alt": "Feretto to hana pintura de Lou Campos de la colección Majikaru",
+      "id": "9B4E17C2F8"
     },
     {
       "title": "Ōmu Lilac",
@@ -25,12 +33,12 @@
       "id": "7C62089A84"
     },
     {
-      "title": "Gojira",
-      "year": "2026",
+      "title": "Monsutāfisshu",
+      "year": "2025",
       "description": "Gouache sobre papel",
-      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/gojira.jpg?updatedAt=1772708517767",
-      "alt": "Gojira pintura de Lou Campos de la colección Majikaru",
-      "id": "62832038BB"
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Majikaru/monsuta%20fisshu.jpg?updatedAt=1772708517777",
+      "alt": "Monsutāfisshu pintura de Lou Campos de la colección Majikaru",
+      "id": "0D5385CE32"
     },
     {
       "title": "Pinku no ie",
@@ -125,12 +133,20 @@
   ],
   "barokku": [
     {
-      "title": "Saru to fūsen",
-      "year": "2025",
+      "title": "Janguru no kabin",
+      "year": "2026",
+      "description": "Gouache y rotulador sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Barokku/Janguru%20no%20kabin.jpg?updatedAt=null&ik-s=577dce4a9126a0f83ef8c2bcd3b7fc99f9a915da",
+      "alt": "Janguru no kabin pintura de Lou Campos de la colección Barokku",
+      "id": "F8D34A92E1"
+    },
+    {
+      "title": "Hi no risu",
+      "year": "2026",
       "description": "Gouache sobre papel",
-      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Barokku/saru%20to%20fusen.jpg?updatedAt=1772708500511",
-      "alt": "Saru to fūsen pintura de Lou Campos de la colección Barokku",
-      "id": "8F20DB7E6E"
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Barokku/hi%20no%20risu.jpg?updatedAt=null&ik-s=3455606a9992c285701e49db8b9503f46267769a",
+      "alt": "Hi no risu pintura de Lou Campos de la colección Barokku",
+      "id": "B9CA4E82F1"
     },
     {
       "title": "Kabin to kōmori",
@@ -141,12 +157,12 @@
       "id": "EB35F2AC1A"
     },
     {
-      "title": "Hi no risu",
-      "year": "2026",
+      "title": "Saru to fūsen",
+      "year": "2025",
       "description": "Gouache sobre papel",
-      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Barokku/hi%20no%20risu.jpg?updatedAt=null&ik-s=3455606a9992c285701e49db8b9503f46267769a",
-      "alt": "Hi no risu pintura de Lou Campos de la colección Barokku",
-      "id": "B9CA4E82F1"
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Barokku/saru%20to%20fusen.jpg?updatedAt=1772708500511",
+      "alt": "Saru to fūsen pintura de Lou Campos de la colección Barokku",
+      "id": "8F20DB7E6E"
     }
   ],
   "kachiku": [
@@ -203,6 +219,14 @@
   ],
   "zu": [
     {
+      "title": "Jangurudōru",
+      "year": "2026",
+      "description": "Rotulador y tinta sobre papel",
+      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Zu/Jangurudoru.jpg?updatedAt=null&ik-s=0df5f2407834426ae7067164ba76c25a74b3a929",
+      "alt": "Jangurudōru pintura de Lou Campos de la colección Zu",
+      "id": "5BE28E3A19"
+    },
+    {
       "title": "Usucha ningyo",
       "year": "2026",
       "description": "Tinta y rotulador sobre papel",
@@ -217,14 +241,6 @@
       "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Zu/Kawasemi.jpeg",
       "alt": "Kawasemi pintura de Lou Campos de la colección Zu",
       "id": "D29418C089"
-    },
-    {
-      "title": "Jangurudōru",
-      "year": "2026",
-      "description": "Rotulador y tinta sobre papel",
-      "image": "https://ik.imagekit.io/3dh5sszdn/LouCampos/Paintings/Zu/Jangurudoru.jpg?updatedAt=null&ik-s=0df5f2407834426ae7067164ba76c25a74b3a929",
-      "alt": "Jangurudōru pintura de Lou Campos de la colección Zu",
-      "id": "5BE28E3A19"
     }
   ],
   "gazou": [
