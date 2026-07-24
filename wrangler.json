@@ -1,8 +1,5 @@
 {
     "name": "loucamposweb",
     "compatibility_date": "2024-03-10",
-    "pages_build_output_dir": "./dist",
-    "assets": {
-        "directory": "./dist"
-    }
+    "pages_build_output_dir": "./dist"
 }
